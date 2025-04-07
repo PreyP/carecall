@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
 import { apiRequest } from "@/lib/queryClient";
 import { AddPatientDialog } from "./add-patient-dialog";
+import { ShieldAlert, AlertCircle, CheckCircle } from "lucide-react";
 
 interface PatientManagementProps {
   onPatientSelect?: (patientId: number) => void;
@@ -205,10 +206,14 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                             {patient.initials}
                           </div>
                           {patient.hasRedAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#F44336] border-2 border-white"></span>
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-white flex items-center justify-center">
+                              <ShieldAlert className="h-2 w-2 text-white" />
+                            </span>
                           )}
                           {!patient.hasRedAlert && patient.hasYellowAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FFC107] border-2 border-white"></span>
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-amber-500 border-2 border-white flex items-center justify-center">
+                              <AlertCircle className="h-2 w-2 text-white" />
+                            </span>
                           )}
                         </div>
                         <div className="ml-4">
@@ -225,18 +230,18 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {patient.hasRedAlert ? (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                          <span className="material-icons text-xs mr-1">warning</span>
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-red-200 bg-red-50 text-red-700">
+                          <ShieldAlert className="h-3.5 w-3.5 mr-1" />
                           High Risk
                         </span>
                       ) : patient.hasYellowAlert ? (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                          <span className="material-icons text-xs mr-1">priority_high</span>
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-amber-200 bg-amber-50 text-amber-700">
+                          <AlertCircle className="h-3.5 w-3.5 mr-1" />
                           Moderate Risk
                         </span>
                       ) : (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                          <span className="material-icons text-xs mr-1">check_circle</span>
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-green-200 bg-green-50 text-green-700">
+                          <CheckCircle className="h-3.5 w-3.5 mr-1" />
                           Low Risk
                         </span>
                       )}

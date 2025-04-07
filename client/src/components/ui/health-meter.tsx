@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { RiskLevel } from "@/lib/types";
+import { ShieldAlert, Thermometer, CheckCircle, Activity, Pill, Heart } from "lucide-react";
 
 interface HealthMeterProps {
   value: number; // 0-1 scale
@@ -40,13 +41,27 @@ export function HealthMeter({
   const getRiskBadgeClass = (risk: RiskLevel) => {
     switch (risk) {
       case "low":
-        return "bg-[#4CAF50] text-white";
+        return "bg-green-50 text-green-700 border border-green-200";
       case "moderate":
-        return "bg-[#FFC107] text-white";
+        return "bg-amber-50 text-amber-700 border border-amber-200";
       case "high":
-        return "bg-[#F44336] text-white";
+        return "bg-red-50 text-red-700 border border-red-200";
       default:
-        return "bg-[#4CAF50] text-white";
+        return "bg-green-50 text-green-700 border border-green-200";
+    }
+  };
+
+  // Get the appropriate icon for risk level
+  const getRiskIcon = (risk: RiskLevel) => {
+    switch (risk) {
+      case "low":
+        return <CheckCircle className="h-3 w-3 mr-1" />;
+      case "moderate":
+        return <Thermometer className="h-3 w-3 mr-1" />;
+      case "high":
+        return <ShieldAlert className="h-3 w-3 mr-1" />;
+      default:
+        return <CheckCircle className="h-3 w-3 mr-1" />;
     }
   };
 
@@ -72,6 +87,7 @@ export function HealthMeter({
       <div className="flex justify-between items-center mb-1">
         <span className="text-sm font-medium">{label}</span>
         <span className={cn("inline-flex items-center px-2 py-0.5 rounded text-xs font-medium", getRiskBadgeClass(risk))}>
+          {getRiskIcon(risk)}
           {getRiskText(risk)}
         </span>
       </div>
