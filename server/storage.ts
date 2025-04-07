@@ -295,7 +295,7 @@ export class MemStorage implements IStorage {
     const doctorUser: User = {
       id: this.currentId.users++,
       username: "drchen",
-      password: "password123",
+      password: "password123", // Plain text password for demo purposes
       fullName: "Dr. Sarah Chen",
       role: "doctor",
       hospital: "Memorial Hospital"
