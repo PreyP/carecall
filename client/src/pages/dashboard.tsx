@@ -7,6 +7,8 @@ import { HealthAssessment } from "@/components/health-assessment";
 import { KeyFindings } from "@/components/key-findings";
 import { HealthTrends } from "@/components/health-trends";
 import { RecommendedActions } from "@/components/recommended-actions";
+import { CallHistory } from "@/components/call-history";
+import { CarePlan } from "@/components/care-plan";
 import { useRoute } from "wouter";
 
 type TabName = "latest-call" | "call-history" | "health-trends" | "care-plan";
@@ -108,13 +110,7 @@ export default function Dashboard() {
               
               {activeTab === "call-history" && (
                 <div className="mt-6">
-                  <div className="bg-white shadow rounded-lg overflow-hidden">
-                    <div className="px-4 py-5 sm:p-6">
-                      <h2 className="text-lg font-medium text-gray-900 mb-4">Call History</h2>
-                      {/* Call History content would go here */}
-                      <p className="text-gray-500">Call history feature will be implemented in the next phase.</p>
-                    </div>
-                  </div>
+                  <CallHistory patientId={patientId} />
                 </div>
               )}
               
@@ -126,13 +122,7 @@ export default function Dashboard() {
               
               {activeTab === "care-plan" && (
                 <div className="mt-6">
-                  <div className="bg-white shadow rounded-lg overflow-hidden">
-                    <div className="px-4 py-5 sm:p-6">
-                      <h2 className="text-lg font-medium text-gray-900 mb-4">Care Plan</h2>
-                      {/* Care Plan content would go here */}
-                      <p className="text-gray-500">Care plan feature will be implemented in the next phase.</p>
-                    </div>
-                  </div>
+                  <CarePlan patientId={patientId} />
                 </div>
               )}
             </div>
