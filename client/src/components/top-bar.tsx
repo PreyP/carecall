@@ -1,8 +1,19 @@
 import React, { useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export function TopBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilters, setActiveFilters] = useState(2); // Example count for UI display
+  const { user, logoutMutation } = useAuth();
 
   return (
     <div className="relative z-10 flex flex-shrink-0 h-16 bg-white shadow">
@@ -55,6 +66,31 @@ export function TopBar() {
         <button className="ml-3 p-1 text-gray-500 rounded-full hover:bg-gray-100">
           <span className="material-icons">help_outline</span>
         </button>
+        
+        {/* User profile dropdown */}
+        <div className="ml-4 relative flex-shrink-0">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center">
+              <Avatar className="h-8 w-8 bg-primary text-primary-foreground">
+                <AvatarFallback>
+                  {user?.fullName?.split(' ')
+                    .map(name => name[0])
+                    .join('')
+                    .substring(0, 2)}
+                </AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>{user?.fullName}</DropdownMenuLabel>
+              <DropdownMenuLabel className="text-xs text-gray-500">{user?.hospital || 'No hospital'}</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onSelect={() => logoutMutation.mutate()}>
+                <span className="material-icons text-sm mr-2">logout</span>
+                <span>Logout</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </div>
   );

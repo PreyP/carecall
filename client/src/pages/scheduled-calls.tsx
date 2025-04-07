@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar } from "@/components/sidebar";
 import { TopBar } from "@/components/top-bar";
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
+import { ScheduleCallDialog } from "@/components/schedule-call-dialog";
 
-// Mock scheduled call type
+// Scheduled call type
 interface ScheduledCall {
   id: number;
   patientId: number;
@@ -21,16 +22,19 @@ interface ScheduledCall {
 export default function ScheduledCalls() {
   const [activeTab, setActiveTab] = useState<'upcoming' | 'past'>('upcoming');
   const [dateView, setDateView] = useState<'day' | 'week' | 'month'>('week');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [calls, setCalls] = useState<ScheduledCall[]>([]);
+  const [nextCallId, setNextCallId] = useState(1);
   
   const { data: patients, isLoading: patientsLoading } = useQuery<Patient[]>({
     queryKey: ['/api/patients'],
   });
   
-  // Mock scheduled calls - in a real app, these would come from API
+  // Create mock calls - in a real app, these would come from API
   const generateMockScheduledCalls = (): ScheduledCall[] => {
     if (!patients) return [];
     
-    const calls: ScheduledCall[] = [];
+    const mockCalls: ScheduledCall[] = [];
     
     // Current date for reference
     const now = new Date();
@@ -39,8 +43,8 @@ export default function ScheduledCalls() {
     // Generate calls based on real patient data
     patients.forEach(patient => {
       // First call - today
-      calls.push({
-        id: calls.length + 1,
+      mockCalls.push({
+        id: mockCalls.length + 1,
         patientId: patient.id,
         patientName: patient.name,
         patientInitials: patient.initials,
@@ -53,8 +57,8 @@ export default function ScheduledCalls() {
       // Second call - tomorrow
       const tomorrow = new Date(today);
       tomorrow.setDate(today.getDate() + 1);
-      calls.push({
-        id: calls.length + 1,
+      mockCalls.push({
+        id: mockCalls.length + 1,
         patientId: patient.id,
         patientName: patient.name,
         patientInitials: patient.initials,
@@ -67,8 +71,8 @@ export default function ScheduledCalls() {
       // Third call - in three days
       const threeDays = new Date(today);
       threeDays.setDate(today.getDate() + 3);
-      calls.push({
-        id: calls.length + 1,
+      mockCalls.push({
+        id: mockCalls.length + 1,
         patientId: patient.id,
         patientName: patient.name,
         patientInitials: patient.initials,
@@ -81,8 +85,8 @@ export default function ScheduledCalls() {
       // Past call - last week
       const lastWeek = new Date(today);
       lastWeek.setDate(today.getDate() - 7);
-      calls.push({
-        id: calls.length + 1,
+      mockCalls.push({
+        id: mockCalls.length + 1,
         patientId: patient.id,
         patientName: patient.name,
         patientInitials: patient.initials,
@@ -93,19 +97,42 @@ export default function ScheduledCalls() {
       });
     });
     
-    return calls;
+    return mockCalls;
   };
   
-  const scheduledCalls = generateMockScheduledCalls();
+  // Generate mock data for initial state
+  useEffect(() => {
+    if (patients && calls.length === 0) {
+      const mockCalls = generateMockScheduledCalls();
+      setCalls(mockCalls);
+      
+      // Set next ID based on mock data
+      if (mockCalls.length > 0) {
+        setNextCallId(Math.max(...mockCalls.map(call => call.id)) + 1);
+      }
+    }
+  }, [patients, calls.length]);
+
+  // Handle adding a new call
+  const handleAddCall = (callData: any) => {
+    const newCall: ScheduledCall = {
+      id: nextCallId,
+      ...callData,
+    };
+    
+    setCalls([...calls, newCall]);
+    setNextCallId(nextCallId + 1);
+    setIsDialogOpen(false);
+  };
   
-  // Filter by active tab
-  const filteredCalls = scheduledCalls.filter(call => {
+  // Filter calls by active tab
+  const filteredCalls = calls.filter(call => {
     const callDate = new Date(call.scheduledDate);
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     
     if (activeTab === 'upcoming') {
-      return callDate >= today;
+      return callDate >= today && call.status !== 'completed' && call.status !== 'missed';
     } else {
       return callDate < today || call.status === 'completed' || call.status === 'missed';
     }
@@ -196,6 +223,7 @@ export default function ScheduledCalls() {
                 <div className="mt-4 sm:mt-0">
                   <button
                     type="button"
+                    onClick={() => setIsDialogOpen(true)}
                     className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark"
                   >
                     <span className="material-icons text-sm mr-2">add</span>
@@ -326,10 +354,10 @@ export default function ScheduledCalls() {
                                   )}
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                  <Link href={`/dashboard/${call.patientId}`}>
-                                    <a className="text-primary hover:text-primary-dark mr-4">
-                                      View Patient
-                                    </a>
+                                  <Link 
+                                    href={`/dashboard/${call.patientId}`}
+                                    className="text-primary hover:text-primary-dark mr-4">
+                                    View Patient
                                   </Link>
                                   {call.status === 'scheduled' && (
                                     <button className="text-gray-600 hover:text-gray-900">
@@ -349,7 +377,9 @@ export default function ScheduledCalls() {
                         </span>
                         <p className="text-gray-500">No {activeTab} calls found</p>
                         {activeTab === 'upcoming' && (
-                          <button className="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark">
+                          <button 
+                            onClick={() => setIsDialogOpen(true)}
+                            className="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark">
                             <span className="material-icons text-sm mr-2">add</span>
                             Schedule a Call
                           </button>
@@ -363,6 +393,13 @@ export default function ScheduledCalls() {
           </div>
         </main>
       </div>
+      
+      {/* Schedule Call Dialog */}
+      <ScheduleCallDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        onSchedule={handleAddCall}
+      />
     </div>
   );
 }
