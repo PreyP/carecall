@@ -8,8 +8,12 @@ import {
   RecommendedAction, InsertRecommendedAction, recommendedActions,
   Alert, InsertAlert, alerts
 } from "@shared/schema";
+import session from "express-session";
+import createMemoryStore from "memorystore";
 
 export interface IStorage {
+  // Session store
+  sessionStore: session.Store;
   // User methods
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
@@ -62,6 +66,8 @@ export class MemStorage implements IStorage {
   private recommendedActions: Map<number, RecommendedAction>;
   private alerts: Map<number, Alert>;
   
+  public sessionStore: session.Store;
+  
   private currentId: {
     users: number;
     patients: number;
@@ -74,6 +80,11 @@ export class MemStorage implements IStorage {
   };
 
   constructor() {
+    // Create memory store for sessions
+    const MemoryStore = createMemoryStore(session);
+    this.sessionStore = new MemoryStore({
+      checkPeriod: 86400000, // prune expired entries every 24h
+    });
     this.users = new Map();
     this.patients = new Map();
     this.calls = new Map();
