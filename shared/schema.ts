@@ -8,8 +8,12 @@ export const users = pgTable("users", {
   username: text("username").notNull().unique(),
   password: text("password").notNull(),
   fullName: text("full_name").notNull(),
-  role: text("role").notNull().default("doctor"),
+  role: text("role").notNull().default("doctor"), // "doctor", "family"
   hospital: text("hospital"),
+  relatedPatientId: integer("related_patient_id").references(() => patients.id),
+  contactPhone: text("contact_phone"),
+  contactEmail: text("contact_email"),
+  relationship: text("relationship"), // "son", "daughter", "spouse", etc.
 });
 
 // Patient schema
