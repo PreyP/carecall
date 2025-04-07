@@ -647,7 +647,410 @@ export class MemStorage implements IStorage {
     alerts1.forEach(alert => {
       this.alerts.set(alert.id, alert);
     });
+    
+    // Call for patient 2 (Margaret Smith)
+    const call2: Call = {
+      id: this.currentId.calls++,
+      patientId: patient2.id,
+      date: "April 17, 2023",
+      time: "11:45 AM",
+      durationSeconds: 580, // 9:40
+      audioUrl: "",
+      transcript: [
+        {
+          id: 1,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "Good morning, Margaret. This is CareCall checking in. How are you feeling today?"
+        },
+        {
+          id: 2,
+          speaker: "Patient",
+          speakerName: "Margaret Smith",
+          text: "Oh, hello there. I'm feeling alright today, just a bit tired after not sleeping well last night."
+        },
+        {
+          id: 3,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "I'm sorry to hear you didn't sleep well. Can you tell me more about your sleep issues?"
+        },
+        {
+          id: 4,
+          speaker: "Patient",
+          speakerName: "Margaret Smith",
+          text: "I kept waking up with pain in my hip. It's been bothering me for about a week now. And then I had to get up several times to use the bathroom.",
+          highlightType: "yellow"
+        },
+        {
+          id: 5,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "Thank you for sharing that. Have you been able to prepare your meals and take your medications today?"
+        },
+        {
+          id: 6,
+          speaker: "Patient",
+          speakerName: "Margaret Smith",
+          text: "I had a piece of toast for breakfast. My son Thomas brought me some groceries yesterday, so I have food in the house. And yes, I took my morning pills.",
+          highlightType: null
+        },
+        {
+          id: 7,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "That's good to hear. Have you been able to move around your home today?"
+        },
+        {
+          id: 8,
+          speaker: "Patient",
+          speakerName: "Margaret Smith",
+          text: "Well, I'm using my walker because of my hip pain. I'm afraid I might fall if I don't use it. I had to cancel my weekly bridge game with friends because I didn't feel up to going out.",
+          highlightType: "yellow"
+        }
+      ],
+      createdAt: new Date()
+    };
+    this.calls.set(call2.id, call2);
 
+    // Add assessment for Margaret Smith's call
+    const assessment2: Assessment = {
+      id: this.currentId.assessments++,
+      callId: call2.id,
+      patientId: patient2.id,
+      date: "April 17, 2023",
+      frailtyScore: 65,
+      frailtyRisk: "moderate",
+      adlScore: 70,
+      adlRisk: "moderate",
+      iadlScore: 65,
+      iadlRisk: "moderate",
+      medicationAdherenceScore: 85,
+      medicationAdherenceRisk: "low",
+      cardiacRiskFactorsScore: 50,
+      cardiacRiskFactorsRisk: "moderate",
+      createdAt: new Date()
+    };
+    this.assessments.set(assessment2.id, assessment2);
+
+    // Add findings for Margaret Smith's call
+    const findings2: Finding[] = [
+      {
+        id: this.currentId.findings++,
+        callId: call2.id,
+        patientId: patient2.id,
+        text: "Patient reports persistent hip pain affecting mobility and sleep",
+        risk: "moderate",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.findings++,
+        callId: call2.id,
+        patientId: patient2.id,
+        text: "Increased dependency on mobility aids (walker) due to fear of falling",
+        risk: "moderate",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.findings++,
+        callId: call2.id,
+        patientId: patient2.id,
+        text: "Social isolation risk due to canceled activities",
+        risk: "moderate",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.findings++,
+        callId: call2.id,
+        patientId: patient2.id,
+        text: "Good family support system with son providing assistance",
+        risk: "low",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.findings++,
+        callId: call2.id,
+        patientId: patient2.id,
+        text: "Adequate medication adherence and nutrition",
+        risk: "low",
+        createdAt: new Date()
+      }
+    ];
+    
+    findings2.forEach(finding => {
+      this.findings.set(finding.id, finding);
+    });
+
+    // Add health trends for Margaret Smith
+    const healthTrends2: HealthTrend[] = [
+      {
+        id: this.currentId.healthTrends++,
+        patientId: patient2.id,
+        date: "Today - Apr 17, 2023",
+        summary: "Reports hip pain affecting mobility and sleep quality. Using walker consistently. Canceled social activities.",
+        risk: "moderate",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.healthTrends++,
+        patientId: patient2.id,
+        date: "Apr 10, 2023",
+        summary: "Mentioned occasional hip discomfort but able to attend social activities. Good medication adherence.",
+        risk: "low",
+        createdAt: new Date(new Date().setDate(new Date().getDate() - 7))
+      },
+      {
+        id: this.currentId.healthTrends++,
+        patientId: patient2.id,
+        date: "Apr 3, 2023",
+        summary: "No significant health concerns. Participating in regular activities. Eating well and taking medications as prescribed.",
+        risk: "low",
+        createdAt: new Date(new Date().setDate(new Date().getDate() - 14))
+      }
+    ];
+    
+    healthTrends2.forEach(trend => {
+      this.healthTrends.set(trend.id, trend);
+    });
+
+    // Add recommended actions for Margaret Smith
+    const recommendedActions2: RecommendedAction[] = [
+      {
+        id: this.currentId.recommendedActions++,
+        patientId: patient2.id,
+        category: "Follow-up Recommendations",
+        actions: [
+          "Schedule primary care appointment to evaluate hip pain",
+          "Consider physical therapy assessment for mobility and fall prevention",
+          "Encourage maintaining social connections via phone or virtual means"
+        ],
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.recommendedActions++,
+        patientId: patient2.id,
+        category: "Monitoring Suggestions",
+        actions: [
+          "Monitor sleep quality and pain levels",
+          "Assess need for additional home safety modifications",
+          "Continue CareCall check-ins twice weekly"
+        ],
+        createdAt: new Date()
+      }
+    ];
+    
+    recommendedActions2.forEach(action => {
+      this.recommendedActions.set(action.id, action);
+    });
+
+    // Add alerts for Margaret Smith
+    const alerts2: Alert[] = [
+      {
+        id: this.currentId.alerts++,
+        patientId: patient2.id,
+        type: "yellow",
+        category: "Mobility: Moderate Risk",
+        description: "Increased dependency on walker and hip pain affecting daily activities",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.alerts++,
+        patientId: patient2.id,
+        type: "yellow",
+        category: "Social Isolation: Moderate Risk",
+        description: "Cancellation of regular social activities due to mobility concerns",
+        createdAt: new Date()
+      }
+    ];
+    
+    alerts2.forEach(alert => {
+      this.alerts.set(alert.id, alert);
+    });
+    
+    // Call for patient 3 (Robert Johnson)
+    const call3: Call = {
+      id: this.currentId.calls++,
+      patientId: patient3.id,
+      date: "April 12, 2023",
+      time: "9:30 AM",
+      durationSeconds: 525, // 8:45
+      audioUrl: "",
+      transcript: [
+        {
+          id: 1,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "Good morning, Robert. This is CareCall checking in. How are you feeling today?"
+        },
+        {
+          id: 2,
+          speaker: "Patient",
+          speakerName: "Robert Johnson",
+          text: "I'm doing well, thank you. Just finished my morning walk around the neighborhood."
+        },
+        {
+          id: 3,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "That's excellent to hear. How long was your walk today?"
+        },
+        {
+          id: 4,
+          speaker: "Patient",
+          speakerName: "Robert Johnson",
+          text: "About 20 minutes. It was a beautiful morning, so I took the longer route. I try to walk every day, weather permitting."
+        },
+        {
+          id: 5,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "That's wonderful. Regular exercise is important. Have you been taking your medications as prescribed?"
+        },
+        {
+          id: 6,
+          speaker: "Patient",
+          speakerName: "Robert Johnson",
+          text: "Yes, I take them every morning after breakfast. I use one of those pill organizers my daughter got me. It helps me keep track."
+        },
+        {
+          id: 7,
+          speaker: "AI",
+          speakerName: "CareCall AI",
+          text: "That's a great system. How about your meals? Have you been eating regularly?"
+        },
+        {
+          id: 8,
+          speaker: "Patient",
+          speakerName: "Robert Johnson",
+          text: "Yes, I've been cooking for myself. I made a big pot of vegetable soup on Sunday that I've been having for lunch. And I have cereal or toast for breakfast."
+        }
+      ],
+      createdAt: new Date()
+    };
+    this.calls.set(call3.id, call3);
+
+    // Add assessment for Robert Johnson's call
+    const assessment3: Assessment = {
+      id: this.currentId.assessments++,
+      callId: call3.id,
+      patientId: patient3.id,
+      date: "April 12, 2023",
+      frailtyScore: 25,
+      frailtyRisk: "low",
+      adlScore: 90,
+      adlRisk: "low",
+      iadlScore: 85,
+      iadlRisk: "low",
+      medicationAdherenceScore: 95,
+      medicationAdherenceRisk: "low",
+      cardiacRiskFactorsScore: 35,
+      cardiacRiskFactorsRisk: "low",
+      createdAt: new Date()
+    };
+    this.assessments.set(assessment3.id, assessment3);
+
+    // Add findings for Robert Johnson's call
+    const findings3: Finding[] = [
+      {
+        id: this.currentId.findings++,
+        callId: call3.id,
+        patientId: patient3.id,
+        text: "Patient maintains regular exercise routine with daily walks",
+        risk: "low",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.findings++,
+        callId: call3.id,
+        patientId: patient3.id,
+        text: "Excellent medication adherence with use of pill organizer",
+        risk: "low",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.findings++,
+        callId: call3.id,
+        patientId: patient3.id,
+        text: "Good nutritional habits with regular meal preparation",
+        risk: "low",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.findings++,
+        callId: call3.id,
+        patientId: patient3.id,
+        text: "Strong family support with daughter involved in care",
+        risk: "low",
+        createdAt: new Date()
+      }
+    ];
+    
+    findings3.forEach(finding => {
+      this.findings.set(finding.id, finding);
+    });
+
+    // Add health trends for Robert Johnson
+    const healthTrends3: HealthTrend[] = [
+      {
+        id: this.currentId.healthTrends++,
+        patientId: patient3.id,
+        date: "Today - Apr 12, 2023",
+        summary: "Maintaining regular exercise with daily walks. Good medication adherence and nutrition. No concerns noted.",
+        risk: "low",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.healthTrends++,
+        patientId: patient3.id,
+        date: "Apr 5, 2023",
+        summary: "Reports good health status. Maintaining independent activities of daily living. Good social engagement.",
+        risk: "low",
+        createdAt: new Date(new Date().setDate(new Date().getDate() - 7))
+      },
+      {
+        id: this.currentId.healthTrends++,
+        patientId: patient3.id,
+        date: "Mar 29, 2023",
+        summary: "Mentioned minor seasonal allergies but otherwise healthy. Continuing regular exercise and medication routine.",
+        risk: "low",
+        createdAt: new Date(new Date().setDate(new Date().getDate() - 14))
+      }
+    ];
+    
+    healthTrends3.forEach(trend => {
+      this.healthTrends.set(trend.id, trend);
+    });
+
+    // Add recommended actions for Robert Johnson
+    const recommendedActions3: RecommendedAction[] = [
+      {
+        id: this.currentId.recommendedActions++,
+        patientId: patient3.id,
+        category: "Preventive Care",
+        actions: [
+          "Schedule annual wellness visit within the next month",
+          "Consider pneumococcal vaccination if not up to date",
+          "Review fall prevention strategies despite current good mobility"
+        ],
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.recommendedActions++,
+        patientId: patient3.id,
+        category: "Monitoring Suggestions",
+        actions: [
+          "Continue CareCall check-ins on bi-weekly schedule",
+          "Maintain current medication management system",
+          "Encourage continued physical activity and social engagement"
+        ],
+        createdAt: new Date()
+      }
+    ];
+    
+    recommendedActions3.forEach(action => {
+      this.recommendedActions.set(action.id, action);
+    });
+    
     // Set alert flags on patients
     let updatedPatient1 = { ...patient1 };
     updatedPatient1.hasRedAlert = true;
