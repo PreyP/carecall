@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Patient } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
+import { Phone, HeartPulse, StethoscopeIcon, Smartphone, ShieldAlert, AlertCircle } from "lucide-react";
 
 export function Sidebar() {
   const [location] = useLocation();
@@ -20,7 +21,10 @@ export function Sidebar() {
       <div className="flex flex-col w-64 bg-white border-r border-gray-200">
         {/* Logo and app title */}
         <div className="flex items-center h-16 px-4 border-b border-gray-200 bg-primary text-white">
-          <span className="material-icons mr-2">health_and_safety</span>
+          <div className="flex items-center mr-2">
+            <Phone className="h-5 w-5" />
+            <HeartPulse className="h-5 w-5 ml-1" />
+          </div>
           <h1 className="text-xl font-bold">CareCall</h1>
         </div>
         
@@ -132,10 +136,14 @@ export function Sidebar() {
                       <span>{patient.initials}</span>
                     </div>
                     {patient.hasRedAlert && (
-                      <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#F44336] border border-white"></span>
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 border border-white flex items-center justify-center">
+                        <ShieldAlert className="h-1.5 w-1.5 text-white" />
+                      </span>
                     )}
                     {!patient.hasRedAlert && patient.hasYellowAlert && (
-                      <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#FFC107] border border-white"></span>
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-amber-500 border border-white flex items-center justify-center">
+                        <AlertCircle className="h-1.5 w-1.5 text-white" />
+                      </span>
                     )}
                   </div>
                   <div>
