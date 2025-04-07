@@ -1,0 +1,385 @@
+import React, { useEffect, useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
+import { useLocation } from "wouter";
+import { useQuery } from "@tanstack/react-query";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { CalendarIcon, ClockIcon, HeartPulse, Phone, User, Pill, Clipboard, AlertTriangle, Stethoscope } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Separator } from "@/components/ui/separator";
+
+export default function FamilyPortal() {
+  const { user, logoutMutation } = useAuth();
+  const [_, navigate] = useLocation();
+
+  // Redirect if user is not logged in or not a family member
+  useEffect(() => {
+    if (!user) {
+      navigate("/auth");
+    } else if (user.role !== "family") {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  // Get patient details
+  const { data: patient, isLoading: isLoadingPatient } = useQuery({
+    queryKey: ["/api/patients", user?.relatedPatientId],
+    queryFn: ({ queryKey }) => {
+      if (!user?.relatedPatientId) return null;
+      return fetch(`/api/patients/${user.relatedPatientId}`).then(res => {
+        if (!res.ok) throw new Error("Failed to fetch patient data");
+        return res.json();
+      });
+    },
+    enabled: !!user?.relatedPatientId
+  });
+
+  // Get latest health assessment
+  const { data: assessment, isLoading: isLoadingAssessment } = useQuery({
+    queryKey: ["/api/patients", user?.relatedPatientId, "latest-assessment"],
+    queryFn: ({ queryKey }) => {
+      if (!user?.relatedPatientId) return null;
+      return fetch(`/api/patients/${user.relatedPatientId}/latest-assessment`).then(res => {
+        if (!res.ok) {
+          if (res.status === 404) return null;
+          throw new Error("Failed to fetch assessment data");
+        }
+        return res.json();
+      });
+    },
+    enabled: !!user?.relatedPatientId
+  });
+
+  // Get recommended actions
+  const { data: recommendedActions = [], isLoading: isLoadingActions } = useQuery({
+    queryKey: ["/api/patients", user?.relatedPatientId, "recommended-actions"],
+    queryFn: ({ queryKey }) => {
+      if (!user?.relatedPatientId) return [];
+      return fetch(`/api/patients/${user.relatedPatientId}/recommended-actions`).then(res => {
+        if (!res.ok) throw new Error("Failed to fetch recommended actions");
+        return res.json();
+      });
+    },
+    enabled: !!user?.relatedPatientId
+  });
+
+  // Get health trends
+  const { data: healthTrends = [], isLoading: isLoadingTrends } = useQuery({
+    queryKey: ["/api/patients", user?.relatedPatientId, "health-trends"],
+    queryFn: ({ queryKey }) => {
+      if (!user?.relatedPatientId) return [];
+      return fetch(`/api/patients/${user.relatedPatientId}/health-trends`).then(res => {
+        if (!res.ok) throw new Error("Failed to fetch health trends");
+        return res.json();
+      });
+    },
+    enabled: !!user?.relatedPatientId
+  });
+
+  // Get patient's doctor
+  const { data: doctor, isLoading: isLoadingDoctor } = useQuery({
+    queryKey: ["/api/users", patient?.primaryDoctorId],
+    queryFn: ({ queryKey }) => {
+      if (!patient?.primaryDoctorId) return null;
+      return fetch(`/api/users/${patient.primaryDoctorId}`).then(res => {
+        if (!res.ok) {
+          if (res.status === 404) return null;
+          throw new Error("Failed to fetch doctor data");
+        }
+        return res.json();
+      });
+    },
+    enabled: !!patient?.primaryDoctorId
+  });
+
+  // Loading state
+  const isLoading = isLoadingPatient || isLoadingAssessment || isLoadingActions || isLoadingTrends || isLoadingDoctor;
+
+  const handleLogout = () => {
+    logoutMutation.mutate();
+  };
+
+  // Helper function to get a simplified risk description
+  const getRiskDescription = (risk: string) => {
+    switch (risk) {
+      case "high":
+        return "may need attention";
+      case "moderate":
+        return "showing some signs of concern";
+      case "low":
+        return "generally doing well";
+      default:
+        return "status unknown";
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-primary text-white p-4 shadow-md">
+        <div className="container mx-auto flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold">CareCall Family Portal</h1>
+            <p className="text-sm opacity-80">Monitoring your loved one's health</p>
+          </div>
+          <div className="flex items-center gap-4">
+            {user && (
+              <div className="text-right">
+                <p className="font-medium">{user.fullName}</p>
+                <p className="text-xs opacity-80">{user.relationship} of {patient?.name}</p>
+              </div>
+            )}
+            <Button variant="secondary" size="sm" onClick={handleLogout}>
+              Sign Out
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="container mx-auto py-8 px-4">
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
+          </div>
+        ) : !patient ? (
+          <Alert>
+            <AlertTitle>No data available</AlertTitle>
+            <AlertDescription>
+              We couldn't find any information for your family member. Please contact support.
+            </AlertDescription>
+          </Alert>
+        ) : (
+          <>
+            {/* Patient Overview */}
+            <section className="mb-8">
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-2xl flex items-center">
+                    <User className="h-6 w-6 mr-2 text-primary" />
+                    {patient.name}
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Last check-in: {patient.lastCallDate || "No recent calls"}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                    <div className="flex items-center">
+                      <Phone className="h-5 w-5 mr-2 text-gray-500" />
+                      <span>{patient.phone}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <CalendarIcon className="h-5 w-5 mr-2 text-gray-500" />
+                      <span>{patient.age} years old</span>
+                    </div>
+                    {patient.hasRedAlert && (
+                      <Badge variant="destructive" className="flex items-center justify-center">
+                        <AlertTriangle className="h-4 w-4 mr-1" />
+                        Needs attention
+                      </Badge>
+                    )}
+                    {patient.hasYellowAlert && !patient.hasRedAlert && (
+                      <Badge variant="warning" className="flex items-center justify-center bg-amber-500 hover:bg-amber-600">
+                        <AlertTriangle className="h-4 w-4 mr-1" />
+                        Some concerns
+                      </Badge>
+                    )}
+                    {!patient.hasYellowAlert && !patient.hasRedAlert && (
+                      <Badge variant="outline" className="flex items-center justify-center border-green-500 text-green-600">
+                        <HeartPulse className="h-4 w-4 mr-1" />
+                        Doing well
+                      </Badge>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Simplified Health Status */}
+            <h2 className="text-2xl font-bold mb-4">Health Overview</h2>
+            <section className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center">
+                    <HeartPulse className="h-5 w-5 mr-2 text-primary" />
+                    Overall Health Status
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {assessment ? (
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="font-medium mb-1">Daily Activities</h3>
+                        <p className="text-gray-600">
+                          Your loved one is {getRiskDescription(assessment.adlRisk)} with daily activities like dressing, bathing, and eating.
+                        </p>
+                      </div>
+                      <div>
+                        <h3 className="font-medium mb-1">Household Tasks</h3>
+                        <p className="text-gray-600">
+                          Your loved one is {getRiskDescription(assessment.iadlRisk)} with tasks like cooking, cleaning, and managing medications.
+                        </p>
+                      </div>
+                      <div>
+                        <h3 className="font-medium mb-1">Medication Management</h3>
+                        <p className="text-gray-600">
+                          Your loved one is {getRiskDescription(assessment.medicationAdherenceRisk)} with taking medications as prescribed.
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-gray-500 italic">No recent health assessment available</p>
+                  )}
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center">
+                    <Clipboard className="h-5 w-5 mr-2 text-primary" />
+                    Recent Health Changes
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {healthTrends.length > 0 ? (
+                    <div className="space-y-4">
+                      {healthTrends.slice(0, 3).map((trend, index) => (
+                        <div key={index}>
+                          <div className="flex justify-between mb-1">
+                            <h3 className="font-medium">{trend.date}</h3>
+                            <Badge 
+                              variant={trend.risk === "high" ? "destructive" : 
+                                     trend.risk === "moderate" ? "outline" : "outline"}
+                              className={trend.risk === "high" ? "" : 
+                                        trend.risk === "moderate" ? "border-amber-500 text-amber-600" : 
+                                        "border-green-500 text-green-600"}
+                            >
+                              {trend.risk === "high" ? "Needs attention" : 
+                               trend.risk === "moderate" ? "Some concerns" : "Doing well"}
+                            </Badge>
+                          </div>
+                          <p className="text-gray-600">{trend.summary}</p>
+                          {index < healthTrends.slice(0, 3).length - 1 && <Separator className="my-3" />}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-gray-500 italic">No health trend data available</p>
+                  )}
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Recommended Actions */}
+            <h2 className="text-2xl font-bold mb-4">How You Can Help</h2>
+            <section className="mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center">
+                    <Pill className="h-5 w-5 mr-2 text-primary" />
+                    Recommended Actions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {recommendedActions.length > 0 ? (
+                    <div className="space-y-6">
+                      {recommendedActions.map((action, index) => (
+                        <div key={index}>
+                          <h3 className="font-medium text-lg mb-2">{action.category}</h3>
+                          <ul className="list-disc list-inside space-y-2">
+                            {action.actions.map((item, i) => (
+                              <li key={i} className="text-gray-600">
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                          {/* Add family-specific guidance */}
+                          <div className="mt-4 bg-blue-50 p-4 rounded-md">
+                            <h4 className="font-medium text-blue-700 mb-2">Ways to support your loved one:</h4>
+                            <ul className="list-disc list-inside space-y-2 text-blue-600">
+                              <li>Check in with a phone call to see how they're feeling</li>
+                              <li>Help organize their medications or remind them to take them</li>
+                              <li>Coordinate transportation to medical appointments if needed</li>
+                              <li>Consider visiting to help with household tasks or meal preparation</li>
+                            </ul>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div>
+                      <p className="text-gray-500 italic mb-4">No specific actions recommended at this time</p>
+                      <div className="bg-blue-50 p-4 rounded-md">
+                        <h4 className="font-medium text-blue-700 mb-2">General ways to support your loved one:</h4>
+                        <ul className="list-disc list-inside space-y-2 text-blue-600">
+                          <li>Regular check-in calls to monitor their well-being</li>
+                          <li>Help organize their medications and medical appointments</li>
+                          <li>Assist with grocery shopping or meal preparation</li>
+                          <li>Encourage social activities and physical exercise</li>
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Healthcare Provider Information */}
+            <h2 className="text-2xl font-bold mb-4">Healthcare Provider Information</h2>
+            <section className="mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center">
+                    <Stethoscope className="h-5 w-5 mr-2 text-primary" />
+                    Primary Physician
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {doctor ? (
+                    <div className="space-y-3">
+                      <div className="flex items-center">
+                        <User className="h-5 w-5 mr-2 text-gray-500" />
+                        <span className="font-medium">{doctor.fullName}</span>
+                      </div>
+                      {doctor.hospital && (
+                        <div className="flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                          <span>{doctor.hospital}</span>
+                        </div>
+                      )}
+                      <div className="bg-gray-50 p-4 rounded-md mt-4">
+                        <h4 className="font-medium mb-2">When to contact the physician:</h4>
+                        <ul className="list-disc list-inside space-y-2 text-gray-600">
+                          <li>If you notice sudden changes in your loved one's physical condition</li>
+                          <li>If they experience increased difficulty with daily activities</li>
+                          <li>If they show signs of confusion or disorientation</li>
+                          <li>If they're having trouble taking medications as prescribed</li>
+                        </ul>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-gray-500 italic">No primary physician information available</p>
+                  )}
+                </CardContent>
+              </Card>
+            </section>
+          </>
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-100 py-6 border-t">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-gray-600">
+            <p>CareCall Family Portal &copy; {new Date().getFullYear()}</p>
+            <p className="text-sm mt-1">Helping families stay connected with their loved ones' health</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

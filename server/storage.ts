@@ -298,9 +298,28 @@ export class MemStorage implements IStorage {
       password: "password123", // Plain text password for demo purposes
       fullName: "Dr. Sarah Chen",
       role: "doctor",
-      hospital: "Memorial Hospital"
+      hospital: "Memorial Hospital",
+      relatedPatientId: null,
+      contactPhone: null,
+      contactEmail: null,
+      relationship: null
+    };
+    
+    // Add a family member user
+    const familyUser: User = {
+      id: this.currentId.users++,
+      username: "marydoe",
+      password: "familypass", // Plain text password for demo purposes
+      fullName: "Mary Doe",
+      role: "family",
+      hospital: null,
+      relatedPatientId: 1, // Related to John Doe
+      contactPhone: "(555) 987-6543",
+      contactEmail: "mary.doe@example.com",
+      relationship: "daughter"
     };
     this.users.set(doctorUser.id, doctorUser);
+    this.users.set(familyUser.id, familyUser);
 
     // Add a sample patient
     const patient1: Patient = {
