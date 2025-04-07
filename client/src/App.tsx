@@ -11,6 +11,7 @@ import Patients from "@/pages/patients";
 import ScheduledCalls from "@/pages/scheduled-calls";
 import Settings from "@/pages/settings";
 import AuthPage from "@/pages/auth-page";
+import FamilyPortal from "@/pages/family-portal";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <ProtectedRoute path="/patients" component={Patients} />
       <ProtectedRoute path="/scheduled-calls" component={ScheduledCalls} />
       <ProtectedRoute path="/settings" component={Settings} />
+      <ProtectedRoute path="/family-portal" component={FamilyPortal} />
       <Route path="/auth" component={AuthPage} />
       <Route component={NotFound} />
     </Switch>

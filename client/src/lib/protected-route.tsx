@@ -10,7 +10,7 @@ interface ProtectedRouteProps {
 
 export function ProtectedRoute({ path, component: Component }: ProtectedRouteProps) {
   const { user, isLoading } = useAuth();
-
+  
   return (
     <Route path={path}>
       {() => {
@@ -21,8 +21,22 @@ export function ProtectedRoute({ path, component: Component }: ProtectedRoutePro
             </div>
           );
         }
-
-        return user ? <Component /> : <Redirect to="/auth" />;
+        
+        if (!user) {
+          return <Redirect to="/auth" />;
+        }
+        
+        // If user is a family member attempting to access non-family routes
+        if (user.role === "family" && path !== "/family-portal" && path !== "/") {
+          return <Redirect to="/family-portal" />;
+        }
+        
+        // If user is a physician attempting to access family routes
+        if (user.role === "physician" && path === "/family-portal") {
+          return <Redirect to="/" />;
+        }
+        
+        return <Component />;
       }}
     </Route>
   );
