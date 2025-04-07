@@ -305,8 +305,8 @@ export class MemStorage implements IStorage {
       relationship: null
     };
     
-    // Add a family member user
-    const familyUser: User = {
+    // Add family member users
+    const familyUser1: User = {
       id: this.currentId.users++,
       username: "marydoe",
       password: "familypass", // Plain text password for demo purposes
@@ -318,8 +318,37 @@ export class MemStorage implements IStorage {
       contactEmail: "mary.doe@example.com",
       relationship: "daughter"
     };
+    
+    const familyUser2: User = {
+      id: this.currentId.users++,
+      username: "tsmith",
+      password: "familypass", // Plain text password for demo purposes
+      fullName: "Thomas Smith",
+      role: "family",
+      hospital: null,
+      relatedPatientId: 2, // Related to Margaret Smith
+      contactPhone: "(555) 876-5432",
+      contactEmail: "thomas.smith@example.com",
+      relationship: "son"
+    };
+    
+    const familyUser3: User = {
+      id: this.currentId.users++,
+      username: "ljohnson",
+      password: "familypass", // Plain text password for demo purposes
+      fullName: "Lisa Johnson",
+      role: "family",
+      hospital: null,
+      relatedPatientId: 3, // Related to Robert Johnson
+      contactPhone: "(555) 765-4321",
+      contactEmail: "lisa.johnson@example.com",
+      relationship: "daughter"
+    };
+    
     this.users.set(doctorUser.id, doctorUser);
-    this.users.set(familyUser.id, familyUser);
+    this.users.set(familyUser1.id, familyUser1);
+    this.users.set(familyUser2.id, familyUser2);
+    this.users.set(familyUser3.id, familyUser3);
 
     // Add a sample patient
     const patient1: Patient = {
@@ -378,7 +407,8 @@ export class MemStorage implements IStorage {
     };
     this.patients.set(patient3.id, patient3);
 
-    // Add a call for patient 1
+    // Add calls for patients
+    // Call for patient 1 (John Doe)
     const call1: Call = {
       id: this.currentId.calls++,
       patientId: patient1.id,
