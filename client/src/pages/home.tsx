@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Sidebar } from "@/components/sidebar";
 import { TopBar } from "@/components/top-bar";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function Home() {
+  const { user } = useAuth();
+  const [, setLocation] = useLocation();
   const { data: patients, isLoading } = useQuery<Patient[]>({
     queryKey: ['/api/patients'],
   });
+  
+  useEffect(() => {
+    // If user is a family member, redirect to family portal
+    if (user && user.role === "family") {
+      setLocation("/family-portal");
+    }
+  }, [user, setLocation]);
 
   return (
     <div className="flex h-screen overflow-hidden">
