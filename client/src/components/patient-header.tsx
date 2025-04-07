@@ -1,6 +1,6 @@
 import React from "react";
 import { Patient } from "@/lib/types";
-import { CircleAlert } from "lucide-react";
+import { CircleAlert, Phone, FileEdit, AlertTriangle, AlertCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
 interface PatientHeaderProps {
@@ -73,11 +73,11 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
             
             <div className="flex mt-4 sm:mt-0">
               <button type="button" className="mr-3 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
-                <span className="material-icons text-sm mr-2">phone</span>
+                <Phone className="h-4 w-4 mr-2" />
                 Call Patient
               </button>
               <button type="button" className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-[#1565C0] focus:outline-none">
-                <span className="material-icons text-sm mr-2">note_add</span>
+                <FileEdit className="h-4 w-4 mr-2" />
                 Add Note
               </button>
             </div>
@@ -95,9 +95,10 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
                       : 'bg-[#FFC107] bg-opacity-10 text-[#FFC107] border border-[#FFC107]'
                   }`}
                 >
-                  <span className="material-icons text-sm mr-1">
-                    {alert.type === 'red' ? 'warning' : 'priority_high'}
-                  </span>
+                  {alert.type === 'red' ? 
+                    <AlertTriangle className="h-3 w-3 mr-1" /> : 
+                    <AlertCircle className="h-3 w-3 mr-1" />
+                  }
                   {alert.category}
                 </span>
               ))}
