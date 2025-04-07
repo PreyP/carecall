@@ -2,12 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CalendarIcon, ClockIcon, HeartPulse, Phone, User, Pill, Clipboard, AlertTriangle, Stethoscope } from "lucide-react";
+import { 
+  CalendarIcon, 
+  ClockIcon, 
+  HeartPulse, 
+  Phone, 
+  User, 
+  Pill, 
+  Clipboard, 
+  AlertTriangle, 
+  Stethoscope, 
+  Calendar,
+  Bell,
+  ArrowRight,
+  Home,
+  BarChart
+} from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
 
 export default function FamilyPortal() {
   const { user, logoutMutation } = useAuth();
@@ -181,7 +198,7 @@ export default function FamilyPortal() {
                       </Badge>
                     )}
                     {patient.hasYellowAlert && !patient.hasRedAlert && (
-                      <Badge variant="warning" className="flex items-center justify-center bg-amber-500 hover:bg-amber-600">
+                      <Badge variant="outline" className="flex items-center justify-center bg-amber-500 text-white hover:bg-amber-600">
                         <AlertTriangle className="h-4 w-4 mr-1" />
                         Some concerns
                       </Badge>
@@ -198,77 +215,239 @@ export default function FamilyPortal() {
             </section>
 
             {/* Simplified Health Status */}
-            <h2 className="text-2xl font-bold mb-4">Health Overview</h2>
-            <section className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center">
-                    <HeartPulse className="h-5 w-5 mr-2 text-primary" />
-                    Overall Health Status
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {assessment ? (
-                    <div className="space-y-4">
-                      <div>
-                        <h3 className="font-medium mb-1">Daily Activities</h3>
-                        <p className="text-gray-600">
-                          Your loved one is {getRiskDescription(assessment.adlRisk)} with daily activities like dressing, bathing, and eating.
-                        </p>
-                      </div>
-                      <div>
-                        <h3 className="font-medium mb-1">Household Tasks</h3>
-                        <p className="text-gray-600">
-                          Your loved one is {getRiskDescription(assessment.iadlRisk)} with tasks like cooking, cleaning, and managing medications.
-                        </p>
-                      </div>
-                      <div>
-                        <h3 className="font-medium mb-1">Medication Management</h3>
-                        <p className="text-gray-600">
-                          Your loved one is {getRiskDescription(assessment.medicationAdherenceRisk)} with taking medications as prescribed.
-                        </p>
-                      </div>
-                    </div>
-                  ) : (
-                    <p className="text-gray-500 italic">No recent health assessment available</p>
-                  )}
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center">
-                    <Clipboard className="h-5 w-5 mr-2 text-primary" />
-                    Recent Health Changes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {healthTrends.length > 0 ? (
-                    <div className="space-y-4">
-                      {healthTrends.slice(0, 3).map((trend, index) => (
-                        <div key={index}>
-                          <div className="flex justify-between mb-1">
-                            <h3 className="font-medium">{trend.date}</h3>
-                            <Badge 
-                              variant={trend.risk === "high" ? "destructive" : 
-                                     trend.risk === "moderate" ? "outline" : "outline"}
-                              className={trend.risk === "high" ? "" : 
-                                        trend.risk === "moderate" ? "border-amber-500 text-amber-600" : 
-                                        "border-green-500 text-green-600"}
-                            >
-                              {trend.risk === "high" ? "Needs attention" : 
-                               trend.risk === "moderate" ? "Some concerns" : "Doing well"}
-                            </Badge>
+            <h2 className="text-2xl font-bold mb-4 flex items-center">
+              <HeartPulse className="h-6 w-6 mr-2 text-primary" />
+              Health Overview
+            </h2>
+            <section className="mb-8">
+              <Tabs defaultValue="status" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mb-6">
+                  <TabsTrigger value="status">Health Status</TabsTrigger>
+                  <TabsTrigger value="trends">Recent Changes</TabsTrigger>
+                </TabsList>
+                <TabsContent value="status">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center">
+                        <HeartPulse className="h-5 w-5 mr-2 text-primary" />
+                        Overall Health Status
+                      </CardTitle>
+                      <CardDescription>
+                        Based on CareCall's last conversation with {patient.name}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {assessment ? (
+                        <div className="space-y-6">
+                          <div>
+                            <div className="flex justify-between mb-2">
+                              <h3 className="font-medium">Daily Activities</h3>
+                              <Badge 
+                                variant={assessment.adlRisk === "high" ? "destructive" : 
+                                       assessment.adlRisk === "moderate" ? "outline" : "outline"}
+                                className={assessment.adlRisk === "high" ? "" : 
+                                          assessment.adlRisk === "moderate" ? "border-amber-500 text-amber-600" : 
+                                          "border-green-500 text-green-600"}
+                              >
+                                {assessment.adlRisk === "high" ? "Needs attention" : 
+                                 assessment.adlRisk === "moderate" ? "Some concerns" : "Doing well"}
+                              </Badge>
+                            </div>
+                            <p className="text-gray-600 mb-2">
+                              Your loved one is {getRiskDescription(assessment.adlRisk)} with daily activities like dressing, bathing, and eating.
+                            </p>
+                            <Progress 
+                              value={assessment.adlRisk === "high" ? 85 : assessment.adlRisk === "moderate" ? 50 : 20} 
+                              className={`h-2 ${assessment.adlRisk === "high" ? "bg-red-100" : assessment.adlRisk === "moderate" ? "bg-amber-100" : "bg-green-100"}`}
+                            />
                           </div>
-                          <p className="text-gray-600">{trend.summary}</p>
-                          {index < healthTrends.slice(0, 3).length - 1 && <Separator className="my-3" />}
+                          <div>
+                            <div className="flex justify-between mb-2">
+                              <h3 className="font-medium">Household Tasks</h3>
+                              <Badge 
+                                variant={assessment.iadlRisk === "high" ? "destructive" : 
+                                       assessment.iadlRisk === "moderate" ? "outline" : "outline"}
+                                className={assessment.iadlRisk === "high" ? "" : 
+                                          assessment.iadlRisk === "moderate" ? "border-amber-500 text-amber-600" : 
+                                          "border-green-500 text-green-600"}
+                              >
+                                {assessment.iadlRisk === "high" ? "Needs attention" : 
+                                 assessment.iadlRisk === "moderate" ? "Some concerns" : "Doing well"}
+                              </Badge>
+                            </div>
+                            <p className="text-gray-600 mb-2">
+                              Your loved one is {getRiskDescription(assessment.iadlRisk)} with tasks like cooking, cleaning, and managing finances.
+                            </p>
+                            <Progress 
+                              value={assessment.iadlRisk === "high" ? 85 : assessment.iadlRisk === "moderate" ? 50 : 20} 
+                              className={`h-2 ${assessment.iadlRisk === "high" ? "bg-red-100" : assessment.iadlRisk === "moderate" ? "bg-amber-100" : "bg-green-100"}`}
+                            />
+                          </div>
+                          <div>
+                            <div className="flex justify-between mb-2">
+                              <h3 className="font-medium">Medication Management</h3>
+                              <Badge 
+                                variant={assessment.medicationAdherenceRisk === "high" ? "destructive" : 
+                                       assessment.medicationAdherenceRisk === "moderate" ? "outline" : "outline"}
+                                className={assessment.medicationAdherenceRisk === "high" ? "" : 
+                                          assessment.medicationAdherenceRisk === "moderate" ? "border-amber-500 text-amber-600" : 
+                                          "border-green-500 text-green-600"}
+                              >
+                                {assessment.medicationAdherenceRisk === "high" ? "Needs attention" : 
+                                 assessment.medicationAdherenceRisk === "moderate" ? "Some concerns" : "Doing well"}
+                              </Badge>
+                            </div>
+                            <p className="text-gray-600 mb-2">
+                              Your loved one is {getRiskDescription(assessment.medicationAdherenceRisk)} with taking medications as prescribed.
+                            </p>
+                            <Progress 
+                              value={assessment.medicationAdherenceRisk === "high" ? 85 : assessment.medicationAdherenceRisk === "moderate" ? 50 : 20} 
+                              className={`h-2 ${assessment.medicationAdherenceRisk === "high" ? "bg-red-100" : assessment.medicationAdherenceRisk === "moderate" ? "bg-amber-100" : "bg-green-100"}`}
+                            />
+                          </div>
                         </div>
-                      ))}
+                      ) : (
+                        <p className="text-gray-500 italic">No recent health assessment available</p>
+                      )}
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+                <TabsContent value="trends">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center">
+                        <BarChart className="h-5 w-5 mr-2 text-primary" />
+                        Recent Health Changes
+                      </CardTitle>
+                      <CardDescription>
+                        Changes observed in recent calls with {patient.name}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {healthTrends.length > 0 ? (
+                        <div className="space-y-4">
+                          {healthTrends.slice(0, 3).map((trend, index) => (
+                            <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                              <div className="flex justify-between mb-1">
+                                <h3 className="font-medium">{trend.date}</h3>
+                                <Badge 
+                                  variant={trend.risk === "high" ? "destructive" : 
+                                         trend.risk === "moderate" ? "outline" : "outline"}
+                                  className={trend.risk === "high" ? "" : 
+                                            trend.risk === "moderate" ? "border-amber-500 text-amber-600" : 
+                                            "border-green-500 text-green-600"}
+                                >
+                                  {trend.risk === "high" ? "Needs attention" : 
+                                   trend.risk === "moderate" ? "Some concerns" : "Doing well"}
+                                </Badge>
+                              </div>
+                              <p className="text-gray-600">{trend.summary}</p>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="text-center py-8">
+                          <Clipboard className="h-12 w-12 text-gray-300 mx-auto mb-3" />
+                          <p className="text-gray-500 italic">No health trend data available</p>
+                        </div>
+                      )}
+                    </CardContent>
+                    <CardFooter className="flex justify-center border-t pt-4">
+                      <Button variant="outline" size="sm">
+                        View All Health Reports
+                        <ArrowRight className="h-4 w-4 ml-2" />
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </TabsContent>
+              </Tabs>
+            </section>
+            
+            {/* Upcoming Appointments */}
+            <h2 className="text-2xl font-bold mb-4 flex items-center">
+              <Calendar className="h-6 w-6 mr-2 text-primary" />
+              Upcoming Care Activities
+            </h2>
+            <section className="mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center">
+                    <Calendar className="h-5 w-5 mr-2 text-primary" />
+                    Scheduled Appointments & Check-ins
+                  </CardTitle>
+                  <CardDescription>
+                    Keep track of important healthcare events
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="font-medium text-blue-800">Next CareCall Check-in</h3>
+                          <p className="text-blue-600 mt-1">Automated health assessment call</p>
+                        </div>
+                        <Badge variant="outline" className="border-blue-500 text-blue-700">
+                          Scheduled
+                        </Badge>
+                      </div>
+                      <div className="mt-3 flex items-center text-blue-700">
+                        <CalendarIcon className="h-4 w-4 mr-2" />
+                        <span>Thursday, April 10, 2025</span>
+                        <ClockIcon className="h-4 w-4 mx-2" />
+                        <span>10:00 AM</span>
+                      </div>
                     </div>
-                  ) : (
-                    <p className="text-gray-500 italic">No health trend data available</p>
-                  )}
+                    
+                    <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="font-medium">Dr. Sarah Chen - Primary Care Visit</h3>
+                          <p className="text-gray-600 mt-1">Annual wellness check-up</p>
+                        </div>
+                        <Badge variant="outline" className="border-purple-500 text-purple-700">
+                          In 2 weeks
+                        </Badge>
+                      </div>
+                      <div className="mt-3 flex items-center text-gray-600">
+                        <CalendarIcon className="h-4 w-4 mr-2" />
+                        <span>Tuesday, April 22, 2025</span>
+                        <ClockIcon className="h-4 w-4 mx-2" />
+                        <span>9:30 AM</span>
+                      </div>
+                      <div className="mt-3 flex items-center text-gray-600">
+                        <Home className="h-4 w-4 mr-2" />
+                        <span>Memorial Hospital, 123 Main St</span>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="font-medium">Medication Refill Reminder</h3>
+                          <p className="text-gray-600 mt-1">Blood pressure medication</p>
+                        </div>
+                        <Badge variant="outline" className="border-amber-500 text-amber-700">
+                          In 5 days
+                        </Badge>
+                      </div>
+                      <div className="mt-3 flex items-center text-gray-600">
+                        <CalendarIcon className="h-4 w-4 mr-2" />
+                        <span>Monday, April 15, 2025</span>
+                      </div>
+                      <Button variant="secondary" size="sm" className="mt-3">
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call Pharmacy
+                      </Button>
+                    </div>
+                  </div>
                 </CardContent>
+                <CardFooter className="border-t pt-4">
+                  <Button variant="outline" className="w-full">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Schedule a Family Visit
+                  </Button>
+                </CardFooter>
               </Card>
             </section>
 
