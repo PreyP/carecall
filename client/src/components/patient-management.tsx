@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
 import { apiRequest } from "@/lib/queryClient";
 import { AddPatientDialog } from "./add-patient-dialog";
-import { ShieldAlert, AlertCircle, CheckCircle } from "lucide-react";
+import { ShieldAlert, AlertCircle, CheckCircle, Filter, Search, UserPlus } from "lucide-react";
 
 interface PatientManagementProps {
   onPatientSelect?: (patientId: number) => void;
@@ -90,7 +90,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
             onClick={() => setShowAddPatient(true)}
             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark"
           >
-            <span className="material-icons text-sm mr-2">person_add</span>
+            <UserPlus className="h-4 w-4 mr-2" />
             Add New Patient
           </button>
         </div>
@@ -99,7 +99,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0 mb-6">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <span className="material-icons text-gray-400 text-sm">search</span>
+              <Search className="h-4 w-4 text-gray-400" />
             </div>
             <input
               type="text"
@@ -111,16 +111,21 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            <select
-              value={filterRisk}
-              onChange={(e) => setFilterRisk(e.target.value as any)}
-              className="block pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
-            >
-              <option value="all">All Patients</option>
-              <option value="red">High Risk (Red)</option>
-              <option value="yellow">Moderate Risk (Yellow)</option>
-              <option value="none">Low Risk</option>
-            </select>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Filter className="h-4 w-4 text-gray-400" />
+              </div>
+              <select
+                value={filterRisk}
+                onChange={(e) => setFilterRisk(e.target.value as any)}
+                className="block pl-10 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
+              >
+                <option value="all">All Patients</option>
+                <option value="red">High Risk (Red)</option>
+                <option value="yellow">Moderate Risk (Yellow)</option>
+                <option value="none">Low Risk</option>
+              </select>
+            </div>
           </div>
         </div>
 
