@@ -1,6 +1,7 @@
 import React from "react";
 import { KeyFinding } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
+import { ShieldAlert, Thermometer, CheckCircle } from "lucide-react";
 
 interface KeyFindingsProps {
   patientId: number;
@@ -61,6 +62,19 @@ export function KeyFindings({ patientId, callId }: KeyFindingsProps) {
     }
   };
 
+  const getIconByRisk = (risk: string) => {
+    switch (risk) {
+      case "high":
+        return <ShieldAlert className="h-3.5 w-3.5 text-white" />;
+      case "moderate":
+        return <Thermometer className="h-3.5 w-3.5 text-white" />;
+      case "low":
+        return <CheckCircle className="h-3.5 w-3.5 text-white" />;
+      default:
+        return <CheckCircle className="h-3.5 w-3.5 text-white" />;
+    }
+  };
+
   return (
     <div className="bg-white shadow rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:p-6">
@@ -70,7 +84,7 @@ export function KeyFindings({ patientId, callId }: KeyFindingsProps) {
           {findings.map((finding) => (
             <li key={finding.id} className="flex items-start">
               <span className={`flex-shrink-0 h-5 w-5 rounded-full ${getRiskColor(finding.risk)} flex items-center justify-center mt-0.5`}>
-                <span className="material-icons text-white text-xs">priority_high</span>
+                {getIconByRisk(finding.risk)}
               </span>
               <p className="ml-3 text-sm text-gray-700">{finding.text}</p>
             </li>
