@@ -61,6 +61,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return res.json(patient);
   });
   
+  // Create new patient route
+  app.post(`${apiBase}/patients`, async (req, res) => {
+    try {
+      const newPatient = await storage.createPatient(req.body);
+      return res.status(201).json(newPatient);
+    } catch (error) {
+      console.error("Error creating patient:", error);
+      return res.status(400).json({ message: "Failed to create patient", error: String(error) });
+    }
+  });
+  
   // Call routes
   app.get(`${apiBase}/patients/:patientId/calls`, async (req, res) => {
     const patientId = parseInt(req.params.patientId);

@@ -24,6 +24,9 @@ export const patients = pgTable("patients", {
   address: text("address"),
   emergencyContact: text("emergency_contact"),
   primaryDoctorId: integer("primary_doctor_id").references(() => users.id),
+  hasRedAlert: boolean("has_red_alert").notNull().default(false),
+  hasYellowAlert: boolean("has_yellow_alert").notNull().default(false),
+  lastCallDate: text("last_call_date"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 

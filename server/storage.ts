@@ -314,6 +314,9 @@ export class MemStorage implements IStorage {
       address: "123 Main St, Anytown, USA",
       emergencyContact: "Mary Doe (555) 987-6543",
       primaryDoctorId: doctorUser.id,
+      hasRedAlert: true,
+      hasYellowAlert: true,
+      lastCallDate: "Apr 18, 2023",
       createdAt: new Date()
     };
     this.patients.set(patient1.id, patient1);
@@ -330,6 +333,9 @@ export class MemStorage implements IStorage {
       address: "456 Oak Ave, Anytown, USA",
       emergencyContact: "Thomas Smith (555) 876-5432",
       primaryDoctorId: doctorUser.id,
+      hasRedAlert: false,
+      hasYellowAlert: true,
+      lastCallDate: "Apr 17, 2023",
       createdAt: new Date()
     };
     this.patients.set(patient2.id, patient2);
@@ -346,6 +352,9 @@ export class MemStorage implements IStorage {
       address: "789 Pine St, Anytown, USA",
       emergencyContact: "Linda Johnson (555) 765-4321",
       primaryDoctorId: doctorUser.id,
+      hasRedAlert: false,
+      hasYellowAlert: false,
+      lastCallDate: "Apr 12, 2023",
       createdAt: new Date()
     };
     this.patients.set(patient3.id, patient3);
