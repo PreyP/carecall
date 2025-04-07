@@ -107,38 +107,38 @@ export default function Home() {
                     ) : (
                       patients?.map((patient) => (
                         <li key={patient.id}>
-                          <Link href={`/dashboard/${patient.id}`}>
-                            <a className="block hover:bg-gray-50">
-                              <div className="px-4 py-4 sm:px-6">
-                                <div className="flex items-center justify-between">
-                                  <div className="flex items-center">
-                                    <div className="relative mr-4">
-                                      <div className="h-10 w-10 rounded-full bg-[#42A5F5] flex items-center justify-center text-white text-lg">
-                                        {patient.initials}
-                                      </div>
-                                      {patient.hasRedAlert && (
-                                        <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#F44336] border-2 border-white"></span>
-                                      )}
-                                      {!patient.hasRedAlert && patient.hasYellowAlert && (
-                                        <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FFC107] border-2 border-white"></span>
-                                      )}
+                          <Link 
+                            href={`/dashboard/${patient.id}`}
+                            className="block hover:bg-gray-50">
+                            <div className="px-4 py-4 sm:px-6">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center">
+                                  <div className="relative mr-4">
+                                    <div className="h-10 w-10 rounded-full bg-[#42A5F5] flex items-center justify-center text-white text-lg">
+                                      {patient.initials}
                                     </div>
-                                    <div>
-                                      <p className="text-sm font-medium text-primary truncate">{patient.name}</p>
-                                      <p className="text-sm text-gray-500">MRN: {patient.mrn}</p>
-                                    </div>
+                                    {patient.hasRedAlert && (
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#F44336] border-2 border-white"></span>
+                                    )}
+                                    {!patient.hasRedAlert && patient.hasYellowAlert && (
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FFC107] border-2 border-white"></span>
+                                    )}
                                   </div>
-                                  <div className="flex items-center">
-                                    <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                      Last Call: {patient.lastCallDate}
-                                    </p>
-                                    <div className="ml-5 flex-shrink-0">
-                                      <span className="material-icons text-gray-400">chevron_right</span>
-                                    </div>
+                                  <div>
+                                    <p className="text-sm font-medium text-primary truncate">{patient.name}</p>
+                                    <p className="text-sm text-gray-500">MRN: {patient.mrn}</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-center">
+                                  <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Last Call: {patient.lastCallDate}
+                                  </p>
+                                  <div className="ml-5 flex-shrink-0">
+                                    <span className="material-icons text-gray-400">chevron_right</span>
                                   </div>
                                 </div>
                               </div>
-                            </a>
+                            </div>
                           </Link>
                         </li>
                       ))
