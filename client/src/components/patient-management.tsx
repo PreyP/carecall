@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
 import { apiRequest } from "@/lib/queryClient";
+import { AddPatientDialog } from "./add-patient-dialog";
 
 interface PatientManagementProps {
   onPatientSelect?: (patientId: number) => void;
@@ -276,6 +277,12 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
           </table>
         </div>
       </div>
+      
+      {/* Add Patient Dialog */}
+      <AddPatientDialog 
+        isOpen={showAddPatient} 
+        onClose={() => setShowAddPatient(false)} 
+      />
     </div>
   );
 }
