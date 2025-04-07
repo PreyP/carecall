@@ -5,6 +5,7 @@ import { Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
 import { useAuth } from "@/hooks/use-auth";
+import { HeartPulse, AlertTriangle, Phone } from "lucide-react";
 
 export default function Home() {
   const { user } = useAuth();
@@ -54,46 +55,49 @@ export default function Home() {
                 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {/* Red Alert Card */}
-                  <div className="border-l-4 border-[#F44336] bg-white shadow rounded-md p-4">
+                  <div className="border-l-4 border-[#F44336] bg-white shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
-                        <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-[#F44336] bg-opacity-10 text-[#F44336]">
-                          <span className="material-icons">warning</span>
+                        <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#F44336] bg-opacity-10 text-[#F44336]">
+                          <HeartPulse className="h-6 w-6" />
                         </span>
                       </div>
                       <div className="ml-4">
                         <h3 className="text-sm font-medium text-gray-900">High Risk Alerts</h3>
                         <p className="text-lg font-bold text-gray-900">3</p>
+                        <p className="text-xs text-gray-500">Requires immediate attention</p>
                       </div>
                     </div>
                   </div>
                   
                   {/* Yellow Alert Card */}
-                  <div className="border-l-4 border-[#FFC107] bg-white shadow rounded-md p-4">
+                  <div className="border-l-4 border-[#FFC107] bg-white shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
-                        <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-[#FFC107] bg-opacity-10 text-[#FFC107]">
-                          <span className="material-icons">priority_high</span>
+                        <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#FFC107] bg-opacity-10 text-[#FFC107]">
+                          <AlertTriangle className="h-6 w-6" />
                         </span>
                       </div>
                       <div className="ml-4">
                         <h3 className="text-sm font-medium text-gray-900">Moderate Risk Alerts</h3>
                         <p className="text-lg font-bold text-gray-900">7</p>
+                        <p className="text-xs text-gray-500">Needs assessment</p>
                       </div>
                     </div>
                   </div>
                   
                   {/* Calls Card */}
-                  <div className="border-l-4 border-[#1976D2] bg-white shadow rounded-md p-4">
+                  <div className="border-l-4 border-[#1976D2] bg-white shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
-                        <span className="inline-flex items-center justify-center h-10 w-10 rounded-md bg-[#1976D2] bg-opacity-10 text-[#1976D2]">
-                          <span className="material-icons">phone</span>
+                        <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#1976D2] bg-opacity-10 text-[#1976D2]">
+                          <Phone className="h-6 w-6" />
                         </span>
                       </div>
                       <div className="ml-4">
                         <h3 className="text-sm font-medium text-gray-900">Today's Calls</h3>
                         <p className="text-lg font-bold text-gray-900">12</p>
+                        <p className="text-xs text-gray-500">Scheduled for today</p>
                       </div>
                     </div>
                   </div>

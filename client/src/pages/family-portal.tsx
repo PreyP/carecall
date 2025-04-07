@@ -19,7 +19,12 @@ import {
   Bell,
   ArrowRight,
   Home,
-  BarChart
+  BarChart,
+  AlertCircle,
+  CheckCircle,
+  Activity,
+  Thermometer,
+  ShieldAlert
 } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
@@ -192,20 +197,20 @@ export default function FamilyPortal() {
                       <span>{patient.age} years old</span>
                     </div>
                     {patient.hasRedAlert && (
-                      <Badge variant="destructive" className="flex items-center justify-center">
-                        <AlertTriangle className="h-4 w-4 mr-1" />
+                      <Badge variant="outline" className="flex items-center justify-center border-red-500 text-red-600 bg-red-50">
+                        <ShieldAlert className="h-4 w-4 mr-1" />
                         Needs attention
                       </Badge>
                     )}
                     {patient.hasYellowAlert && !patient.hasRedAlert && (
-                      <Badge variant="outline" className="flex items-center justify-center bg-amber-500 text-white hover:bg-amber-600">
-                        <AlertTriangle className="h-4 w-4 mr-1" />
+                      <Badge variant="outline" className="flex items-center justify-center border-amber-500 text-amber-600 bg-amber-50">
+                        <AlertCircle className="h-4 w-4 mr-1" />
                         Some concerns
                       </Badge>
                     )}
                     {!patient.hasYellowAlert && !patient.hasRedAlert && (
-                      <Badge variant="outline" className="flex items-center justify-center border-green-500 text-green-600">
-                        <HeartPulse className="h-4 w-4 mr-1" />
+                      <Badge variant="outline" className="flex items-center justify-center border-green-500 text-green-600 bg-green-50">
+                        <CheckCircle className="h-4 w-4 mr-1" />
                         Doing well
                       </Badge>
                     )}
@@ -243,14 +248,20 @@ export default function FamilyPortal() {
                             <div className="flex justify-between mb-2">
                               <h3 className="font-medium">Daily Activities</h3>
                               <Badge 
-                                variant={assessment.adlRisk === "high" ? "destructive" : 
-                                       assessment.adlRisk === "moderate" ? "outline" : "outline"}
-                                className={assessment.adlRisk === "high" ? "" : 
-                                          assessment.adlRisk === "moderate" ? "border-amber-500 text-amber-600" : 
-                                          "border-green-500 text-green-600"}
+                                variant="outline"
+                                className={`flex items-center gap-1 ${
+                                  assessment.adlRisk === "high" 
+                                    ? "border-red-500 text-red-600 bg-red-50" 
+                                    : assessment.adlRisk === "moderate" 
+                                      ? "border-amber-500 text-amber-600 bg-amber-50" 
+                                      : "border-green-500 text-green-600 bg-green-50"
+                                }`}
                               >
-                                {assessment.adlRisk === "high" ? "Needs attention" : 
-                                 assessment.adlRisk === "moderate" ? "Some concerns" : "Doing well"}
+                                {assessment.adlRisk === "high" 
+                                  ? <><AlertTriangle className="h-3 w-3" /> Needs attention</> 
+                                  : assessment.adlRisk === "moderate" 
+                                    ? <><AlertCircle className="h-3 w-3" /> Some concerns</> 
+                                    : <><CheckCircle className="h-3 w-3" /> Doing well</>}
                               </Badge>
                             </div>
                             <p className="text-gray-600 mb-2">
@@ -265,14 +276,20 @@ export default function FamilyPortal() {
                             <div className="flex justify-between mb-2">
                               <h3 className="font-medium">Household Tasks</h3>
                               <Badge 
-                                variant={assessment.iadlRisk === "high" ? "destructive" : 
-                                       assessment.iadlRisk === "moderate" ? "outline" : "outline"}
-                                className={assessment.iadlRisk === "high" ? "" : 
-                                          assessment.iadlRisk === "moderate" ? "border-amber-500 text-amber-600" : 
-                                          "border-green-500 text-green-600"}
+                                variant="outline"
+                                className={`flex items-center gap-1 ${
+                                  assessment.iadlRisk === "high" 
+                                    ? "border-red-500 text-red-600 bg-red-50" 
+                                    : assessment.iadlRisk === "moderate" 
+                                      ? "border-amber-500 text-amber-600 bg-amber-50" 
+                                      : "border-green-500 text-green-600 bg-green-50"
+                                }`}
                               >
-                                {assessment.iadlRisk === "high" ? "Needs attention" : 
-                                 assessment.iadlRisk === "moderate" ? "Some concerns" : "Doing well"}
+                                {assessment.iadlRisk === "high" 
+                                  ? <><Activity className="h-3 w-3" /> Needs attention</> 
+                                  : assessment.iadlRisk === "moderate" 
+                                    ? <><AlertCircle className="h-3 w-3" /> Some concerns</> 
+                                    : <><CheckCircle className="h-3 w-3" /> Doing well</>}
                               </Badge>
                             </div>
                             <p className="text-gray-600 mb-2">
@@ -287,14 +304,20 @@ export default function FamilyPortal() {
                             <div className="flex justify-between mb-2">
                               <h3 className="font-medium">Medication Management</h3>
                               <Badge 
-                                variant={assessment.medicationAdherenceRisk === "high" ? "destructive" : 
-                                       assessment.medicationAdherenceRisk === "moderate" ? "outline" : "outline"}
-                                className={assessment.medicationAdherenceRisk === "high" ? "" : 
-                                          assessment.medicationAdherenceRisk === "moderate" ? "border-amber-500 text-amber-600" : 
-                                          "border-green-500 text-green-600"}
+                                variant="outline"
+                                className={`flex items-center gap-1 ${
+                                  assessment.medicationAdherenceRisk === "high" 
+                                    ? "border-red-500 text-red-600 bg-red-50" 
+                                    : assessment.medicationAdherenceRisk === "moderate" 
+                                      ? "border-amber-500 text-amber-600 bg-amber-50" 
+                                      : "border-green-500 text-green-600 bg-green-50"
+                                }`}
                               >
-                                {assessment.medicationAdherenceRisk === "high" ? "Needs attention" : 
-                                 assessment.medicationAdherenceRisk === "moderate" ? "Some concerns" : "Doing well"}
+                                {assessment.medicationAdherenceRisk === "high" 
+                                  ? <><Pill className="h-3 w-3" /> Needs attention</> 
+                                  : assessment.medicationAdherenceRisk === "moderate" 
+                                    ? <><AlertCircle className="h-3 w-3" /> Some concerns</> 
+                                    : <><CheckCircle className="h-3 w-3" /> Doing well</>}
                               </Badge>
                             </div>
                             <p className="text-gray-600 mb-2">
@@ -331,14 +354,20 @@ export default function FamilyPortal() {
                               <div className="flex justify-between mb-1">
                                 <h3 className="font-medium">{trend.date}</h3>
                                 <Badge 
-                                  variant={trend.risk === "high" ? "destructive" : 
-                                         trend.risk === "moderate" ? "outline" : "outline"}
-                                  className={trend.risk === "high" ? "" : 
-                                            trend.risk === "moderate" ? "border-amber-500 text-amber-600" : 
-                                            "border-green-500 text-green-600"}
+                                  variant="outline"
+                                  className={`flex items-center gap-1 ${
+                                    trend.risk === "high" 
+                                      ? "border-red-500 text-red-600 bg-red-50" 
+                                      : trend.risk === "moderate" 
+                                        ? "border-amber-500 text-amber-600 bg-amber-50" 
+                                        : "border-green-500 text-green-600 bg-green-50"
+                                  }`}
                                 >
-                                  {trend.risk === "high" ? "Needs attention" : 
-                                   trend.risk === "moderate" ? "Some concerns" : "Doing well"}
+                                  {trend.risk === "high" 
+                                    ? <><ShieldAlert className="h-3 w-3" /> Needs attention</> 
+                                    : trend.risk === "moderate" 
+                                      ? <><Thermometer className="h-3 w-3" /> Some concerns</> 
+                                      : <><Activity className="h-3 w-3" /> Doing well</>}
                                 </Badge>
                               </div>
                               <p className="text-gray-600">{trend.summary}</p>
