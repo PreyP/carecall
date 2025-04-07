@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Patient } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/use-auth";
-import { Phone, HeartPulse, StethoscopeIcon, Smartphone, ShieldAlert, AlertCircle } from "lucide-react";
+import { Phone, HeartPulse, StethoscopeIcon, Smartphone, ShieldAlert, AlertCircle, Home, LayoutDashboard, Users, CalendarCheck, Settings, Plus, UserCircle } from "lucide-react";
 
 export function Sidebar() {
   const [location] = useLocation();
@@ -39,10 +39,10 @@ export function Sidebar() {
                   ? "text-white bg-primary hover:bg-primary-dark" 
                   : "text-gray-700 hover:bg-gray-100"
               )}>
-              <span className={cn(
-                "material-icons mr-3",
+              <Home className={cn(
+                "h-5 w-5 mr-3",
                 location === "/family-portal" ? "text-white" : "text-gray-500"
-              )}>home</span>
+              )} />
               Family Portal
             </Link>
           ) : (
@@ -53,10 +53,10 @@ export function Sidebar() {
                   ? "text-white bg-primary hover:bg-primary-dark" 
                   : "text-gray-700 hover:bg-gray-100"
               )}>
-              <span className={cn(
-                "material-icons mr-3",
+              <LayoutDashboard className={cn(
+                "h-5 w-5 mr-3",
                 location === "/" ? "text-white" : "text-gray-500"
-              )}>dashboard</span>
+              )} />
               Dashboard
             </Link>
           )}
@@ -71,10 +71,10 @@ export function Sidebar() {
                     ? "text-white bg-primary hover:bg-primary-dark" 
                     : "text-gray-700 hover:bg-gray-100"
                 )}>
-                <span className={cn(
-                  "material-icons mr-3",
+                <Users className={cn(
+                  "h-5 w-5 mr-3",
                   location.startsWith("/patients") ? "text-white" : "text-gray-500"
-                )}>people</span>
+                )} />
                 Patients
               </Link>
               
@@ -85,10 +85,10 @@ export function Sidebar() {
                     ? "text-white bg-primary hover:bg-primary-dark" 
                     : "text-gray-700 hover:bg-gray-100"
                 )}>
-                <span className={cn(
-                  "material-icons mr-3",
+                <CalendarCheck className={cn(
+                  "h-5 w-5 mr-3",
                   location.startsWith("/scheduled-calls") ? "text-white" : "text-gray-500"
-                )}>event_note</span>
+                )} />
                 Scheduled Calls
               </Link>
             </>
@@ -102,10 +102,10 @@ export function Sidebar() {
                 ? "text-white bg-primary hover:bg-primary-dark" 
                 : "text-gray-700 hover:bg-gray-100"
             )}>
-            <span className={cn(
-              "material-icons mr-3",
+            <Settings className={cn(
+              "h-5 w-5 mr-3",
               location.startsWith("/settings") ? "text-white" : "text-gray-500"
-            )}>settings</span>
+            )} />
             Settings
           </Link>
         </nav>
@@ -116,7 +116,7 @@ export function Sidebar() {
             <div className="flex items-center justify-between py-2">
               <h2 className="text-sm font-semibold text-gray-500">RECENT PATIENTS</h2>
               <button className="text-primary hover:text-primary-dark">
-                <span className="material-icons text-sm">add</span>
+                <Plus className="h-4 w-4" />
               </button>
             </div>
             
@@ -159,7 +159,7 @@ export function Sidebar() {
         {/* User profile */}
         <div className="flex items-center p-4 border-t border-gray-200">
           <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-white">
-            <span className="material-icons text-sm">person</span>
+            <UserCircle className="h-5 w-5" />
           </div>
           <div className="ml-3">
             {user ? (
