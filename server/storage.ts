@@ -604,7 +604,7 @@ export class MemStorage implements IStorage {
         patientId: patient1.id,
         category: "Follow-up Recommendations",
         actions: [
-          "Increase CareCall frequency to daily for next 7 days",
+          "Increase Brigid frequency to daily for next 7 days",
           "Arrange home health visit to assist with medication management",
           "Consider meal delivery service to improve nutritional intake"
         ],
@@ -833,7 +833,7 @@ export class MemStorage implements IStorage {
         actions: [
           "Monitor sleep quality and pain levels",
           "Assess need for additional home safety modifications",
-          "Continue CareCall check-ins twice weekly"
+          "Continue Brigid check-ins twice weekly"
         ],
         createdAt: new Date()
       }
@@ -903,7 +903,7 @@ export class MemStorage implements IStorage {
         {
           id: 5,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "That's wonderful. Regular exercise is important. Have you been taking your medications as prescribed?"
         },
         {
@@ -915,7 +915,7 @@ export class MemStorage implements IStorage {
         {
           id: 7,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "That's a great system. How about your meals? Have you been eating regularly?"
         },
         {
@@ -1039,7 +1039,7 @@ export class MemStorage implements IStorage {
         patientId: patient3.id,
         category: "Monitoring Suggestions",
         actions: [
-          "Continue CareCall check-ins on bi-weekly schedule",
+          "Continue Brigid check-ins on bi-weekly schedule",
           "Maintain current medication management system",
           "Encourage continued physical activity and social engagement"
         ],

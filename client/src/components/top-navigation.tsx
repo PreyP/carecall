@@ -55,7 +55,6 @@ export function TopNavigation({
           className="flex items-center gap-2 px-4"
         >
           <Filter className="h-4 w-4" />
-          <span>filter_list</span>
           <span className="font-medium">Filter</span>
           {activeFilters > 0 && (
             <Badge className="ml-1 bg-primary text-white rounded-full h-6 w-6 flex items-center justify-center p-0">

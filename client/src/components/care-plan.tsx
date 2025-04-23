@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { RecommendedAction, Alert, HealthAssessment } from "@/lib/types";
-import { Search, Plus, FileText, History, Tag, MoreVertical } from "lucide-react";
+import { Search, Plus, FileText, History, Tag, MoreVertical, Calendar, User } from "lucide-react";
 
 interface CarePlanProps {
   patientId: number;
