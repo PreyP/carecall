@@ -139,20 +139,20 @@ export default function FamilyPortal() {
   return (
     <div className="min-h-screen bg-[#F0E8D8]">
       {/* Header */}
-      <header className="bg-[#F9F3E3] text-[#0A2814] p-4 shadow-md">
+      <header className="bg-[#0A2814] p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold">Brigid Family Portal</h1>
-            <p className="text-sm">Monitoring your loved one's health</p>
+            <h1 className="text-2xl font-bold text-[#F9F3E3]">Brigid Family Portal</h1>
+            <p className="text-sm text-[#CDD8D8]">Monitoring your loved one's health</p>
           </div>
           <div className="flex items-center gap-4">
             {user && (
               <div className="text-right">
-                <p className="font-medium">{user.fullName}</p>
-                <p className="text-xs opacity-80">{user.relationship} of {patient?.name}</p>
+                <p className="font-medium text-[#F9F3E3]">{user.fullName}</p>
+                <p className="text-xs text-[#CDD8D8]">{user.relationship} of {patient?.name}</p>
               </div>
             )}
-            <Button variant="secondary" size="sm" onClick={handleLogout}>
+            <Button variant="outline" size="sm" onClick={handleLogout} className="text-[#F9F3E3] hover:text-[#0A2814] hover:bg-[#F9F3E3] border-[#CDD8D8]">
               Sign Out
             </Button>
           </div>
@@ -220,8 +220,8 @@ export default function FamilyPortal() {
             </section>
 
             {/* Simplified Health Status */}
-            <h2 className="text-2xl font-bold mb-4 flex items-center">
-              <HeartPulse className="h-6 w-6 mr-2 text-primary" />
+            <h2 className="text-2xl font-bold mb-4 flex items-center bg-[#0A2814] text-[#F9F3E3] p-3 rounded-lg">
+              <HeartPulse className="h-6 w-6 mr-2 text-[#CDD8D8]" />
               Health Overview
             </h2>
             <section className="mb-8">
@@ -393,8 +393,8 @@ export default function FamilyPortal() {
             </section>
             
             {/* Upcoming Appointments */}
-            <h2 className="text-2xl font-bold mb-4 flex items-center">
-              <Calendar className="h-6 w-6 mr-2 text-primary" />
+            <h2 className="text-2xl font-bold mb-4 flex items-center bg-[#0A2814] text-[#F9F3E3] p-3 rounded-lg">
+              <Calendar className="h-6 w-6 mr-2 text-[#CDD8D8]" />
               Upcoming Care Activities
             </h2>
             <section className="mb-8">
@@ -481,7 +481,10 @@ export default function FamilyPortal() {
             </section>
 
             {/* Recommended Actions */}
-            <h2 className="text-2xl font-bold mb-4">How You Can Help</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center bg-[#0A2814] text-[#F9F3E3] p-3 rounded-lg">
+              <Pill className="h-6 w-6 mr-2 text-[#CDD8D8]" />
+              How You Can Help
+            </h2>
             <section className="mb-8">
               <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                 <CardHeader>
@@ -535,7 +538,10 @@ export default function FamilyPortal() {
             </section>
 
             {/* Healthcare Provider Information */}
-            <h2 className="text-2xl font-bold mb-4">Healthcare Provider Information</h2>
+            <h2 className="text-2xl font-bold mb-4 flex items-center bg-[#0A2814] text-[#F9F3E3] p-3 rounded-lg">
+              <Stethoscope className="h-6 w-6 mr-2 text-[#CDD8D8]" />
+              Healthcare Provider Information
+            </h2>
             <section className="mb-8">
               <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                 <CardHeader>
@@ -580,11 +586,11 @@ export default function FamilyPortal() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#F0E8D8] py-6 border-t">
+      <footer className="bg-[#0A2814] py-6 border-t border-[#9CAE9C]">
         <div className="container mx-auto px-4">
-          <div className="text-center text-gray-600">
-            <p>Brigid Family Portal &copy; {new Date().getFullYear()}</p>
-            <p className="text-sm mt-1">Helping families stay connected with their loved ones' health</p>
+          <div className="text-center">
+            <p className="text-[#F9F3E3]">Brigid Family Portal &copy; {new Date().getFullYear()}</p>
+            <p className="text-sm mt-1 text-[#CDD8D8]">Helping families stay connected with their loved ones' health</p>
           </div>
         </div>
       </footer>
