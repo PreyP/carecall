@@ -251,10 +251,10 @@ export default function FamilyPortal() {
                                 variant="outline"
                                 className={`flex items-center gap-1 ${
                                   assessment.adlRisk === "high" 
-                                    ? "border-red-500 text-red-600 bg-red-50" 
+                                    ? "bg-[#F44336] text-white border-0" 
                                     : assessment.adlRisk === "moderate" 
-                                      ? "border-amber-500 text-amber-600 bg-amber-50" 
-                                      : "border-green-500 text-green-600 bg-green-50"
+                                      ? "bg-[#FFC107] text-white border-0" 
+                                      : "bg-green-500 text-white border-0"
                                 }`}
                               >
                                 {assessment.adlRisk === "high" 
@@ -279,10 +279,10 @@ export default function FamilyPortal() {
                                 variant="outline"
                                 className={`flex items-center gap-1 ${
                                   assessment.iadlRisk === "high" 
-                                    ? "border-red-500 text-red-600 bg-red-50" 
+                                    ? "bg-[#F44336] text-white border-0" 
                                     : assessment.iadlRisk === "moderate" 
-                                      ? "border-amber-500 text-amber-600 bg-amber-50" 
-                                      : "border-green-500 text-green-600 bg-green-50"
+                                      ? "bg-[#FFC107] text-white border-0" 
+                                      : "bg-green-500 text-white border-0"
                                 }`}
                               >
                                 {assessment.iadlRisk === "high" 
@@ -307,10 +307,10 @@ export default function FamilyPortal() {
                                 variant="outline"
                                 className={`flex items-center gap-1 ${
                                   assessment.medicationAdherenceRisk === "high" 
-                                    ? "border-red-500 text-red-600 bg-red-50" 
+                                    ? "bg-[#F44336] text-white border-0" 
                                     : assessment.medicationAdherenceRisk === "moderate" 
-                                      ? "border-amber-500 text-amber-600 bg-amber-50" 
-                                      : "border-green-500 text-green-600 bg-green-50"
+                                      ? "bg-[#FFC107] text-white border-0" 
+                                      : "bg-green-500 text-white border-0"
                                 }`}
                               >
                                 {assessment.medicationAdherenceRisk === "high" 
@@ -357,10 +357,10 @@ export default function FamilyPortal() {
                                   variant="outline"
                                   className={`flex items-center gap-1 ${
                                     trend.risk === "high" 
-                                      ? "border-red-500 text-red-600 bg-red-50" 
+                                      ? "bg-[#F44336] text-white border-0" 
                                       : trend.risk === "moderate" 
-                                        ? "border-amber-500 text-amber-600 bg-amber-50" 
-                                        : "border-green-500 text-green-600 bg-green-50"
+                                        ? "bg-[#FFC107] text-white border-0" 
+                                        : "bg-green-500 text-white border-0"
                                   }`}
                                 >
                                   {trend.risk === "high" 
@@ -416,7 +416,7 @@ export default function FamilyPortal() {
                           <h3 className="font-medium text-blue-800">Next Brigid Check-in</h3>
                           <p className="text-blue-600 mt-1">Automated health assessment call</p>
                         </div>
-                        <Badge variant="outline" className="border-blue-500 text-blue-700">
+                        <Badge variant="outline" className="bg-blue-500 text-white border-0 font-semibold">
                           Scheduled
                         </Badge>
                       </div>

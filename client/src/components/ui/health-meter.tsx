@@ -41,13 +41,13 @@ export function HealthMeter({
   const getRiskBadgeClass = (risk: RiskLevel) => {
     switch (risk) {
       case "low":
-        return "bg-green-50 text-green-700 border border-green-300 font-semibold shadow-sm";
+        return "bg-green-500 text-white font-semibold shadow-sm";
       case "moderate":
-        return "bg-amber-50 text-amber-700 border border-amber-300 font-semibold shadow-sm";
+        return "bg-[#FFC107] text-white font-semibold shadow-sm";
       case "high":
-        return "bg-red-50 text-red-700 border border-red-300 font-semibold shadow-sm";
+        return "bg-[#F44336] text-white font-semibold shadow-sm";
       default:
-        return "bg-green-50 text-green-700 border border-green-300 font-semibold shadow-sm";
+        return "bg-green-500 text-white font-semibold shadow-sm";
     }
   };
 
