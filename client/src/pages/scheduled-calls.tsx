@@ -181,7 +181,7 @@ export default function ScheduledCalls() {
 
   if (patientsLoading) {
     return (
-      <div className="flex h-screen overflow-hidden">
+      <div className="flex h-screen overflow-hidden bg-darker-cream">
         <Sidebar />
         
         <div className="flex flex-col flex-1 w-0 overflow-hidden">
