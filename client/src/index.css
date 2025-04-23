@@ -4,9 +4,28 @@
 
 @layer base {
   :root {
-    --cream-bg: #f8f5e4;
-    --darker-cream-bg: #f2eed8;
-    --card-bg: #F0E8D8;
+    --primary: #0A2814;
+    --cream-bg: #f9f3e3;
+    --sage-green: #9CAE9C;
+    --light-sage: #B8C7BC;
+    --pale-sage: #CDD8D8;
+    --card-bg: #f9f3e3;
+    --button-primary: #0A2814;
+    --button-hover: #0F3A1E;
+    
+    --background: var(--cream-bg);
+    --foreground: var(--primary);
+    --muted: var(--light-sage);
+    --muted-foreground: var(--primary);
+    --popover: var(--cream-bg);
+    --popover-foreground: var(--primary);
+    --border: var(--sage-green);
+    --input: var(--light-sage);
+    --card: var(--card-bg);
+    --card-foreground: var(--primary);
+    --accent: var(--light-sage);
+    --accent-foreground: var(--primary);
+    --ring: var(--sage-green);
   }
   
   * {
@@ -15,18 +34,35 @@
 
   body {
     @apply font-sans antialiased text-foreground;
-    background-color: var(--darker-cream-bg);
+    background-color: var(--cream-bg);
   }
   
   .bg-cream {
     background-color: var(--cream-bg);
   }
   
-  .bg-darker-cream {
-    background-color: var(--darker-cream-bg);
+  .bg-sage-green {
+    background-color: var(--sage-green);
+  }
+  
+  .bg-light-sage {
+    background-color: var(--light-sage);
+  }
+  
+  .bg-pale-sage {
+    background-color: var(--pale-sage);
   }
   
   .bg-card {
     background-color: var(--card-bg);
+  }
+  
+  .text-primary {
+    color: var(--primary);
+  }
+  
+  /* Override white background buttons */
+  button.bg-white, .bg-white {
+    background-color: var(--cream-bg) !important;
   }
 }
