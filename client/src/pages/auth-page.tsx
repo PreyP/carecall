@@ -144,9 +144,9 @@ export default function AuthPage() {
   ];
 
   return (
-    <div className="flex min-h-screen bg-cream">
+    <div className="flex min-h-screen">
       {/* Left Side - Auth Forms */}
-      <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-cream">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
@@ -178,9 +178,9 @@ export default function AuthPage() {
           </div>
 
           <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as "login" | "register")}>
-            <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="login">Login</TabsTrigger>
-              <TabsTrigger value="register">Register</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 mb-6 bg-light-sage border border-sage-green">
+              <TabsTrigger value="login" className="data-[state=active]:bg-cream data-[state=active]:text-[#0A2814] data-[state=active]:font-medium">Login</TabsTrigger>
+              <TabsTrigger value="register" className="data-[state=active]:bg-cream data-[state=active]:text-[#0A2814] data-[state=active]:font-medium">Register</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login">
