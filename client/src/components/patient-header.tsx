@@ -57,7 +57,7 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
         <div className="px-4 py-5 sm:p-6">
           <div className="flex items-center justify-between flex-wrap sm:flex-nowrap">
             <div className="flex items-center">
-              <div className="flex-shrink-0 h-16 w-16 rounded-full bg-[#42A5F5] flex items-center justify-center text-white text-2xl font-bold">
+              <div className="flex-shrink-0 h-16 w-16 rounded-full bg-[#0A2814] flex items-center justify-center text-white text-2xl font-bold">
                 <span>{patient.initials}</span>
               </div>
               <div className="ml-4">
