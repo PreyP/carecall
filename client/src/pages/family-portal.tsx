@@ -137,7 +137,7 @@ export default function FamilyPortal() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-darker-cream">
       {/* Header */}
       <header className="bg-primary text-white p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
