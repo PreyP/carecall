@@ -132,10 +132,19 @@ export default function Home() {
                                       {patient.initials}
                                     </div>
                                     {patient.hasRedAlert && (
-                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#F44336] border-2 border-white"></span>
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#F44336] border-2 border-white flex items-center justify-center">
+                                        <span className="text-white text-[8px] font-semibold">ver</span>
+                                      </span>
                                     )}
                                     {!patient.hasRedAlert && patient.hasYellowAlert && (
-                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FFC107] border-2 border-white"></span>
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FFC107] border-2 border-white flex items-center justify-center">
+                                        <span className="text-white text-[8px] font-semibold">ver</span>
+                                      </span>
+                                    )}
+                                    {!patient.hasRedAlert && !patient.hasYellowAlert && (
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-white flex items-center justify-center">
+                                        <span className="text-white text-[8px] font-semibold">ver</span>
+                                      </span>
                                     )}
                                   </div>
                                   <div>

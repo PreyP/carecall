@@ -137,12 +137,17 @@ export function Sidebar() {
                     </div>
                     {patient.hasRedAlert && (
                       <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 border border-white flex items-center justify-center">
-                        <ShieldAlert className="h-1.5 w-1.5 text-white" />
+                        <span className="text-white text-[6px] font-semibold">ver</span>
                       </span>
                     )}
                     {!patient.hasRedAlert && patient.hasYellowAlert && (
                       <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-amber-500 border border-white flex items-center justify-center">
-                        <AlertCircle className="h-1.5 w-1.5 text-white" />
+                        <span className="text-white text-[6px] font-semibold">ver</span>
+                      </span>
+                    )}
+                    {!patient.hasRedAlert && !patient.hasYellowAlert && (
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 border border-white flex items-center justify-center">
+                        <span className="text-white text-[6px] font-semibold">ver</span>
                       </span>
                     )}
                   </div>
