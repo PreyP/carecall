@@ -661,51 +661,51 @@ export class MemStorage implements IStorage {
           id: 1,
           speaker: "AI",
           speakerName: "Brigid AI",
-          text: "Good morning, Margaret. This is Brigid checking in. How are you feeling today?"
+          text: "Good morning, Margaret. This is Brigid checking in. How are you feeling today after your hip surgery?"
         },
         {
           id: 2,
           speaker: "Patient",
           speakerName: "Margaret Smith",
-          text: "Oh, hello there. I'm feeling alright today, just a bit tired after not sleeping well last night."
+          text: "Oh, hello there. I'm feeling a bit better each day, but I still have some pain at the incision site. The doctor said that's normal though."
         },
         {
           id: 3,
           speaker: "AI",
           speakerName: "Brigid AI",
-          text: "I'm sorry to hear you didn't sleep well. Can you tell me more about your sleep issues?"
+          text: "I'm glad to hear you're making progress. Have you been keeping up with your pain medication schedule?"
         },
         {
           id: 4,
           speaker: "Patient",
           speakerName: "Margaret Smith",
-          text: "I kept waking up with pain in my hip. It's been bothering me for about a week now. And then I had to get up several times to use the bathroom.",
+          text: "I kept waking up with pain in my hip last night. I think I waited too long between doses. And then I had to get up several times to use the bathroom, which was quite difficult.",
           highlightType: "yellow"
         },
         {
           id: 5,
           speaker: "AI",
           speakerName: "Brigid AI",
-          text: "Thank you for sharing that. Have you been able to prepare your meals and take your medications today?"
+          text: "Thank you for sharing that. It's important to stay on schedule with your pain medication. Have you been able to prepare your meals and take all your medications today?"
         },
         {
           id: 6,
           speaker: "Patient",
           speakerName: "Margaret Smith",
-          text: "I had a piece of toast for breakfast. My son Thomas brought me some groceries yesterday, so I have food in the house. And yes, I took my morning pills.",
+          text: "I had a piece of toast for breakfast. My son Thomas brought me some groceries yesterday, so I have food in the house. And yes, I took my morning pills, including the blood thinner the doctor prescribed after surgery.",
           highlightType: null
         },
         {
           id: 7,
           speaker: "AI",
           speakerName: "Brigid AI",
-          text: "That's good to hear. Have you been able to move around your home today?"
+          text: "That's good to hear. How have your physical therapy exercises been going? Have you been able to do them as recommended?"
         },
         {
           id: 8,
           speaker: "Patient",
           speakerName: "Margaret Smith",
-          text: "Well, I'm using my walker because of my hip pain. I'm afraid I might fall if I don't use it. I had to cancel my weekly bridge game with friends because I didn't feel up to going out.",
+          text: "I'm trying to do the exercises the physical therapist showed me, but they hurt quite a bit. I'm using my walker like they told me to, but I haven't been able to put full weight on my leg yet. I had to cancel my weekly bridge game with friends because I didn't feel up to going out.",
           highlightType: "yellow"
         }
       ],
@@ -739,7 +739,7 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Patient reports persistent hip pain affecting mobility and sleep",
+        text: "Post-hip surgery patient experiencing pain affecting sleep and physical therapy adherence",
         risk: "moderate",
         createdAt: new Date()
       },
@@ -747,7 +747,7 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Increased dependency on mobility aids (walker) due to fear of falling",
+        text: "Possible pain medication timing issues requiring schedule adjustment",
         risk: "moderate",
         createdAt: new Date()
       },
@@ -755,15 +755,15 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Social isolation risk due to canceled activities",
-        risk: "moderate",
+        text: "Difficulty with nighttime toileting presents increased fall risk",
+        risk: "high",
         createdAt: new Date()
       },
       {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Good family support system with son providing assistance",
+        text: "Good family support system with son providing assistance with shopping and meal preparation",
         risk: "low",
         createdAt: new Date()
       },
@@ -771,7 +771,7 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Adequate medication adherence and nutrition",
+        text: "Adherence to post-surgical anticoagulation therapy",
         risk: "low",
         createdAt: new Date()
       }
@@ -787,7 +787,7 @@ export class MemStorage implements IStorage {
         id: this.currentId.healthTrends++,
         patientId: patient2.id,
         date: "Today - Apr 17, 2023",
-        summary: "Reports hip pain affecting mobility and sleep quality. Using walker consistently. Canceled social activities.",
+        summary: "Post-hip surgery recovery with pain affecting therapy adherence and sleep. Fall risk during nighttime toileting. Using walker with limited weight-bearing.",
         risk: "moderate",
         createdAt: new Date()
       },
@@ -795,16 +795,16 @@ export class MemStorage implements IStorage {
         id: this.currentId.healthTrends++,
         patientId: patient2.id,
         date: "Apr 10, 2023",
-        summary: "Mentioned occasional hip discomfort but able to attend social activities. Good medication adherence.",
-        risk: "low",
+        summary: "Hip surgery performed on April 8. Patient discharged to home with family support. Initial post-op recovery as expected.",
+        risk: "moderate",
         createdAt: new Date(new Date().setDate(new Date().getDate() - 7))
       },
       {
         id: this.currentId.healthTrends++,
         patientId: patient2.id,
         date: "Apr 3, 2023",
-        summary: "No significant health concerns. Participating in regular activities. Eating well and taking medications as prescribed.",
-        risk: "low",
+        summary: "Pre-surgical visit completed. Significant hip pain reported. Surgery scheduled for April 8th. Pre-op instructions reviewed.",
+        risk: "moderate",
         createdAt: new Date(new Date().setDate(new Date().getDate() - 14))
       }
     ];
@@ -818,22 +818,23 @@ export class MemStorage implements IStorage {
       {
         id: this.currentId.recommendedActions++,
         patientId: patient2.id,
-        category: "Follow-up Recommendations",
+        category: "Immediate Attention",
         actions: [
-          "Schedule primary care appointment to evaluate hip pain",
-          "Consider physical therapy assessment for mobility and fall prevention",
-          "Encourage maintaining social connections via phone or virtual means"
+          "Schedule post-op follow-up to evaluate pain management regimen",
+          "Consider bedside commode to reduce nighttime fall risk",
+          "Review proper pain medication timing with patient and caregiver"
         ],
         createdAt: new Date()
       },
       {
         id: this.currentId.recommendedActions++,
         patientId: patient2.id,
-        category: "Monitoring Suggestions",
+        category: "Rehabilitation Plan",
         actions: [
-          "Monitor sleep quality and pain levels",
-          "Assess need for additional home safety modifications",
-          "Continue Brigid check-ins twice weekly"
+          "Verify physical therapy adherence despite pain",
+          "Assess home environment for post-surgical recovery safety",
+          "Continue Brigid check-ins daily for the next week",
+          "Encourage appropriate weight-bearing as prescribed by surgeon"
         ],
         createdAt: new Date()
       }
@@ -849,16 +850,24 @@ export class MemStorage implements IStorage {
         id: this.currentId.alerts++,
         patientId: patient2.id,
         type: "yellow",
-        category: "Mobility: Moderate Risk",
-        description: "Increased dependency on walker and hip pain affecting daily activities",
+        category: "Pain Management: Moderate Risk",
+        description: "Post-surgical pain affecting sleep and physical therapy adherence",
         createdAt: new Date()
       },
       {
         id: this.currentId.alerts++,
         patientId: patient2.id,
         type: "yellow",
-        category: "Social Isolation: Moderate Risk",
-        description: "Cancellation of regular social activities due to mobility concerns",
+        category: "Mobility: Moderate Risk",
+        description: "Limited weight-bearing with walker per surgical protocol",
+        createdAt: new Date()
+      },
+      {
+        id: this.currentId.alerts++,
+        patientId: patient2.id,
+        type: "red",
+        category: "Fall Risk: High Risk",
+        description: "Nighttime toileting difficulties creating significant fall hazard during recovery",
         createdAt: new Date()
       }
     ];
@@ -1059,7 +1068,7 @@ export class MemStorage implements IStorage {
     this.patients.set(updatedPatient1.id, updatedPatient1);
 
     let updatedPatient2 = { ...patient2 };
-    updatedPatient2.hasRedAlert = false;
+    updatedPatient2.hasRedAlert = true;
     updatedPatient2.hasYellowAlert = true;
     updatedPatient2.lastCallDate = "Apr 17, 2023";
     this.patients.set(updatedPatient2.id, updatedPatient2);
