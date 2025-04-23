@@ -14,7 +14,7 @@ export function HealthTrends({ patientId }: HealthTrendsProps) {
   if (isLoading) {
     return (
       <div className="mt-8">
-        <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+        <div className="bg-light-sage shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="animate-pulse space-y-6">
               <div className="h-5 bg-[#E6DFD0] rounded w-1/3"></div>
@@ -38,7 +38,7 @@ export function HealthTrends({ patientId }: HealthTrendsProps) {
   if (!trends || trends.length === 0) {
     return (
       <div className="mt-8">
-        <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+        <div className="bg-light-sage shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="flex justify-center items-center h-48 flex-col">
               <span className="material-icons text-gray-400 text-4xl mb-2">timeline</span>
@@ -69,7 +69,7 @@ export function HealthTrends({ patientId }: HealthTrendsProps) {
 
   return (
     <div className="mt-8">
-      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+      <div className="bg-light-sage shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <h2 className="text-lg font-medium text-gray-900 mb-4">Health Trends</h2>
           
@@ -78,14 +78,13 @@ export function HealthTrends({ patientId }: HealthTrendsProps) {
               <div className="flex space-x-4">
                 {/* Timeline indicators */}
                 <div className="flex-shrink-0 w-8">
-                  <div className={`relative flex items-center justify-center h-8 w-8 rounded-full ${getRiskColor(trend.risk)} border-4 border-white`}>
-                    <span className="material-icons text-white text-sm">event</span>
+                  <div className={`relative flex items-center justify-center h-8 w-8 rounded-full ${getRiskColor(trend.risk)} border-4 border-cream`}>
                   </div>
                 </div>
                 
                 {/* Timeline content */}
                 <div className="min-w-0 flex-1 py-0">
-                  <div className="bg-[#F0E8D8] rounded-lg p-3">
+                  <div className="bg-light-sage rounded-lg p-3">
                     <div className="flex justify-between items-start">
                       <p className="text-sm font-medium">{trend.date}</p>
                       <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${getRiskColor(trend.risk)} ${getRiskTextColor(trend.risk)}`}>
