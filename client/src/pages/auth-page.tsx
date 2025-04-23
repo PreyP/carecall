@@ -463,28 +463,28 @@ export default function AuthPage() {
 
       {/* Right Side - Hero Section */}
       <div className="hidden lg:flex flex-1 bg-[#0A2814] items-center justify-center p-8">
-        <div className="max-w-lg text-cream">
-          <h1 className="text-4xl font-bold mb-4">
+        <div className="max-w-lg text-[#f9f3e3]">
+          <h1 className="text-4xl font-bold mb-4 text-[#f9f3e3]">
             AI-Powered Early Detection for Senior Health
           </h1>
-          <p className="text-xl mb-6">
+          <p className="text-xl mb-6 text-[#f9f3e3]">
             Brigid uses AI-powered phone calls to detect early warning signs of health emergencies in senior patients.
           </p>
-          <ul className="space-y-3">
+          <ul className="space-y-3 text-[#f9f3e3]">
             <li className="flex items-start">
-              <svg className="h-6 w-6 text-cream mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6 text-[#f9f3e3] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span>Risk-based alerts for early intervention</span>
             </li>
             <li className="flex items-start">
-              <svg className="h-6 w-6 text-cream mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6 text-[#f9f3e3] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span>Comprehensive health assessments aligned with clinical frameworks</span>
             </li>
             <li className="flex items-start">
-              <svg className="h-6 w-6 text-cream mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6 text-[#f9f3e3] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span>Family portal access for monitoring loved ones</span>
