@@ -19,7 +19,7 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
   if (isLoading) {
     return (
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+        <div className="bg-light-sage shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="animate-pulse flex space-x-4">
               <div className="rounded-full bg-[#E6DFD0] h-16 w-16"></div>
@@ -39,7 +39,7 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
   if (!patient) {
     return (
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+        <div className="bg-light-sage shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="flex items-center justify-center">
               <CircleAlert className="h-5 w-5 text-red-500 mr-2" />
@@ -53,7 +53,7 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
-      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+      <div className="bg-light-sage shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="flex items-center justify-between flex-wrap sm:flex-nowrap">
             <div className="flex items-center">
@@ -72,11 +72,11 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
             </div>
             
             <div className="flex mt-4 sm:mt-0">
-              <button type="button" className="mr-3 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-[#F0E8D8] hover:bg-[#F0E8D8] focus:outline-none">
+              <button type="button" className="mr-3 inline-flex items-center px-4 py-2 border border-sage-green rounded-md shadow-sm text-sm font-medium text-gray-700 bg-cream hover:bg-cream focus:outline-none">
                 <Phone className="h-4 w-4 mr-2" />
                 Call Patient
               </button>
-              <button type="button" className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-[#1565C0] focus:outline-none">
+              <button type="button" className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0A2814] hover:bg-[#0A2814]/80 focus:outline-none">
                 <FileEdit className="h-4 w-4 mr-2" />
                 Add Note
               </button>
