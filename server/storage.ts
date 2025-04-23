@@ -420,8 +420,8 @@ export class MemStorage implements IStorage {
         {
           id: 1,
           speaker: "AI",
-          speakerName: "CareCall AI",
-          text: "Good morning, John. This is CareCall checking in. How are you feeling today?"
+          speakerName: "Brigid AI",
+          text: "Good morning, John. This is Brigid checking in. How are you feeling today?"
         },
         {
           id: 2,

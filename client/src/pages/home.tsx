@@ -33,7 +33,7 @@ export default function Home() {
             <div className="px-4 sm:px-6 lg:px-8">
               <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
-                  <h1 className="text-2xl font-bold text-gray-900">CareCall Dashboard</h1>
+                  <h1 className="text-2xl font-bold text-gray-900">Brigid Dashboard</h1>
                   <p className="mt-2 text-sm text-gray-500">
                     AI-powered early detection system for senior health monitoring through phone calls.
                   </p>

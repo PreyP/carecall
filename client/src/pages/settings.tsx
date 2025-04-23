@@ -628,7 +628,7 @@ export default function Settings() {
                                     Share usage analytics
                                   </label>
                                   <p className="text-gray-500">
-                                    Help improve CareCall by sharing anonymous usage data
+                                    Help improve Brigid by sharing anonymous usage data
                                   </p>
                                 </div>
                               </div>

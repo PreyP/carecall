@@ -25,7 +25,7 @@ export function Sidebar() {
             <Phone className="h-5 w-5" />
             <HeartPulse className="h-5 w-5 ml-1" />
           </div>
-          <h1 className="text-xl font-bold">CareCall</h1>
+          <h1 className="text-xl font-bold">Brigid</h1>
         </div>
         
         {/* Main navigation */}

@@ -413,7 +413,7 @@ export default function FamilyPortal() {
                     <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="font-medium text-blue-800">Next CareCall Check-in</h3>
+                          <h3 className="font-medium text-blue-800">Next Brigid Check-in</h3>
                           <p className="text-blue-600 mt-1">Automated health assessment call</p>
                         </div>
                         <Badge variant="outline" className="border-blue-500 text-blue-700">
@@ -583,7 +583,7 @@ export default function FamilyPortal() {
       <footer className="bg-gray-100 py-6 border-t">
         <div className="container mx-auto px-4">
           <div className="text-center text-gray-600">
-            <p>CareCall Family Portal &copy; {new Date().getFullYear()}</p>
+            <p>Brigid Family Portal &copy; {new Date().getFullYear()}</p>
             <p className="text-sm mt-1">Helping families stay connected with their loved ones' health</p>
           </div>
         </div>
