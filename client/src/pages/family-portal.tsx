@@ -139,11 +139,11 @@ export default function FamilyPortal() {
   return (
     <div className="min-h-screen bg-darker-cream">
       {/* Header */}
-      <header className="bg-primary text-white p-4 shadow-md">
+      <header className="bg-[#F9F3E3] text-[#0A2814] p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold">Brigid Family Portal</h1>
-            <p className="text-sm opacity-80">Monitoring your loved one's health</p>
+            <p className="text-sm">Monitoring your loved one's health</p>
           </div>
           <div className="flex items-center gap-4">
             {user && (
@@ -197,19 +197,19 @@ export default function FamilyPortal() {
                       <span>{patient.age} years old</span>
                     </div>
                     {patient.hasRedAlert && (
-                      <Badge variant="outline" className="flex items-center justify-center border-red-500 text-red-600 bg-red-50">
+                      <Badge variant="outline" className="flex items-center justify-center bg-[#F44336] text-white border-0">
                         <ShieldAlert className="h-4 w-4 mr-1" />
                         Needs attention
                       </Badge>
                     )}
                     {patient.hasYellowAlert && !patient.hasRedAlert && (
-                      <Badge variant="outline" className="flex items-center justify-center border-amber-500 text-amber-600 bg-amber-50">
+                      <Badge variant="outline" className="flex items-center justify-center bg-[#FFC107] text-white border-0">
                         <AlertCircle className="h-4 w-4 mr-1" />
                         Some concerns
                       </Badge>
                     )}
                     {!patient.hasYellowAlert && !patient.hasRedAlert && (
-                      <Badge variant="outline" className="flex items-center justify-center border-green-500 text-green-600 bg-green-50">
+                      <Badge variant="outline" className="flex items-center justify-center bg-green-500 text-white border-0">
                         <CheckCircle className="h-4 w-4 mr-1" />
                         Doing well
                       </Badge>
@@ -226,9 +226,9 @@ export default function FamilyPortal() {
             </h2>
             <section className="mb-8">
               <Tabs defaultValue="status" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-6">
-                  <TabsTrigger value="status">Health Status</TabsTrigger>
-                  <TabsTrigger value="trends">Recent Changes</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2 mb-6 bg-[#B8C7BC] p-1 border border-[#9CAE9C]">
+                  <TabsTrigger value="status" className="text-[#0A2814] data-[state=active]:bg-[#F9F3E3] data-[state=active]:text-[#0A2814] data-[state=active]:font-semibold">Health Status</TabsTrigger>
+                  <TabsTrigger value="trends" className="text-[#0A2814] data-[state=active]:bg-[#F9F3E3] data-[state=active]:text-[#0A2814] data-[state=active]:font-semibold">Recent Changes</TabsTrigger>
                 </TabsList>
                 <TabsContent value="status">
                   <Card>
@@ -434,7 +434,7 @@ export default function FamilyPortal() {
                           <h3 className="font-medium">Dr. Sarah Chen - Primary Care Visit</h3>
                           <p className="text-gray-600 mt-1">Annual wellness check-up</p>
                         </div>
-                        <Badge variant="outline" className="border-purple-500 text-purple-700">
+                        <Badge variant="outline" className="bg-purple-500 text-white border-0 font-semibold">
                           In 2 weeks
                         </Badge>
                       </div>
@@ -456,7 +456,7 @@ export default function FamilyPortal() {
                           <h3 className="font-medium">Medication Refill Reminder</h3>
                           <p className="text-gray-600 mt-1">Blood pressure medication</p>
                         </div>
-                        <Badge variant="outline" className="border-amber-500 text-amber-700">
+                        <Badge variant="outline" className="bg-[#FFC107] text-white border-0 font-semibold">
                           In 5 days
                         </Badge>
                       </div>
