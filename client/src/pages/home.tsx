@@ -5,7 +5,7 @@ import { Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
 import { useAuth } from "@/hooks/use-auth";
-import { HeartPulse, AlertTriangle, Phone } from "lucide-react";
+import { HeartPulse, AlertTriangle, Phone, ChevronRight, Plus } from "lucide-react";
 
 export default function Home() {
   const { user } = useAuth();
@@ -43,7 +43,7 @@ export default function Home() {
                     type="button"
                     className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-[#1565C0]"
                   >
-                    <span className="material-icons text-sm mr-2">add</span>
+                    <Plus className="h-4 w-4 mr-2" />
                     New Patient
                   </button>
                 </div>
@@ -148,7 +148,7 @@ export default function Home() {
                                     Last Call: {patient.lastCallDate}
                                   </p>
                                   <div className="ml-5 flex-shrink-0">
-                                    <span className="material-icons text-gray-400">chevron_right</span>
+                                    <ChevronRight className="h-5 w-5 text-gray-400" />
                                   </div>
                                 </div>
                               </div>
