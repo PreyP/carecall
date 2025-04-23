@@ -266,7 +266,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                         </span>
                       ) : (
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-green-200 bg-green-50 text-green-700">
-                          <span className="flex items-center justify-center bg-green-500 text-white rounded-full h-3.5 w-3.5 mr-1 text-[8px] font-semibold">ver</span>
+                          <span className="flex items-center justify-center bg-green-500 text-white rounded-full h-3.5 w-3.5 mr-1"></span>
                           Low Risk
                         </span>
                       )}
