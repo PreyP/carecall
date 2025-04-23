@@ -30,7 +30,7 @@ export function TopBar() {
       <div className="absolute top-3 right-4">
         <DropdownMenu>
           <DropdownMenuTrigger className="flex items-center">
-            <Avatar className="h-8 w-8 bg-primary text-primary-foreground">
+            <Avatar className="h-8 w-8 bg-[hsl(160,100%,10%)] text-white">
               <AvatarFallback>
                 {user?.fullName?.split(' ')
                   .map(name => name[0])

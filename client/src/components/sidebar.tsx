@@ -20,7 +20,7 @@ export function Sidebar() {
     <div className="hidden md:flex md:flex-shrink-0">
       <div className="flex flex-col w-64 bg-white border-r border-gray-200">
         {/* Logo and app title */}
-        <div className="flex items-center h-16 px-4 border-b border-gray-200 bg-primary text-white">
+        <div className="flex items-center h-16 px-4 border-b border-gray-200 bg-[hsl(160,100%,10%)] text-white">
           <div className="flex items-center mr-2">
             <Phone className="h-5 w-5" />
             <HeartPulse className="h-5 w-5 ml-1" />

@@ -41,7 +41,7 @@ export default function Home() {
                 <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
                   <button
                     type="button"
-                    className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-[#1565C0]"
+                    className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[hsl(160,100%,10%)] hover:bg-[hsl(160,100%,15%)]"
                   >
                     <Plus className="h-4 w-4 mr-2" />
                     New Patient
@@ -128,7 +128,7 @@ export default function Home() {
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center">
                                   <div className="relative mr-4">
-                                    <div className="h-10 w-10 rounded-full bg-[#42A5F5] flex items-center justify-center text-white text-lg">
+                                    <div className="h-10 w-10 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white text-lg">
                                       {patient.initials}
                                     </div>
                                     {patient.hasRedAlert && (
