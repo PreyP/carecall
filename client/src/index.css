@@ -61,6 +61,18 @@
     color: var(--primary);
   }
   
+  .border-sage-green {
+    border-color: var(--sage-green);
+  }
+  
+  .border-light-sage {
+    border-color: var(--light-sage);
+  }
+  
+  .border-cream {
+    border-color: var(--cream-bg);
+  }
+  
   /* Override white background buttons */
   button.bg-white, .bg-white {
     background-color: var(--cream-bg) !important;

@@ -128,23 +128,17 @@ export default function Home() {
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center">
                                   <div className="relative mr-4">
-                                    <div className="h-10 w-10 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white text-lg">
+                                    <div className="h-10 w-10 rounded-full bg-[#0A2814] flex items-center justify-center text-white text-lg">
                                       {patient.initials}
                                     </div>
                                     {patient.hasRedAlert && (
-                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#F44336] border-2 border-white flex items-center justify-center">
-                                        <span className="text-white text-[8px] font-semibold">ver</span>
-                                      </span>
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#F44336] border-2 border-cream"></span>
                                     )}
                                     {!patient.hasRedAlert && patient.hasYellowAlert && (
-                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FFC107] border-2 border-white flex items-center justify-center">
-                                        <span className="text-white text-[8px] font-semibold">ver</span>
-                                      </span>
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FFC107] border-2 border-cream"></span>
                                     )}
                                     {!patient.hasRedAlert && !patient.hasYellowAlert && (
-                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-white flex items-center justify-center">
-                                        <span className="text-white text-[8px] font-semibold">ver</span>
-                                      </span>
+                                      <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-cream"></span>
                                     )}
                                   </div>
                                   <div>

@@ -462,7 +462,7 @@ export default function AuthPage() {
       </div>
 
       {/* Right Side - Hero Section */}
-      <div className="hidden lg:flex flex-1 bg-[hsl(160,100%,10%)] items-center justify-center p-8">
+      <div className="hidden lg:flex flex-1 bg-[#0A2814] items-center justify-center p-8">
         <div className="max-w-lg text-white">
           <h1 className="text-4xl font-bold mb-4">
             AI-Powered Early Detection for Senior Health
