@@ -91,8 +91,8 @@ export function PatientHeader({ patientId }: PatientHeaderProps) {
                   key={index} 
                   className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
                     alert.type === 'red' 
-                      ? 'bg-[#F44336] bg-opacity-10 text-[#F44336] border border-[#F44336]' 
-                      : 'bg-[#FFC107] bg-opacity-10 text-[#FFC107] border border-[#FFC107]'
+                      ? 'bg-[#F44336] bg-opacity-20 text-[#F44336] border border-[#F44336] font-semibold shadow-sm' 
+                      : 'bg-[#FFC107] bg-opacity-20 text-[#FFC107] border border-[#FFC107] font-semibold shadow-sm'
                   }`}
                 >
                   {alert.type === 'red' ? 
