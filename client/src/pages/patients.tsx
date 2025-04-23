@@ -25,7 +25,7 @@ export default function Patients() {
                 <div className="sm:flex-auto">
                   <h1 className="text-2xl font-bold text-gray-900">Patients</h1>
                   <p className="mt-2 text-sm text-gray-500">
-                    View and manage all patients enrolled in the CareCall program.
+                    View and manage all patients enrolled in the Brigid program.
                   </p>
                 </div>
               </div>
