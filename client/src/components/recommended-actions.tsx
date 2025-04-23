@@ -15,7 +15,7 @@ export function RecommendedActions({ patientId }: RecommendedActionsProps) {
   if (isLoading) {
     return (
       <div className="mt-8">
-        <div className="bg-primary bg-opacity-5 border border-primary shadow rounded-lg overflow-hidden">
+        <div className="bg-light-sage border border-sage-green shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="animate-pulse space-y-4">
               <div className="flex items-center">
@@ -48,10 +48,10 @@ export function RecommendedActions({ patientId }: RecommendedActionsProps) {
   if (!actions || actions.length === 0) {
     return (
       <div className="mt-8">
-        <div className="bg-primary bg-opacity-5 border border-primary shadow rounded-lg overflow-hidden">
+        <div className="bg-light-sage border border-sage-green shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="flex justify-center items-center h-48 flex-col">
-              <Lightbulb className="h-10 w-10 text-primary mb-2" />
+              <Lightbulb className="h-10 w-10 text-[#0A2814] mb-2" />
               <p className="text-gray-500">No recommended actions available</p>
             </div>
           </div>
@@ -62,11 +62,11 @@ export function RecommendedActions({ patientId }: RecommendedActionsProps) {
 
   return (
     <div className="mt-8">
-      <div className="bg-primary bg-opacity-5 border border-primary shadow rounded-lg overflow-hidden">
+      <div className="bg-light-sage border border-sage-green shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="flex items-center">
-            <span className="flex-shrink-0 h-10 w-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
-              <Lightbulb className="h-5 w-5 text-primary" />
+            <span className="flex-shrink-0 h-10 w-10 rounded-full bg-sage-green bg-opacity-30 flex items-center justify-center">
+              <Lightbulb className="h-5 w-5 text-[#0A2814]" />
             </span>
             <h2 className="ml-4 text-lg font-medium text-gray-900">Recommended Actions</h2>
           </div>
