@@ -132,7 +132,7 @@ export function Sidebar() {
                   href={`/dashboard/${patient.id}`}
                   className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-gray-100 group">
                   <div className="relative mr-3">
-                    <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center text-white">
+                    <div className="w-8 h-8 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
                       <span>{patient.initials}</span>
                     </div>
                     {patient.hasRedAlert && (
@@ -163,7 +163,7 @@ export function Sidebar() {
         
         {/* User profile */}
         <div className="flex items-center p-4 border-t border-gray-200">
-          <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-white">
+          <div className="w-8 h-8 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
             <UserCircle className="h-5 w-5" />
           </div>
           <div className="ml-3">

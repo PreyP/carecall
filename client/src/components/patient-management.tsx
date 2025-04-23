@@ -97,7 +97,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
           <h2 className="text-lg font-medium text-gray-900">Patient Management</h2>
           <button
             onClick={() => setShowAddPatient(true)}
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark"
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[hsl(160,100%,10%)] hover:bg-[hsl(160,100%,15%)]"
           >
             <Plus className="h-4 w-4 mr-2" />
             Add New Patient
@@ -225,7 +225,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10 relative">
-                          <div className="h-10 w-10 rounded-full bg-primary-light flex items-center justify-center text-white">
+                          <div className="h-10 w-10 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
                             {patient.initials}
                           </div>
                           {patient.hasRedAlert && (
