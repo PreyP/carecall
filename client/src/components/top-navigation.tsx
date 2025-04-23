@@ -41,7 +41,7 @@ export function TopNavigation({
           </Button>
         )}
         
-        <div className="hidden sm:flex items-center bg-white/70 rounded-md px-3 py-2">
+        <div className="hidden sm:flex items-center bg-[#F0E8D8] rounded-md px-3 py-2">
           <Search className="h-4 w-4 text-gray-500 mr-2" />
           <span className="text-gray-500 text-sm">search</span>
         </div>
