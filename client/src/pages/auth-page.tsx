@@ -144,13 +144,13 @@ export default function AuthPage() {
   ];
 
   return (
-    <div className="flex min-h-screen bg-[#f8f5e4]">
+    <div className="flex min-h-screen bg-darker-cream">
       {/* Left Side - Auth Forms */}
       <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <img src="/assets/brigid-logo.png" alt="Brigid Logo" className="h-24" />
+              <img src="/assets/new/brigid-logo.svg" alt="Brigid Logo" className="h-32" />
             </div>
             <p className="text-gray-600">
               {portalType === "physician" 

@@ -18,11 +18,11 @@ export function Sidebar() {
 
   return (
     <div className="hidden md:flex md:flex-shrink-0">
-      <div className="flex flex-col w-64 bg-[#f8f5e4] border-r border-gray-200">
+      <div className="flex flex-col w-64 bg-cream border-r border-gray-200">
         {/* Logo and app title */}
         <div className="flex items-center h-16 px-4 border-b border-gray-200 bg-[hsl(160,100%,10%)] text-white">
-          <div className="flex items-center">
-            <img src="/assets/brigid-logo.png" alt="Brigid Logo" className="h-10 mr-2" />
+          <div className="flex items-center justify-center w-full">
+            <img src="/assets/new/brigid-logo.svg" alt="Brigid Logo" className="h-10 my-2" />
           </div>
         </div>
         

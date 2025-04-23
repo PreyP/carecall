@@ -5,6 +5,8 @@
 @layer base {
   :root {
     --cream-bg: #f8f5e4;
+    --darker-cream-bg: #f2eed8;
+    --card-bg: #ffffff;
   }
   
   * {
@@ -13,6 +15,18 @@
 
   body {
     @apply font-sans antialiased text-foreground;
+    background-color: var(--darker-cream-bg);
+  }
+  
+  .bg-cream {
     background-color: var(--cream-bg);
+  }
+  
+  .bg-darker-cream {
+    background-color: var(--darker-cream-bg);
+  }
+  
+  .bg-card {
+    background-color: var(--card-bg);
   }
 }

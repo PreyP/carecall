@@ -26,7 +26,7 @@ export function TopNavigation({
   const isMobile = useIsMobile();
 
   return (
-    <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 bg-[#f8f5e4]">
+    <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 bg-cream">
       {/* Left section - Menu (mobile only) and Search */}
       <div className="flex items-center space-x-4">
         {isMobile && (
