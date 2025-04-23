@@ -22,7 +22,7 @@ export default function Home() {
   }, [user, setLocation]);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-darker-cream">
+    <div className="flex h-screen overflow-hidden bg-cream">
       <Sidebar />
       
       <div className="flex flex-col flex-1 w-0 overflow-hidden">
@@ -41,7 +41,7 @@ export default function Home() {
                 <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
                   <button
                     type="button"
-                    className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[hsl(160,100%,10%)] hover:bg-[hsl(160,100%,15%)]"
+                    className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0A2814] hover:bg-[#0F3A1E]"
                   >
                     <Plus className="h-4 w-4 mr-2" />
                     New Patient
@@ -55,7 +55,7 @@ export default function Home() {
                 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {/* Red Alert Card */}
-                  <div className="border-l-4 border-[#F44336] bg-[#F0E8D8] shadow rounded-md p-4 hover:shadow-md transition-shadow">
+                  <div className="border-l-4 border-[#F44336] bg-light-sage shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
                         <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#F44336] bg-opacity-10 text-[#F44336]">
@@ -71,7 +71,7 @@ export default function Home() {
                   </div>
                   
                   {/* Yellow Alert Card */}
-                  <div className="border-l-4 border-[#FFC107] bg-[#F0E8D8] shadow rounded-md p-4 hover:shadow-md transition-shadow">
+                  <div className="border-l-4 border-[#FFC107] bg-light-sage shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
                         <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#FFC107] bg-opacity-10 text-[#FFC107]">
@@ -87,7 +87,7 @@ export default function Home() {
                   </div>
                   
                   {/* Calls Card */}
-                  <div className="border-l-4 border-[#1976D2] bg-[#F0E8D8] shadow rounded-md p-4 hover:shadow-md transition-shadow">
+                  <div className="border-l-4 border-[#1976D2] bg-light-sage shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
                         <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#1976D2] bg-opacity-10 text-[#1976D2]">
@@ -108,7 +108,7 @@ export default function Home() {
               <div className="mt-8">
                 <h2 className="text-lg font-medium text-gray-900 mb-4">Patient Overview</h2>
                 
-                <div className="bg-[#F0E8D8] shadow overflow-hidden sm:rounded-md">
+                <div className="bg-light-sage shadow overflow-hidden sm:rounded-md">
                   <ul className="divide-y divide-gray-200">
                     {isLoading ? (
                       <div className="p-6 flex justify-center">

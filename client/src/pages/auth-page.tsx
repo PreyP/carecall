@@ -184,7 +184,7 @@ export default function AuthPage() {
             </TabsList>
 
             <TabsContent value="login">
-              <Card>
+              <Card className="bg-light-sage border-sage-green">
                 <CardHeader>
                   <CardTitle>Login to {portalType === "physician" ? "Physician" : "Family"} Portal</CardTitle>
                   <CardDescription>
@@ -248,7 +248,7 @@ export default function AuthPage() {
             </TabsContent>
 
             <TabsContent value="register">
-              <Card>
+              <Card className="bg-light-sage border-sage-green">
                 <CardHeader>
                   <CardTitle>Create an Account</CardTitle>
                   <CardDescription>
