@@ -383,7 +383,7 @@ export class MemStorage implements IStorage {
       primaryDoctorId: doctorUser.id,
       hasRedAlert: false,
       hasYellowAlert: true,
-      lastCallDate: "Apr 17, 2023",
+      lastCallDate: "Apr 23, 2023",
       createdAt: new Date()
     };
     this.patients.set(patient2.id, patient2);
@@ -652,8 +652,8 @@ export class MemStorage implements IStorage {
     const call2: Call = {
       id: this.currentId.calls++,
       patientId: patient2.id,
-      date: "April 17, 2023",
-      time: "11:45 AM",
+      date: "April 23, 2023",
+      time: "10:15 AM",
       durationSeconds: 580, // 9:40
       audioUrl: "",
       transcript: [
@@ -661,38 +661,38 @@ export class MemStorage implements IStorage {
           id: 1,
           speaker: "AI",
           speakerName: "Brigid AI",
-          text: "Good morning, Margaret. This is Brigid checking in. How are you feeling today after your hip surgery?"
+          text: "Good morning, Margaret. It's been just over two weeks since your knee surgery—how's your pain level today compared to yesterday?"
         },
         {
           id: 2,
           speaker: "Patient",
           speakerName: "Margaret Smith",
-          text: "Oh, hello there. I'm feeling a bit better each day, but I still have some pain at the incision site. The doctor said that's normal though."
+          text: "Hmm, about the same. Still a dull ache when I walk, but no sharp pain."
         },
         {
           id: 3,
           speaker: "AI",
           speakerName: "Brigid AI",
-          text: "I'm glad to hear you're making progress. Have you been keeping up with your pain medication schedule?"
+          text: "Noted. Are you still taking your midday dose of acetaminophen, or have you skipped any recently?"
         },
         {
           id: 4,
           speaker: "Patient",
           speakerName: "Margaret Smith",
-          text: "I kept waking up with pain in my hip last night. I think I waited too long between doses. And then I had to get up several times to use the bathroom, which was quite difficult.",
+          text: "I did forget it yesterday, actually. I remembered later but didn't want to double up.",
           highlightType: "yellow"
         },
         {
           id: 5,
           speaker: "AI",
           speakerName: "Brigid AI",
-          text: "Thank you for sharing that. It's important to stay on schedule with your pain medication. Have you been able to prepare your meals and take all your medications today?"
+          text: "Thanks for letting me know. I'll update your chart and gently remind you today around noon—just one dose, as prescribed."
         },
         {
           id: 6,
           speaker: "Patient",
           speakerName: "Margaret Smith",
-          text: "I had a piece of toast for breakfast. My son Thomas brought me some groceries yesterday, so I have food in the house. And yes, I took my morning pills, including the blood thinner the doctor prescribed after surgery.",
+          text: "That would be helpful, thank you. Sometimes I just get distracted with other things and forget.",
           highlightType: null
         },
         {
@@ -718,17 +718,17 @@ export class MemStorage implements IStorage {
       id: this.currentId.assessments++,
       callId: call2.id,
       patientId: patient2.id,
-      date: "April 17, 2023",
-      frailtyScore: 65,
+      date: "April 23, 2023",
+      frailtyScore: 60,
       frailtyRisk: "moderate",
-      adlScore: 70,
+      adlScore: 65,
       adlRisk: "moderate",
-      iadlScore: 65,
+      iadlScore: 60,
       iadlRisk: "moderate",
-      medicationAdherenceScore: 85,
-      medicationAdherenceRisk: "low",
-      cardiacRiskFactorsScore: 50,
-      cardiacRiskFactorsRisk: "moderate",
+      medicationAdherenceScore: 75,
+      medicationAdherenceRisk: "moderate",
+      cardiacRiskFactorsScore: 40,
+      cardiacRiskFactorsRisk: "low",
       createdAt: new Date()
     };
     this.assessments.set(assessment2.id, assessment2);
@@ -739,7 +739,7 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Post-hip surgery patient experiencing pain affecting sleep and physical therapy adherence",
+        text: "Post-knee surgery patient reporting consistent dull ache with ambulation, no sharp pain",
         risk: "moderate",
         createdAt: new Date()
       },
@@ -747,7 +747,7 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Possible pain medication timing issues requiring schedule adjustment",
+        text: "Patient missed scheduled acetaminophen dose yesterday, indicating need for reminder system",
         risk: "moderate",
         createdAt: new Date()
       },
@@ -755,15 +755,15 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Difficulty with nighttime toileting presents increased fall risk",
-        risk: "high",
+        text: "Experiencing pain with prescribed physical therapy exercises affecting adherence",
+        risk: "moderate",
         createdAt: new Date()
       },
       {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Good family support system with son providing assistance with shopping and meal preparation",
+        text: "Limited weight-bearing with walker as prescribed, appropriate use of assistive device",
         risk: "low",
         createdAt: new Date()
       },
@@ -771,7 +771,7 @@ export class MemStorage implements IStorage {
         id: this.currentId.findings++,
         callId: call2.id,
         patientId: patient2.id,
-        text: "Adherence to post-surgical anticoagulation therapy",
+        text: "Reduced social engagement due to mobility limitations during recovery",
         risk: "low",
         createdAt: new Date()
       }
@@ -786,24 +786,24 @@ export class MemStorage implements IStorage {
       {
         id: this.currentId.healthTrends++,
         patientId: patient2.id,
-        date: "Today - Apr 17, 2023",
-        summary: "Post-hip surgery recovery with pain affecting therapy adherence and sleep. Fall risk during nighttime toileting. Using walker with limited weight-bearing.",
+        date: "Today - Apr 23, 2023",
+        summary: "Two weeks post-knee surgery with stable pain levels. Missed midday pain medication dose. Exercising with walker but finding PT exercises painful. Limited social engagement.",
         risk: "moderate",
         createdAt: new Date()
       },
       {
         id: this.currentId.healthTrends++,
         patientId: patient2.id,
-        date: "Apr 10, 2023",
-        summary: "Hip surgery performed on April 8. Patient discharged to home with family support. Initial post-op recovery as expected.",
+        date: "Apr 16, 2023",
+        summary: "One week post-knee surgery. Pain management adequate with medication but experiencing discomfort with movement. Starting basic exercises as prescribed.",
         risk: "moderate",
         createdAt: new Date(new Date().setDate(new Date().getDate() - 7))
       },
       {
         id: this.currentId.healthTrends++,
         patientId: patient2.id,
-        date: "Apr 3, 2023",
-        summary: "Pre-surgical visit completed. Significant hip pain reported. Surgery scheduled for April 8th. Pre-op instructions reviewed.",
+        date: "Apr 9, 2023",
+        summary: "Knee surgery performed on April 8. Patient discharged to home with family support. Initial post-op recovery with expected pain levels managed with medication.",
         risk: "moderate",
         createdAt: new Date(new Date().setDate(new Date().getDate() - 14))
       }
@@ -818,23 +818,23 @@ export class MemStorage implements IStorage {
       {
         id: this.currentId.recommendedActions++,
         patientId: patient2.id,
-        category: "Immediate Attention",
+        category: "Medication Management",
         actions: [
-          "Schedule post-op follow-up to evaluate pain management regimen",
-          "Consider bedside commode to reduce nighttime fall risk",
-          "Review proper pain medication timing with patient and caregiver"
+          "Set up medication reminder system for midday dose",
+          "Review pain medication schedule with patient",
+          "Consider automated reminder calls through Brigid system"
         ],
         createdAt: new Date()
       },
       {
         id: this.currentId.recommendedActions++,
         patientId: patient2.id,
-        category: "Rehabilitation Plan",
+        category: "Rehabilitation Support",
         actions: [
-          "Verify physical therapy adherence despite pain",
-          "Assess home environment for post-surgical recovery safety",
-          "Continue Brigid check-ins daily for the next week",
-          "Encourage appropriate weight-bearing as prescribed by surgeon"
+          "Consult with physical therapist about pain during exercises",
+          "Evaluate need for PT protocol adjustment based on pain level",
+          "Continue Brigid check-ins daily for medication adherence",
+          "Encourage gradual increase in weight-bearing as tolerated"
         ],
         createdAt: new Date()
       }
@@ -850,24 +850,24 @@ export class MemStorage implements IStorage {
         id: this.currentId.alerts++,
         patientId: patient2.id,
         type: "yellow",
-        category: "Pain Management: Moderate Risk",
-        description: "Post-surgical pain affecting sleep and physical therapy adherence",
+        category: "Medication Adherence: Moderate Risk",
+        description: "Missed midday pain medication dose, possible need for reminder system",
         createdAt: new Date()
       },
       {
         id: this.currentId.alerts++,
         patientId: patient2.id,
         type: "yellow",
-        category: "Mobility: Moderate Risk",
-        description: "Limited weight-bearing with walker per surgical protocol",
+        category: "Therapy Adherence: Moderate Risk",
+        description: "Pain during physical therapy exercises affecting rehabilitation progress",
         createdAt: new Date()
       },
       {
         id: this.currentId.alerts++,
         patientId: patient2.id,
         type: "red",
-        category: "Fall Risk: High Risk",
-        description: "Nighttime toileting difficulties creating significant fall hazard during recovery",
+        category: "Social Isolation: High Risk",
+        description: "Decreased social activities due to limited mobility during knee recovery",
         createdAt: new Date()
       }
     ];
