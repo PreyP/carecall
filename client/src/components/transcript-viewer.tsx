@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CallTranscript } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
 import { cn } from "@/lib/utils";
+import { Play, Pause, VolumeX, Volume2, Bot } from "lucide-react";
 
 interface TranscriptViewerProps {
   patientId: number;
@@ -87,9 +88,10 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
                 className="p-2 rounded-full bg-primary text-white"
                 onClick={togglePlayback}
               >
-                <span className="material-icons">
-                  {isPlaying ? 'pause' : 'play_arrow'}
-                </span>
+                {isPlaying ? 
+                  <Pause className="h-5 w-5" /> : 
+                  <Play className="h-5 w-5" />
+                }
               </button>
               <div className="ml-4 flex-1">
                 <div className="h-2 bg-white rounded-full">
@@ -105,7 +107,7 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
               </div>
               <div className="ml-4">
                 <button className="text-gray-500">
-                  <span className="material-icons">volume_up</span>
+                  <Volume2 className="h-5 w-5" />
                 </button>
               </div>
             </div>
@@ -122,7 +124,7 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
                       entry.speaker === "AI" ? "bg-primary" : "bg-[#607D8B]"
                     )}>
                       {entry.speaker === "AI" ? (
-                        <span className="material-icons text-sm">support_agent</span>
+                        <Bot className="h-4 w-4" />
                       ) : (
                         entry.speakerName.split(' ').map(n => n[0]).join('')
                       )}
