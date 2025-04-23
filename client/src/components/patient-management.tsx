@@ -3,7 +3,16 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Patient } from "@/lib/types";
 import { apiRequest } from "@/lib/queryClient";
 import { AddPatientDialog } from "./add-patient-dialog";
-import { ShieldAlert, AlertCircle, CheckCircle, Filter, Search, UserPlus } from "lucide-react";
+import { 
+  ShieldAlert, 
+  AlertCircle, 
+  CheckCircle, 
+  Filter, 
+  Search, 
+  Plus, 
+  ArrowUp, 
+  ArrowDown 
+} from "lucide-react";
 
 interface PatientManagementProps {
   onPatientSelect?: (patientId: number) => void;
@@ -90,7 +99,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
             onClick={() => setShowAddPatient(true)}
             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-dark"
           >
-            <UserPlus className="h-4 w-4 mr-2" />
+            <Plus className="h-4 w-4 mr-2" />
             Add New Patient
           </button>
         </div>
@@ -142,8 +151,11 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                   <div className="flex items-center">
                     Patient Name
                     {sortBy === "name" && (
-                      <span className="material-icons text-sm ml-1">
-                        {sortDirection === "asc" ? "arrow_upward" : "arrow_downward"}
+                      <span className="ml-1">
+                        {sortDirection === "asc" 
+                          ? <ArrowUp className="h-4 w-4 text-gray-500" /> 
+                          : <ArrowDown className="h-4 w-4 text-gray-500" />
+                        }
                       </span>
                     )}
                   </div>
@@ -156,8 +168,11 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                   <div className="flex items-center">
                     Age
                     {sortBy === "age" && (
-                      <span className="material-icons text-sm ml-1">
-                        {sortDirection === "asc" ? "arrow_upward" : "arrow_downward"}
+                      <span className="ml-1">
+                        {sortDirection === "asc" 
+                          ? <ArrowUp className="h-4 w-4 text-gray-500" /> 
+                          : <ArrowDown className="h-4 w-4 text-gray-500" />
+                        }
                       </span>
                     )}
                   </div>
@@ -182,8 +197,11 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                   <div className="flex items-center">
                     Last Call
                     {sortBy === "lastCall" && (
-                      <span className="material-icons text-sm ml-1">
-                        {sortDirection === "asc" ? "arrow_upward" : "arrow_downward"}
+                      <span className="ml-1">
+                        {sortDirection === "asc" 
+                          ? <ArrowUp className="h-4 w-4 text-gray-500" /> 
+                          : <ArrowDown className="h-4 w-4 text-gray-500" />
+                        }
                       </span>
                     )}
                   </div>
