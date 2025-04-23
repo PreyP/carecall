@@ -22,7 +22,7 @@ export function Sidebar() {
         {/* Logo and app title */}
         <div className="flex items-center h-20 px-4 border-b border-gray-200 bg-[hsl(160,100%,10%)] text-white">
           <div className="flex items-center justify-center w-full">
-            <img src="/assets/new/brigid-logo.png" alt="Brigid Logo" className="h-14 my-2" />
+            <img src="/assets/new/brigid-logo-large.png" alt="Brigid Logo" className="h-16 my-2" />
           </div>
         </div>
         

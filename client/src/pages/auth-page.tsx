@@ -150,7 +150,7 @@ export default function AuthPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <img src="/assets/new/brigid-logo.svg" alt="Brigid Logo" className="h-32" />
+              <img src="/assets/new/brigid-logo-large.png" alt="Brigid Logo" className="h-40" />
             </div>
             <p className="text-gray-600">
               {portalType === "physician" 
