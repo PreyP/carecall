@@ -144,15 +144,15 @@ export default function AuthPage() {
   ];
 
   return (
-    <div className="flex min-h-screen bg-darker-cream">
+    <div className="flex min-h-screen bg-cream">
       {/* Left Side - Auth Forms */}
       <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <img src="/assets/new/brigid-logo-large.png" alt="Brigid Logo" className="h-40" />
+              <img src="/assets/new/brigid-logo-large.png" alt="Brigid Logo" className="h-48" />
             </div>
-            <p className="text-gray-600">
+            <p className="text-primary text-lg">
               {portalType === "physician" 
                 ? "Sign in to access your physician portal" 
                 : "Sign in to access your family portal"}

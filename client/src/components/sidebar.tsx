@@ -20,9 +20,9 @@ export function Sidebar() {
     <div className="hidden md:flex md:flex-shrink-0">
       <div className="flex flex-col w-64 bg-cream border-r border-gray-200">
         {/* Logo and app title */}
-        <div className="flex items-center h-20 px-4 border-b border-gray-200 bg-[hsl(160,100%,10%)] text-white">
+        <div className="flex items-center h-24 px-4 border-b border-gray-200 bg-[#0A2814] text-white">
           <div className="flex items-center justify-center w-full">
-            <img src="/assets/new/brigid-logo-large.png" alt="Brigid Logo" className="h-16 my-2" />
+            <img src="/assets/new/brigid-logo-large.png" alt="Brigid Logo" className="h-20 my-2" />
           </div>
         </div>
         
@@ -130,19 +130,19 @@ export function Sidebar() {
                   href={`/dashboard/${patient.id}`}
                   className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-[#F0E8D8]/50 group">
                   <div className="relative mr-3">
-                    <div className="w-8 h-8 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
+                    <div className="w-8 h-8 rounded-full bg-[#0A2814] flex items-center justify-center text-white">
                       <span>{patient.initials}</span>
                     </div>
                     {patient.hasRedAlert && (
-                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 border border-white">
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 border border-cream">
                       </span>
                     )}
                     {!patient.hasRedAlert && patient.hasYellowAlert && (
-                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-amber-500 border border-white">
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-amber-500 border border-cream">
                       </span>
                     )}
                     {!patient.hasRedAlert && !patient.hasYellowAlert && (
-                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 border border-white">
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 border border-cream">
                       </span>
                     )}
                   </div>
@@ -158,7 +158,7 @@ export function Sidebar() {
         
         {/* User profile */}
         <div className="flex items-center p-4 border-t border-gray-200">
-          <div className="w-8 h-8 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
+          <div className="w-8 h-8 rounded-full bg-[#0A2814] flex items-center justify-center text-white">
             <UserCircle className="h-5 w-5" />
           </div>
           <div className="ml-3">
