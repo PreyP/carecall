@@ -20,7 +20,7 @@ export default function Settings() {
                 Manage your account settings and preferences
               </p>
               
-              <div className="mt-8 bg-white shadow rounded-lg overflow-hidden">
+              <div className="mt-8 bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
                 <div className="sm:flex">
                   {/* Sidebar for settings navigation */}
                   <div className="sm:w-64 border-r border-gray-200">
@@ -30,7 +30,7 @@ export default function Settings() {
                         className={`px-3 py-3 text-sm font-medium w-full text-left flex items-center ${
                           activeTab === 'profile'
                             ? 'bg-primary-light text-primary'
-                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            : 'text-gray-600 hover:bg-[#F0E8D8] hover:text-gray-900'
                         }`}
                       >
                         <span className="material-icons text-sm mr-3">person</span>
@@ -41,7 +41,7 @@ export default function Settings() {
                         className={`px-3 py-3 text-sm font-medium w-full text-left flex items-center ${
                           activeTab === 'notifications'
                             ? 'bg-primary-light text-primary'
-                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            : 'text-gray-600 hover:bg-[#F0E8D8] hover:text-gray-900'
                         }`}
                       >
                         <span className="material-icons text-sm mr-3">notifications</span>
@@ -52,7 +52,7 @@ export default function Settings() {
                         className={`px-3 py-3 text-sm font-medium w-full text-left flex items-center ${
                           activeTab === 'security'
                             ? 'bg-primary-light text-primary'
-                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            : 'text-gray-600 hover:bg-[#F0E8D8] hover:text-gray-900'
                         }`}
                       >
                         <span className="material-icons text-sm mr-3">security</span>
@@ -63,7 +63,7 @@ export default function Settings() {
                         className={`px-3 py-3 text-sm font-medium w-full text-left flex items-center ${
                           activeTab === 'system'
                             ? 'bg-primary-light text-primary'
-                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            : 'text-gray-600 hover:bg-[#F0E8D8] hover:text-gray-900'
                         }`}
                       >
                         <span className="material-icons text-sm mr-3">settings</span>
@@ -80,7 +80,7 @@ export default function Settings() {
                         
                         <div className="space-y-6">
                           {/* Profile info section */}
-                          <div className="bg-gray-50 p-4 rounded-lg">
+                          <div className="bg-[#F0E8D8] p-4 rounded-lg">
                             <div className="flex items-center">
                               <div className="mr-4 h-20 w-20 rounded-full bg-gray-300 flex items-center justify-center text-white text-xl">
                                 <span className="material-icons text-lg">person</span>
@@ -222,7 +222,7 @@ export default function Settings() {
                           <div className="flex justify-end pt-5">
                             <button
                               type="button"
-                              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+                              className="bg-[#F0E8D8] py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-[#F0E8D8] focus:outline-none"
                             >
                               Cancel
                             </button>
@@ -242,7 +242,7 @@ export default function Settings() {
                         <h2 className="text-lg font-medium text-gray-900 mb-4">Notification Settings</h2>
                         
                         <div className="space-y-6">
-                          <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                          <div className="bg-[#F0E8D8] p-4 rounded-lg mb-4">
                             <p className="text-sm text-gray-500">
                               Configure how you want to be notified about patient updates, AI call results, and system alerts.
                             </p>
@@ -364,7 +364,7 @@ export default function Settings() {
                           <div className="flex justify-end pt-5">
                             <button
                               type="button"
-                              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+                              className="bg-[#F0E8D8] py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-[#F0E8D8] focus:outline-none"
                             >
                               Cancel
                             </button>
@@ -384,7 +384,7 @@ export default function Settings() {
                         <h2 className="text-lg font-medium text-gray-900 mb-4">Security Settings</h2>
                         
                         <div className="space-y-6">
-                          <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                          <div className="bg-[#F0E8D8] p-4 rounded-lg mb-4">
                             <p className="text-sm text-gray-500">
                               Manage your password and account security settings.
                             </p>
@@ -475,7 +475,7 @@ export default function Settings() {
                             </p>
                             
                             <div className="space-y-3">
-                              <div className="bg-gray-50 p-3 rounded-lg flex items-center justify-between">
+                              <div className="bg-[#F0E8D8] p-3 rounded-lg flex items-center justify-between">
                                 <div className="flex items-center">
                                   <span className="material-icons text-gray-400 mr-3">computer</span>
                                   <div>
@@ -488,7 +488,7 @@ export default function Settings() {
                                 </div>
                               </div>
                               
-                              <div className="bg-gray-50 p-3 rounded-lg flex items-center justify-between">
+                              <div className="bg-[#F0E8D8] p-3 rounded-lg flex items-center justify-between">
                                 <div className="flex items-center">
                                   <span className="material-icons text-gray-400 mr-3">phone_iphone</span>
                                   <div>
@@ -517,7 +517,7 @@ export default function Settings() {
                         <h2 className="text-lg font-medium text-gray-900 mb-4">System Settings</h2>
                         
                         <div className="space-y-6">
-                          <div className="bg-gray-50 p-4 rounded-lg mb-4">
+                          <div className="bg-[#F0E8D8] p-4 rounded-lg mb-4">
                             <p className="text-sm text-gray-500">
                               Configure system-wide settings for how the Brigid application behaves.
                             </p>
@@ -658,7 +658,7 @@ export default function Settings() {
                           <div className="flex justify-end pt-5">
                             <button
                               type="button"
-                              className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+                              className="bg-[#F0E8D8] py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-[#F0E8D8] focus:outline-none"
                             >
                               Cancel
                             </button>

@@ -160,7 +160,7 @@ export default function ScheduledCalls() {
       case 'missed':
         return 'bg-red-100 text-red-800';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-[#F0E8D8] text-gray-800';
     }
   };
   
@@ -191,9 +191,9 @@ export default function ScheduledCalls() {
             <div className="py-6">
               <div className="px-4 sm:px-6 lg:px-8">
                 <div className="animate-pulse">
-                  <div className="h-8 bg-gray-200 rounded w-1/4 mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded w-2/4 mb-8"></div>
-                  <div className="h-64 bg-gray-200 rounded w-full"></div>
+                  <div className="h-8 bg-[#E6DFD0] rounded w-1/4 mb-4"></div>
+                  <div className="h-4 bg-[#E6DFD0] rounded w-2/4 mb-8"></div>
+                  <div className="h-64 bg-[#E6DFD0] rounded w-full"></div>
                 </div>
               </div>
             </div>
@@ -233,7 +233,7 @@ export default function ScheduledCalls() {
               </div>
               
               <div className="mt-8">
-                <div className="bg-white shadow rounded-lg overflow-hidden">
+                <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
                   <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
                       {/* Tabs */}
@@ -266,8 +266,8 @@ export default function ScheduledCalls() {
                           onClick={() => setDateView('day')}
                           className={`px-3 py-1 text-sm ${
                             dateView === 'day'
-                              ? 'bg-gray-100 text-gray-800'
-                              : 'text-gray-500 hover:bg-gray-50'
+                              ? 'bg-[#F0E8D8] text-gray-800'
+                              : 'text-gray-500 hover:bg-[#F0E8D8]'
                           }`}
                         >
                           Day
@@ -276,8 +276,8 @@ export default function ScheduledCalls() {
                           onClick={() => setDateView('week')}
                           className={`px-3 py-1 text-sm border-l border-r border-gray-200 ${
                             dateView === 'week'
-                              ? 'bg-gray-100 text-gray-800'
-                              : 'text-gray-500 hover:bg-gray-50'
+                              ? 'bg-[#F0E8D8] text-gray-800'
+                              : 'text-gray-500 hover:bg-[#F0E8D8]'
                           }`}
                         >
                           Week
@@ -286,8 +286,8 @@ export default function ScheduledCalls() {
                           onClick={() => setDateView('month')}
                           className={`px-3 py-1 text-sm ${
                             dateView === 'month'
-                              ? 'bg-gray-100 text-gray-800'
-                              : 'text-gray-500 hover:bg-gray-50'
+                              ? 'bg-[#F0E8D8] text-gray-800'
+                              : 'text-gray-500 hover:bg-[#F0E8D8]'
                           }`}
                         >
                           Month
@@ -301,7 +301,7 @@ export default function ScheduledCalls() {
                     {filteredCalls.length > 0 ? (
                       <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-200">
-                          <thead className="bg-gray-50">
+                          <thead className="bg-[#F0E8D8]">
                             <tr>
                               <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Patient
@@ -320,9 +320,9 @@ export default function ScheduledCalls() {
                               </th>
                             </tr>
                           </thead>
-                          <tbody className="bg-white divide-y divide-gray-200">
+                          <tbody className="bg-[#F0E8D8] divide-y divide-gray-200">
                             {filteredCalls.map((call) => (
-                              <tr key={call.id} className="hover:bg-gray-50">
+                              <tr key={call.id} className="hover:bg-[#F0E8D8]">
                                 <td className="px-6 py-4 whitespace-nowrap">
                                   <div className="flex items-center">
                                     <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary-light flex items-center justify-center text-white">

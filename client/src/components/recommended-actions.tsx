@@ -19,19 +19,19 @@ export function RecommendedActions({ patientId }: RecommendedActionsProps) {
           <div className="px-4 py-5 sm:p-6">
             <div className="animate-pulse space-y-4">
               <div className="flex items-center">
-                <div className="h-10 w-10 rounded-full bg-gray-200"></div>
-                <div className="ml-4 h-5 bg-gray-200 rounded w-1/3"></div>
+                <div className="h-10 w-10 rounded-full bg-[#E6DFD0]"></div>
+                <div className="ml-4 h-5 bg-[#E6DFD0] rounded w-1/3"></div>
               </div>
               
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {[1, 2].map((i) => (
                   <div key={i} className="border border-gray-200 rounded-md p-4">
-                    <div className="h-4 bg-gray-200 rounded w-1/2 mb-3"></div>
+                    <div className="h-4 bg-[#E6DFD0] rounded w-1/2 mb-3"></div>
                     <div className="space-y-2">
                       {[1, 2, 3].map((j) => (
                         <div key={j} className="flex items-start">
-                          <div className="h-4 w-4 bg-gray-200 rounded-full mr-2"></div>
-                          <div className="h-4 bg-gray-200 rounded w-full"></div>
+                          <div className="h-4 w-4 bg-[#E6DFD0] rounded-full mr-2"></div>
+                          <div className="h-4 bg-[#E6DFD0] rounded w-full"></div>
                         </div>
                       ))}
                     </div>
@@ -73,7 +73,7 @@ export function RecommendedActions({ patientId }: RecommendedActionsProps) {
           
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {actions.map((action) => (
-              <div key={action.id} className="border border-primary rounded-md p-4 bg-white">
+              <div key={action.id} className="border border-primary rounded-md p-4 bg-[#F0E8D8]">
                 <h3 className="font-medium text-primary">{action.category}</h3>
                 <ul className="mt-2 text-sm space-y-2">
                   {action.actions.map((item, index) => (

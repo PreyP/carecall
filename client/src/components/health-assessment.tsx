@@ -18,18 +18,18 @@ export function HealthAssessment({ patientId, callId }: HealthAssessmentProps) {
 
   if (isLoading) {
     return (
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="animate-pulse space-y-4">
-            <div className="h-5 bg-gray-200 rounded w-1/3"></div>
+            <div className="h-5 bg-[#E6DFD0] rounded w-1/3"></div>
             <div className="space-y-3">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div key={i} className="space-y-2">
                   <div className="flex justify-between">
-                    <div className="h-4 bg-gray-200 rounded w-1/4"></div>
-                    <div className="h-4 bg-gray-200 rounded w-1/5"></div>
+                    <div className="h-4 bg-[#E6DFD0] rounded w-1/4"></div>
+                    <div className="h-4 bg-[#E6DFD0] rounded w-1/5"></div>
                   </div>
-                  <div className="h-2 bg-gray-200 rounded w-full"></div>
+                  <div className="h-2 bg-[#E6DFD0] rounded w-full"></div>
                 </div>
               ))}
             </div>
@@ -41,7 +41,7 @@ export function HealthAssessment({ patientId, callId }: HealthAssessmentProps) {
 
   if (!assessment) {
     return (
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="flex justify-center items-center h-48 flex-col">
             <span className="material-icons text-gray-400 text-4xl mb-2">assessment</span>
@@ -53,7 +53,7 @@ export function HealthAssessment({ patientId, callId }: HealthAssessmentProps) {
   }
 
   return (
-    <div className="bg-white shadow rounded-lg overflow-hidden">
+    <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:p-6">
         <h2 className="text-lg font-medium text-gray-900 mb-4">Health Assessment</h2>
         

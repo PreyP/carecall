@@ -93,14 +93,14 @@ export function CarePlan({ patientId }: CarePlanProps) {
 
   if (isLoading) {
     return (
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="animate-pulse space-y-4">
-            <div className="h-5 bg-gray-200 rounded w-1/3"></div>
-            <div className="h-10 bg-gray-200 rounded w-full"></div>
+            <div className="h-5 bg-[#E6DFD0] rounded w-1/3"></div>
+            <div className="h-10 bg-[#E6DFD0] rounded w-full"></div>
             <div className="space-y-3">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-20 bg-gray-200 rounded w-full"></div>
+                <div key={i} className="h-20 bg-[#E6DFD0] rounded w-full"></div>
               ))}
             </div>
           </div>
@@ -110,7 +110,7 @@ export function CarePlan({ patientId }: CarePlanProps) {
   }
 
   return (
-    <div className="bg-white shadow rounded-lg overflow-hidden">
+    <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-medium text-gray-900">Care Plan</h2>
@@ -120,7 +120,7 @@ export function CarePlan({ patientId }: CarePlanProps) {
               className={`px-3 py-1 text-sm rounded-md ${
                 activeTab === 'current'
                   ? 'bg-primary text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-[#F0E8D8] text-gray-700 hover:bg-[#E6DFD0]'
               }`}
             >
               Current Plan
@@ -130,7 +130,7 @@ export function CarePlan({ patientId }: CarePlanProps) {
               className={`px-3 py-1 text-sm rounded-md ${
                 activeTab === 'history'
                   ? 'bg-primary text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-[#F0E8D8] text-gray-700 hover:bg-[#E6DFD0]'
               }`}
             >
               Plan History
@@ -208,7 +208,7 @@ export function CarePlan({ patientId }: CarePlanProps) {
                               </div>
                             </div>
                             {item.notes && (
-                              <p className="mt-1 text-xs text-gray-500 bg-gray-50 p-2 rounded-md">
+                              <p className="mt-1 text-xs text-gray-500 bg-[#F0E8D8] p-2 rounded-md">
                                 {item.notes}
                               </p>
                             )}

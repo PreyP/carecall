@@ -35,7 +35,7 @@ export function Sidebar() {
                 "flex items-center px-4 py-2 text-sm rounded-md",
                 location === "/family-portal" 
                   ? "text-white bg-primary hover:bg-primary-dark" 
-                  : "text-gray-700 hover:bg-white/50"
+                  : "text-gray-700 hover:bg-[#F0E8D8]/50"
               )}>
               <Home className={cn(
                 "h-5 w-5 mr-3",
@@ -49,7 +49,7 @@ export function Sidebar() {
                 "flex items-center px-4 py-2 text-sm rounded-md",
                 location === "/" 
                   ? "text-white bg-primary hover:bg-primary-dark" 
-                  : "text-gray-700 hover:bg-white/50"
+                  : "text-gray-700 hover:bg-[#F0E8D8]/50"
               )}>
               <LayoutDashboard className={cn(
                 "h-5 w-5 mr-3",
@@ -67,7 +67,7 @@ export function Sidebar() {
                   "flex items-center px-4 py-2 text-sm rounded-md",
                   location.startsWith("/patients") 
                     ? "text-white bg-primary hover:bg-primary-dark" 
-                    : "text-gray-700 hover:bg-white/50"
+                    : "text-gray-700 hover:bg-[#F0E8D8]/50"
                 )}>
                 <Users className={cn(
                   "h-5 w-5 mr-3",
@@ -81,7 +81,7 @@ export function Sidebar() {
                   "flex items-center px-4 py-2 text-sm rounded-md", 
                   location.startsWith("/scheduled-calls") 
                     ? "text-white bg-primary hover:bg-primary-dark" 
-                    : "text-gray-700 hover:bg-white/50"
+                    : "text-gray-700 hover:bg-[#F0E8D8]/50"
                 )}>
                 <CalendarCheck className={cn(
                   "h-5 w-5 mr-3",
@@ -98,7 +98,7 @@ export function Sidebar() {
               "flex items-center px-4 py-2 text-sm rounded-md",
               location.startsWith("/settings") 
                 ? "text-white bg-primary hover:bg-primary-dark" 
-                : "text-gray-700 hover:bg-white/50"
+                : "text-gray-700 hover:bg-[#F0E8D8]/50"
             )}>
             <Settings className={cn(
               "h-5 w-5 mr-3",
@@ -128,7 +128,7 @@ export function Sidebar() {
                 <Link 
                   key={patient.id} 
                   href={`/dashboard/${patient.id}`}
-                  className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-white/50 group">
+                  className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-[#F0E8D8]/50 group">
                   <div className="relative mr-3">
                     <div className="w-8 h-8 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
                       <span>{patient.initials}</span>

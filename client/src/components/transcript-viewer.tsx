@@ -25,18 +25,18 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
   if (isLoading) {
     return (
       <div className="lg:col-span-2">
-        <div className="bg-white shadow rounded-lg overflow-hidden">
+        <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="animate-pulse space-y-4">
               <div className="flex justify-between">
-                <div className="h-5 bg-gray-200 rounded w-1/4"></div>
-                <div className="h-5 bg-gray-200 rounded w-1/6"></div>
+                <div className="h-5 bg-[#E6DFD0] rounded w-1/4"></div>
+                <div className="h-5 bg-[#E6DFD0] rounded w-1/6"></div>
               </div>
-              <div className="h-12 bg-gray-200 rounded w-full"></div>
+              <div className="h-12 bg-[#E6DFD0] rounded w-full"></div>
               <div className="space-y-3">
-                <div className="h-3 bg-gray-200 rounded w-full"></div>
-                <div className="h-3 bg-gray-200 rounded w-5/6"></div>
-                <div className="h-3 bg-gray-200 rounded w-3/4"></div>
+                <div className="h-3 bg-[#E6DFD0] rounded w-full"></div>
+                <div className="h-3 bg-[#E6DFD0] rounded w-5/6"></div>
+                <div className="h-3 bg-[#E6DFD0] rounded w-3/4"></div>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
   if (!transcript) {
     return (
       <div className="lg:col-span-2">
-        <div className="bg-white shadow rounded-lg overflow-hidden">
+        <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
           <div className="px-4 py-5 sm:p-6">
             <div className="flex justify-center items-center h-48">
               <p className="text-gray-500">No call transcript available</p>
@@ -71,7 +71,7 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
 
   return (
     <div className="lg:col-span-2">
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-medium text-gray-900">Call Transcript</h2>
@@ -82,7 +82,7 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
           </div>
           
           {/* Call recording player */}
-          <div className="mb-4 p-3 bg-gray-100 rounded-md">
+          <div className="mb-4 p-3 bg-[#F0E8D8] rounded-md">
             <div className="flex items-center">
               <button 
                 className="p-2 rounded-full bg-primary text-white"
@@ -94,7 +94,7 @@ export function TranscriptViewer({ patientId, callId }: TranscriptViewerProps) {
                 }
               </button>
               <div className="ml-4 flex-1">
-                <div className="h-2 bg-white rounded-full">
+                <div className="h-2 bg-[#F0E8D8] rounded-full">
                   <div 
                     className="h-2 bg-primary rounded-full" 
                     style={{ width: `${progressPercentage}%` }}

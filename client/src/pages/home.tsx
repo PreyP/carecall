@@ -55,7 +55,7 @@ export default function Home() {
                 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {/* Red Alert Card */}
-                  <div className="border-l-4 border-[#F44336] bg-white shadow rounded-md p-4 hover:shadow-md transition-shadow">
+                  <div className="border-l-4 border-[#F44336] bg-[#F0E8D8] shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
                         <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#F44336] bg-opacity-10 text-[#F44336]">
@@ -71,7 +71,7 @@ export default function Home() {
                   </div>
                   
                   {/* Yellow Alert Card */}
-                  <div className="border-l-4 border-[#FFC107] bg-white shadow rounded-md p-4 hover:shadow-md transition-shadow">
+                  <div className="border-l-4 border-[#FFC107] bg-[#F0E8D8] shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
                         <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#FFC107] bg-opacity-10 text-[#FFC107]">
@@ -87,7 +87,7 @@ export default function Home() {
                   </div>
                   
                   {/* Calls Card */}
-                  <div className="border-l-4 border-[#1976D2] bg-white shadow rounded-md p-4 hover:shadow-md transition-shadow">
+                  <div className="border-l-4 border-[#1976D2] bg-[#F0E8D8] shadow rounded-md p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-center">
                       <div className="flex-shrink-0">
                         <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-[#1976D2] bg-opacity-10 text-[#1976D2]">
@@ -108,7 +108,7 @@ export default function Home() {
               <div className="mt-8">
                 <h2 className="text-lg font-medium text-gray-900 mb-4">Patient Overview</h2>
                 
-                <div className="bg-white shadow overflow-hidden sm:rounded-md">
+                <div className="bg-[#F0E8D8] shadow overflow-hidden sm:rounded-md">
                   <ul className="divide-y divide-gray-200">
                     {isLoading ? (
                       <div className="p-6 flex justify-center">
@@ -123,7 +123,7 @@ export default function Home() {
                         <li key={patient.id}>
                           <Link 
                             href={`/dashboard/${patient.id}`}
-                            className="block hover:bg-gray-50">
+                            className="block hover:bg-[#F0E8D8]">
                             <div className="px-4 py-4 sm:px-6">
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center">

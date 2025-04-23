@@ -350,7 +350,7 @@ export default function FamilyPortal() {
                       {healthTrends.length > 0 ? (
                         <div className="space-y-4">
                           {healthTrends.slice(0, 3).map((trend, index) => (
-                            <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                            <div key={index} className="bg-[#F0E8D8] p-4 rounded-lg">
                               <div className="flex justify-between mb-1">
                                 <h3 className="font-medium">{trend.date}</h3>
                                 <Badge 
@@ -428,7 +428,7 @@ export default function FamilyPortal() {
                       </div>
                     </div>
                     
-                    <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <div className="bg-[#F0E8D8] p-4 rounded-lg border border-gray-200">
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-medium">Dr. Sarah Chen - Primary Care Visit</h3>
@@ -450,7 +450,7 @@ export default function FamilyPortal() {
                       </div>
                     </div>
                     
-                    <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <div className="bg-[#F0E8D8] p-4 rounded-lg border border-gray-200">
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-medium">Medication Refill Reminder</h3>
@@ -559,7 +559,7 @@ export default function FamilyPortal() {
                           <span>{doctor.hospital}</span>
                         </div>
                       )}
-                      <div className="bg-gray-50 p-4 rounded-md mt-4">
+                      <div className="bg-[#F0E8D8] p-4 rounded-md mt-4">
                         <h4 className="font-medium mb-2">When to contact the physician:</h4>
                         <ul className="list-disc list-inside space-y-2 text-gray-600">
                           <li>If you notice sudden changes in your loved one's physical condition</li>
@@ -580,7 +580,7 @@ export default function FamilyPortal() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-100 py-6 border-t">
+      <footer className="bg-[#F0E8D8] py-6 border-t">
         <div className="container mx-auto px-4">
           <div className="text-center text-gray-600">
             <p>Brigid Family Portal &copy; {new Date().getFullYear()}</p>

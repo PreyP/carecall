@@ -13,16 +13,16 @@ export function CallHistory({ patientId }: CallHistoryProps) {
 
   if (isLoading) {
     return (
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="animate-pulse space-y-4">
-            <div className="h-5 bg-gray-200 rounded w-1/3"></div>
+            <div className="h-5 bg-[#E6DFD0] rounded w-1/3"></div>
             <div className="space-y-3">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex justify-between space-y-2">
-                  <div className="h-4 bg-gray-200 rounded w-1/4"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/4"></div>
-                  <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                  <div className="h-4 bg-[#E6DFD0] rounded w-1/4"></div>
+                  <div className="h-4 bg-[#E6DFD0] rounded w-1/4"></div>
+                  <div className="h-4 bg-[#E6DFD0] rounded w-1/4"></div>
                 </div>
               ))}
             </div>
@@ -34,7 +34,7 @@ export function CallHistory({ patientId }: CallHistoryProps) {
 
   if (!calls || calls.length === 0) {
     return (
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="flex justify-center items-center h-48 flex-col">
             <span className="material-icons text-gray-400 text-4xl mb-2">call</span>
@@ -52,13 +52,13 @@ export function CallHistory({ patientId }: CallHistoryProps) {
   };
 
   return (
-    <div className="bg-white shadow rounded-lg overflow-hidden">
+    <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:p-6">
         <h2 className="text-lg font-medium text-gray-900 mb-4">Call History</h2>
         
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-[#F0E8D8]">
               <tr>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Date
@@ -77,7 +77,7 @@ export function CallHistory({ patientId }: CallHistoryProps) {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-[#F0E8D8] divide-y divide-gray-200">
               {calls.map((call) => {
                 // Check for risk indicators in the transcript
                 const hasRedHighlight = call.transcript.some((entry) => entry.highlightType === 'red');

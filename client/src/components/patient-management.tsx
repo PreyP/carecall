@@ -79,11 +79,11 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
 
   if (isLoading) {
     return (
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="animate-pulse space-y-4">
-            <div className="h-10 bg-gray-200 rounded w-full"></div>
-            <div className="h-64 bg-gray-200 rounded w-full"></div>
+            <div className="h-10 bg-[#E6DFD0] rounded w-full"></div>
+            <div className="h-64 bg-[#E6DFD0] rounded w-full"></div>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
   }
 
   return (
-    <div className="bg-white shadow rounded-lg overflow-hidden">
+    <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg font-medium text-gray-900">Patient Management</h2>
@@ -115,7 +115,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by name or MRN..."
-              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white text-gray-900 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-[#F0E8D8] text-gray-900 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
             />
           </div>
 
@@ -141,7 +141,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
         {/* Patient table */}
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-[#F0E8D8]">
               <tr>
                 <th
                   scope="col"
@@ -214,12 +214,12 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-[#F0E8D8] divide-y divide-gray-200">
               {processedPatients.length > 0 ? (
                 processedPatients.map((patient) => (
                   <tr 
                     key={patient.id} 
-                    className="hover:bg-gray-50 cursor-pointer"
+                    className="hover:bg-[#F0E8D8] cursor-pointer"
                     onClick={() => onPatientSelect && onPatientSelect(patient.id)}
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
