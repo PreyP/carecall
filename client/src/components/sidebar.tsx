@@ -18,14 +18,12 @@ export function Sidebar() {
 
   return (
     <div className="hidden md:flex md:flex-shrink-0">
-      <div className="flex flex-col w-64 bg-white border-r border-gray-200">
+      <div className="flex flex-col w-64 bg-[#f8f5e4] border-r border-gray-200">
         {/* Logo and app title */}
         <div className="flex items-center h-16 px-4 border-b border-gray-200 bg-[hsl(160,100%,10%)] text-white">
-          <div className="flex items-center mr-2">
-            <Phone className="h-5 w-5" />
-            <HeartPulse className="h-5 w-5 ml-1" />
+          <div className="flex items-center">
+            <img src="/src/assets/brigid-logo.png" alt="Brigid Logo" className="h-12 mr-2" />
           </div>
-          <h1 className="text-xl font-bold">Brigid</h1>
         </div>
         
         {/* Main navigation */}
@@ -37,7 +35,7 @@ export function Sidebar() {
                 "flex items-center px-4 py-2 text-sm rounded-md",
                 location === "/family-portal" 
                   ? "text-white bg-primary hover:bg-primary-dark" 
-                  : "text-gray-700 hover:bg-gray-100"
+                  : "text-gray-700 hover:bg-white/50"
               )}>
               <Home className={cn(
                 "h-5 w-5 mr-3",
@@ -130,7 +128,7 @@ export function Sidebar() {
                 <Link 
                   key={patient.id} 
                   href={`/dashboard/${patient.id}`}
-                  className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-gray-100 group">
+                  className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-white/50 group">
                   <div className="relative mr-3">
                     <div className="w-8 h-8 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
                       <span>{patient.initials}</span>
