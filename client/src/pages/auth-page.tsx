@@ -149,11 +149,7 @@ export default function AuthPage() {
       <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <HeartPulse className="h-8 w-8 text-primary" />
-              <h1 className="text-3xl font-bold text-primary">Brigid</h1>
-              <Phone className="h-7 w-7 text-primary" />
-            </div>
+            <h1 className="text-3xl font-bold text-primary mb-2">Brigid</h1>
             <p className="text-gray-600">
               {portalType === "physician" 
                 ? "Sign in to access your physician portal" 
