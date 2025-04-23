@@ -350,9 +350,9 @@ export default function FamilyPortal() {
                       {healthTrends.length > 0 ? (
                         <div className="space-y-4">
                           {healthTrends.slice(0, 3).map((trend, index) => (
-                            <div key={index} className="bg-[#F0E8D8] p-4 rounded-lg">
+                            <div key={index} className="bg-white p-4 rounded-lg border border-[#9CAE9C]">
                               <div className="flex justify-between mb-1">
-                                <h3 className="font-medium">{trend.date}</h3>
+                                <h3 className="font-medium text-[#0A2814]">{trend.date}</h3>
                                 <Badge 
                                   variant="outline"
                                   className={`flex items-center gap-1 ${
@@ -420,7 +420,7 @@ export default function FamilyPortal() {
                           Scheduled
                         </Badge>
                       </div>
-                      <div className="mt-3 flex items-center text-blue-700">
+                      <div className="mt-3 flex items-center text-gray-600">
                         <CalendarIcon className="h-4 w-4 mr-2" />
                         <span>Thursday, April 10, 2025</span>
                         <ClockIcon className="h-4 w-4 mx-2" />
@@ -428,10 +428,10 @@ export default function FamilyPortal() {
                       </div>
                     </div>
                     
-                    <div className="bg-[#F0E8D8] p-4 rounded-lg border border-gray-200">
+                    <div className="bg-white p-4 rounded-lg border border-[#9CAE9C]">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="font-medium">Dr. Sarah Chen - Primary Care Visit</h3>
+                          <h3 className="font-medium text-[#0A2814]">Dr. Sarah Chen - Primary Care Visit</h3>
                           <p className="text-gray-600 mt-1">Annual wellness check-up</p>
                         </div>
                         <Badge variant="outline" className="bg-purple-500 text-white border-0 font-semibold">
@@ -450,10 +450,10 @@ export default function FamilyPortal() {
                       </div>
                     </div>
                     
-                    <div className="bg-[#F0E8D8] p-4 rounded-lg border border-gray-200">
+                    <div className="bg-white p-4 rounded-lg border border-[#9CAE9C]">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="font-medium">Medication Refill Reminder</h3>
+                          <h3 className="font-medium text-[#0A2814]">Medication Refill Reminder</h3>
                           <p className="text-gray-600 mt-1">Blood pressure medication</p>
                         </div>
                         <Badge variant="outline" className="bg-[#FFC107] text-white border-0 font-semibold">
@@ -504,9 +504,9 @@ export default function FamilyPortal() {
                             ))}
                           </ul>
                           {/* Add family-specific guidance */}
-                          <div className="mt-4 bg-blue-50 p-4 rounded-md">
-                            <h4 className="font-medium text-blue-700 mb-2">Ways to support your loved one:</h4>
-                            <ul className="list-disc list-inside space-y-2 text-blue-600">
+                          <div className="mt-4 bg-white p-4 rounded-md border border-[#9CAE9C]">
+                            <h4 className="font-medium text-[#0A2814] mb-2">Ways to support your loved one:</h4>
+                            <ul className="list-disc list-inside space-y-2 text-gray-600">
                               <li>Check in with a phone call to see how they're feeling</li>
                               <li>Help organize their medications or remind them to take them</li>
                               <li>Coordinate transportation to medical appointments if needed</li>
@@ -519,9 +519,9 @@ export default function FamilyPortal() {
                   ) : (
                     <div>
                       <p className="text-gray-500 italic mb-4">No specific actions recommended at this time</p>
-                      <div className="bg-blue-50 p-4 rounded-md">
-                        <h4 className="font-medium text-blue-700 mb-2">General ways to support your loved one:</h4>
-                        <ul className="list-disc list-inside space-y-2 text-blue-600">
+                      <div className="bg-white p-4 rounded-md border border-[#9CAE9C]">
+                        <h4 className="font-medium text-[#0A2814] mb-2">General ways to support your loved one:</h4>
+                        <ul className="list-disc list-inside space-y-2 text-gray-600">
                           <li>Regular check-in calls to monitor their well-being</li>
                           <li>Help organize their medications and medical appointments</li>
                           <li>Assist with grocery shopping or meal preparation</li>
