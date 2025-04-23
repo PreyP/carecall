@@ -137,7 +137,7 @@ export default function FamilyPortal() {
   };
 
   return (
-    <div className="min-h-screen bg-darker-cream">
+    <div className="min-h-screen bg-[#F0E8D8]">
       {/* Header */}
       <header className="bg-[#F9F3E3] text-[#0A2814] p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
@@ -176,7 +176,7 @@ export default function FamilyPortal() {
           <>
             {/* Patient Overview */}
             <section className="mb-8">
-              <Card>
+              <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-2xl flex items-center">
                     <User className="h-6 w-6 mr-2 text-primary" />
@@ -231,7 +231,7 @@ export default function FamilyPortal() {
                   <TabsTrigger value="trends" className="text-[#0A2814] data-[state=active]:bg-[#F9F3E3] data-[state=active]:text-[#0A2814] data-[state=active]:font-semibold">Recent Changes</TabsTrigger>
                 </TabsList>
                 <TabsContent value="status">
-                  <Card>
+                  <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                     <CardHeader>
                       <CardTitle className="text-lg flex items-center">
                         <HeartPulse className="h-5 w-5 mr-2 text-primary" />
@@ -336,7 +336,7 @@ export default function FamilyPortal() {
                   </Card>
                 </TabsContent>
                 <TabsContent value="trends">
-                  <Card>
+                  <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                     <CardHeader>
                       <CardTitle className="text-lg flex items-center">
                         <BarChart className="h-5 w-5 mr-2 text-primary" />
@@ -398,7 +398,7 @@ export default function FamilyPortal() {
               Upcoming Care Activities
             </h2>
             <section className="mb-8">
-              <Card>
+              <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center">
                     <Calendar className="h-5 w-5 mr-2 text-primary" />
@@ -410,11 +410,11 @@ export default function FamilyPortal() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                    <div className="bg-white p-4 rounded-lg border border-[#9CAE9C]">
                       <div className="flex justify-between items-start">
                         <div>
-                          <h3 className="font-medium text-blue-800">Next Brigid Check-in</h3>
-                          <p className="text-blue-600 mt-1">Automated health assessment call</p>
+                          <h3 className="font-medium text-[#0A2814]">Next Brigid Check-in</h3>
+                          <p className="text-gray-600 mt-1">Automated health assessment call</p>
                         </div>
                         <Badge variant="outline" className="bg-blue-500 text-white border-0 font-semibold">
                           Scheduled
@@ -483,7 +483,7 @@ export default function FamilyPortal() {
             {/* Recommended Actions */}
             <h2 className="text-2xl font-bold mb-4">How You Can Help</h2>
             <section className="mb-8">
-              <Card>
+              <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center">
                     <Pill className="h-5 w-5 mr-2 text-primary" />
@@ -537,7 +537,7 @@ export default function FamilyPortal() {
             {/* Healthcare Provider Information */}
             <h2 className="text-2xl font-bold mb-4">Healthcare Provider Information</h2>
             <section className="mb-8">
-              <Card>
+              <Card className="bg-[#F9F3E3] border border-[#9CAE9C] shadow-md">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center">
                     <Stethoscope className="h-5 w-5 mr-2 text-primary" />
@@ -559,7 +559,7 @@ export default function FamilyPortal() {
                           <span>{doctor.hospital}</span>
                         </div>
                       )}
-                      <div className="bg-[#F0E8D8] p-4 rounded-md mt-4">
+                      <div className="bg-white p-4 rounded-md mt-4 border border-[#9CAE9C]">
                         <h4 className="font-medium mb-2">When to contact the physician:</h4>
                         <ul className="list-disc list-inside space-y-2 text-gray-600">
                           <li>If you notice sudden changes in your loved one's physical condition</li>
