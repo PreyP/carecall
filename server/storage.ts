@@ -432,7 +432,7 @@ export class MemStorage implements IStorage {
         {
           id: 3,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "I'm sorry to hear that, John. Let me ask you a few questions about your activities. Have you been able to get dressed by yourself today?"
         },
         {
@@ -445,7 +445,7 @@ export class MemStorage implements IStorage {
         {
           id: 5,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "Thank you for letting me know. What about preparing meals? Have you been able to make any food for yourself today?"
         },
         {
@@ -458,7 +458,7 @@ export class MemStorage implements IStorage {
         {
           id: 7,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "I understand. Let's talk about your medications. Did you take all your prescribed medications this morning?"
         },
         {
@@ -471,7 +471,7 @@ export class MemStorage implements IStorage {
         {
           id: 9,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "The water pill is important for managing fluid in your body. Have you noticed any swelling in your ankles or feet?"
         },
         {
@@ -660,8 +660,8 @@ export class MemStorage implements IStorage {
         {
           id: 1,
           speaker: "AI",
-          speakerName: "CareCall AI",
-          text: "Good morning, Margaret. This is CareCall checking in. How are you feeling today?"
+          speakerName: "Brigid AI",
+          text: "Good morning, Margaret. This is Brigid checking in. How are you feeling today?"
         },
         {
           id: 2,
@@ -672,7 +672,7 @@ export class MemStorage implements IStorage {
         {
           id: 3,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "I'm sorry to hear you didn't sleep well. Can you tell me more about your sleep issues?"
         },
         {
@@ -685,7 +685,7 @@ export class MemStorage implements IStorage {
         {
           id: 5,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "Thank you for sharing that. Have you been able to prepare your meals and take your medications today?"
         },
         {
@@ -698,7 +698,7 @@ export class MemStorage implements IStorage {
         {
           id: 7,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "That's good to hear. Have you been able to move around your home today?"
         },
         {
@@ -879,8 +879,8 @@ export class MemStorage implements IStorage {
         {
           id: 1,
           speaker: "AI",
-          speakerName: "CareCall AI",
-          text: "Good morning, Robert. This is CareCall checking in. How are you feeling today?"
+          speakerName: "Brigid AI",
+          text: "Good morning, Robert. This is Brigid checking in. How are you feeling today?"
         },
         {
           id: 2,
@@ -891,7 +891,7 @@ export class MemStorage implements IStorage {
         {
           id: 3,
           speaker: "AI",
-          speakerName: "CareCall AI",
+          speakerName: "Brigid AI",
           text: "That's excellent to hear. How long was your walk today?"
         },
         {
