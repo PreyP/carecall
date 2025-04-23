@@ -34,8 +34,8 @@ export function Sidebar() {
               className={cn(
                 "flex items-center px-4 py-2 text-sm rounded-md",
                 location === "/family-portal" 
-                  ? "text-white bg-primary hover:bg-primary-dark" 
-                  : "text-gray-700 hover:bg-[#F0E8D8]/50"
+                  ? "text-white bg-[#0A2814] hover:bg-[#0A2814]/80" 
+                  : "text-gray-700 hover:bg-light-sage"
               )}>
               <Home className={cn(
                 "h-5 w-5 mr-3",
@@ -48,8 +48,8 @@ export function Sidebar() {
               className={cn(
                 "flex items-center px-4 py-2 text-sm rounded-md",
                 location === "/" 
-                  ? "text-white bg-primary hover:bg-primary-dark" 
-                  : "text-gray-700 hover:bg-[#F0E8D8]/50"
+                  ? "text-white bg-[#0A2814] hover:bg-[#0A2814]/80" 
+                  : "text-gray-700 hover:bg-light-sage"
               )}>
               <LayoutDashboard className={cn(
                 "h-5 w-5 mr-3",
@@ -66,8 +66,8 @@ export function Sidebar() {
                 className={cn(
                   "flex items-center px-4 py-2 text-sm rounded-md",
                   location.startsWith("/patients") 
-                    ? "text-white bg-primary hover:bg-primary-dark" 
-                    : "text-gray-700 hover:bg-[#F0E8D8]/50"
+                    ? "text-white bg-[#0A2814] hover:bg-[#0A2814]/80" 
+                    : "text-gray-700 hover:bg-light-sage"
                 )}>
                 <Users className={cn(
                   "h-5 w-5 mr-3",
@@ -80,8 +80,8 @@ export function Sidebar() {
                 className={cn(
                   "flex items-center px-4 py-2 text-sm rounded-md", 
                   location.startsWith("/scheduled-calls") 
-                    ? "text-white bg-primary hover:bg-primary-dark" 
-                    : "text-gray-700 hover:bg-[#F0E8D8]/50"
+                    ? "text-white bg-[#0A2814] hover:bg-[#0A2814]/80" 
+                    : "text-gray-700 hover:bg-light-sage"
                 )}>
                 <CalendarCheck className={cn(
                   "h-5 w-5 mr-3",
@@ -97,8 +97,8 @@ export function Sidebar() {
             className={cn(
               "flex items-center px-4 py-2 text-sm rounded-md",
               location.startsWith("/settings") 
-                ? "text-white bg-primary hover:bg-primary-dark" 
-                : "text-gray-700 hover:bg-[#F0E8D8]/50"
+                ? "text-white bg-[#0A2814] hover:bg-[#0A2814]/80" 
+                : "text-gray-700 hover:bg-light-sage"
             )}>
             <Settings className={cn(
               "h-5 w-5 mr-3",
@@ -113,7 +113,7 @@ export function Sidebar() {
           <div className="flex flex-col px-3 py-2 border-t border-gray-200">
             <div className="flex items-center justify-between py-2">
               <h2 className="text-sm font-semibold text-gray-500">RECENT PATIENTS</h2>
-              <button className="text-primary hover:text-primary-dark">
+              <button className="text-[#0A2814] hover:text-[#0A2814]/80">
                 <Plus className="h-4 w-4" />
               </button>
             </div>
@@ -121,14 +121,14 @@ export function Sidebar() {
             {/* Patient list items */}
             {isLoading ? (
               <div className="flex justify-center py-4">
-                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#0A2814]"></div>
               </div>
             ) : (
               recentPatients?.map((patient) => (
                 <Link 
                   key={patient.id} 
                   href={`/dashboard/${patient.id}`}
-                  className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-[#F0E8D8]/50 group">
+                  className="flex items-center px-2 py-2 text-sm rounded-md hover:bg-light-sage group">
                   <div className="relative mr-3">
                     <div className="w-8 h-8 rounded-full bg-[#0A2814] flex items-center justify-center text-white">
                       <span>{patient.initials}</span>
