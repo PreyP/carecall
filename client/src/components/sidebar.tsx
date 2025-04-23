@@ -134,18 +134,15 @@ export function Sidebar() {
                       <span>{patient.initials}</span>
                     </div>
                     {patient.hasRedAlert && (
-                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 border border-white flex items-center justify-center">
-                        <span className="text-white text-[6px] font-semibold">ver</span>
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-red-500 border border-white">
                       </span>
                     )}
                     {!patient.hasRedAlert && patient.hasYellowAlert && (
-                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-amber-500 border border-white flex items-center justify-center">
-                        <span className="text-white text-[6px] font-semibold">ver</span>
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-amber-500 border border-white">
                       </span>
                     )}
                     {!patient.hasRedAlert && !patient.hasYellowAlert && (
-                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 border border-white flex items-center justify-center">
-                        <span className="text-white text-[6px] font-semibold">ver</span>
+                      <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-green-500 border border-white">
                       </span>
                     )}
                   </div>

@@ -229,18 +229,15 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                             {patient.initials}
                           </div>
                           {patient.hasRedAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-white flex items-center justify-center">
-                              <span className="text-white text-[8px] font-semibold">ver</span>
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-white">
                             </span>
                           )}
                           {!patient.hasRedAlert && patient.hasYellowAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-amber-500 border-2 border-white flex items-center justify-center">
-                              <span className="text-white text-[8px] font-semibold">ver</span>
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-amber-500 border-2 border-white">
                             </span>
                           )}
                           {!patient.hasRedAlert && !patient.hasYellowAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-white flex items-center justify-center">
-                              <span className="text-white text-[8px] font-semibold">ver</span>
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-white">
                             </span>
                           )}
                         </div>
@@ -259,12 +256,12 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                     <td className="px-6 py-4 whitespace-nowrap">
                       {patient.hasRedAlert ? (
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-red-200 bg-red-50 text-red-700">
-                          <span className="flex items-center justify-center bg-red-500 text-white rounded-full h-3.5 w-3.5 mr-1 text-[8px] font-semibold">ver</span>
+                          <span className="flex items-center justify-center bg-red-500 text-white rounded-full h-3.5 w-3.5 mr-1"></span>
                           High Risk
                         </span>
                       ) : patient.hasYellowAlert ? (
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-amber-200 bg-amber-50 text-amber-700">
-                          <span className="flex items-center justify-center bg-amber-500 text-white rounded-full h-3.5 w-3.5 mr-1 text-[8px] font-semibold">ver</span>
+                          <span className="flex items-center justify-center bg-amber-500 text-white rounded-full h-3.5 w-3.5 mr-1"></span>
                           Moderate Risk
                         </span>
                       ) : (
