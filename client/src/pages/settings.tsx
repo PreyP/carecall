@@ -519,7 +519,7 @@ export default function Settings() {
                         <div className="space-y-6">
                           <div className="bg-gray-50 p-4 rounded-lg mb-4">
                             <p className="text-sm text-gray-500">
-                              Configure system-wide settings for how the CareCall application behaves.
+                              Configure system-wide settings for how the Brigid application behaves.
                             </p>
                           </div>
                           
