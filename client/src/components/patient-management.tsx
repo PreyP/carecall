@@ -79,7 +79,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
 
   if (isLoading) {
     return (
-      <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+      <div className="bg-light-sage shadow rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:p-6">
           <div className="animate-pulse space-y-4">
             <div className="h-10 bg-[#E6DFD0] rounded w-full"></div>
@@ -91,13 +91,13 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
   }
 
   return (
-    <div className="bg-[#F0E8D8] shadow rounded-lg overflow-hidden">
+    <div className="bg-light-sage shadow rounded-lg overflow-hidden">
       <div className="px-4 py-5 sm:p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-lg font-medium text-gray-900">Patient Management</h2>
           <button
             onClick={() => setShowAddPatient(true)}
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[hsl(160,100%,10%)] hover:bg-[hsl(160,100%,15%)]"
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0A2814] hover:bg-[#0F3A1E]"
           >
             <Plus className="h-4 w-4 mr-2" />
             Add New Patient
@@ -141,7 +141,7 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
         {/* Patient table */}
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-[#F0E8D8]">
+            <thead className="bg-cream">
               <tr>
                 <th
                   scope="col"
@@ -214,30 +214,30 @@ export function PatientManagement({ onPatientSelect }: PatientManagementProps) {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-[#F0E8D8] divide-y divide-gray-200">
+            <tbody className="bg-cream divide-y divide-gray-200">
               {processedPatients.length > 0 ? (
                 processedPatients.map((patient) => (
                   <tr 
                     key={patient.id} 
-                    className="hover:bg-[#F0E8D8] cursor-pointer"
+                    className="hover:bg-light-sage cursor-pointer"
                     onClick={() => onPatientSelect && onPatientSelect(patient.id)}
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10 relative">
-                          <div className="h-10 w-10 rounded-full bg-[hsl(160,100%,10%)] flex items-center justify-center text-white">
+                          <div className="h-10 w-10 rounded-full bg-[#0A2814] flex items-center justify-center text-white">
                             {patient.initials}
                           </div>
                           {patient.hasRedAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-white">
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-cream">
                             </span>
                           )}
                           {!patient.hasRedAlert && patient.hasYellowAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-amber-500 border-2 border-white">
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-amber-500 border-2 border-cream">
                             </span>
                           )}
                           {!patient.hasRedAlert && !patient.hasYellowAlert && (
-                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-white">
+                            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-cream">
                             </span>
                           )}
                         </div>
