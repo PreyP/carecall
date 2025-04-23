@@ -142,7 +142,7 @@ export default function FamilyPortal() {
       <header className="bg-primary text-white p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold">CareCall Family Portal</h1>
+            <h1 className="text-2xl font-bold">Brigid Family Portal</h1>
             <p className="text-sm opacity-80">Monitoring your loved one's health</p>
           </div>
           <div className="flex items-center gap-4">
@@ -238,7 +238,7 @@ export default function FamilyPortal() {
                         Overall Health Status
                       </CardTitle>
                       <CardDescription>
-                        Based on CareCall's last conversation with {patient.name}
+                        Based on Brigid's last conversation with {patient.name}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>

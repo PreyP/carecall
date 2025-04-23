@@ -194,20 +194,16 @@ export function CarePlan({ patientId }: CarePlanProps) {
                               </div>
                             </div>
                             <div className="flex flex-wrap mt-1">
-                              <div className="text-xs text-gray-500 mr-4">
-                                <span className="text-xs align-text-bottom mr-1">
-                                  📅
-                                </span>
+                              <div className="text-xs text-gray-500 mr-4 flex items-center">
+                                <Calendar className="h-3 w-3 mr-1" />
                                 Due: {item.dueDate}
                               </div>
-                              <div className="text-xs text-gray-500 mr-4">
-                                <span className="text-xs align-text-bottom mr-1">
-                                  👤
-                                </span>
+                              <div className="text-xs text-gray-500 mr-4 flex items-center">
+                                <User className="h-3 w-3 mr-1" />
                                 {item.assignedTo}
                               </div>
-                              <div className="text-xs text-primary">
-                                <Tag className="h-3 w-3 mr-1 inline" />
+                              <div className="text-xs text-primary flex items-center">
+                                <Tag className="h-3 w-3 mr-1" />
                                 {item.category}
                               </div>
                             </div>
