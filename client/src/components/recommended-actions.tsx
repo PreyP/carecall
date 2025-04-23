@@ -89,7 +89,7 @@ export function RecommendedActions({ patientId }: RecommendedActionsProps) {
           
           <div className="mt-5 text-right">
             <button type="button" className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-[#1565C0] focus:outline-none">
-              <span className="material-icons text-sm mr-2">assignment_turned_in</span>
+              <ClipboardCheck className="h-4 w-4 mr-2" />
               Implement Recommendations
             </button>
           </div>
