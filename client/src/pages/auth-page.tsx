@@ -144,12 +144,14 @@ export default function AuthPage() {
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-[#f8f5e4]">
       {/* Left Side - Auth Forms */}
       <div className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-primary mb-2">Brigid</h1>
+            <div className="flex justify-center mb-4">
+              <img src="/assets/brigid-logo.png" alt="Brigid Logo" className="h-24" />
+            </div>
             <p className="text-gray-600">
               {portalType === "physician" 
                 ? "Sign in to access your physician portal" 
@@ -460,13 +462,13 @@ export default function AuthPage() {
       </div>
 
       {/* Right Side - Hero Section */}
-      <div className="hidden lg:flex flex-1 bg-primary items-center justify-center p-8">
+      <div className="hidden lg:flex flex-1 bg-[hsl(160,100%,10%)] items-center justify-center p-8">
         <div className="max-w-lg text-white">
           <h1 className="text-4xl font-bold mb-4">
             AI-Powered Early Detection for Senior Health
           </h1>
           <p className="text-xl mb-6">
-            CareCall uses AI-powered phone calls to detect early warning signs of health emergencies in senior patients.
+            Brigid uses AI-powered phone calls to detect early warning signs of health emergencies in senior patients.
           </p>
           <ul className="space-y-3">
             <li className="flex items-start">
