@@ -26,7 +26,7 @@ export function TopNavigation({
   const isMobile = useIsMobile();
 
   return (
-    <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 bg-white">
+    <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200 bg-[#f8f5e4]">
       {/* Left section - Menu (mobile only) and Search */}
       <div className="flex items-center space-x-4">
         {isMobile && (
@@ -41,7 +41,7 @@ export function TopNavigation({
           </Button>
         )}
         
-        <div className="hidden sm:flex items-center bg-gray-100 rounded-md px-3 py-2">
+        <div className="hidden sm:flex items-center bg-white/70 rounded-md px-3 py-2">
           <Search className="h-4 w-4 text-gray-500 mr-2" />
           <span className="text-gray-500 text-sm">search</span>
         </div>

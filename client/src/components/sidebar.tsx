@@ -22,7 +22,7 @@ export function Sidebar() {
         {/* Logo and app title */}
         <div className="flex items-center h-16 px-4 border-b border-gray-200 bg-[hsl(160,100%,10%)] text-white">
           <div className="flex items-center">
-            <img src="/src/assets/brigid-logo.png" alt="Brigid Logo" className="h-12 mr-2" />
+            <img src="/assets/brigid-logo.png" alt="Brigid Logo" className="h-10 mr-2" />
           </div>
         </div>
         
@@ -49,7 +49,7 @@ export function Sidebar() {
                 "flex items-center px-4 py-2 text-sm rounded-md",
                 location === "/" 
                   ? "text-white bg-primary hover:bg-primary-dark" 
-                  : "text-gray-700 hover:bg-gray-100"
+                  : "text-gray-700 hover:bg-white/50"
               )}>
               <LayoutDashboard className={cn(
                 "h-5 w-5 mr-3",
@@ -67,7 +67,7 @@ export function Sidebar() {
                   "flex items-center px-4 py-2 text-sm rounded-md",
                   location.startsWith("/patients") 
                     ? "text-white bg-primary hover:bg-primary-dark" 
-                    : "text-gray-700 hover:bg-gray-100"
+                    : "text-gray-700 hover:bg-white/50"
                 )}>
                 <Users className={cn(
                   "h-5 w-5 mr-3",
@@ -81,7 +81,7 @@ export function Sidebar() {
                   "flex items-center px-4 py-2 text-sm rounded-md", 
                   location.startsWith("/scheduled-calls") 
                     ? "text-white bg-primary hover:bg-primary-dark" 
-                    : "text-gray-700 hover:bg-gray-100"
+                    : "text-gray-700 hover:bg-white/50"
                 )}>
                 <CalendarCheck className={cn(
                   "h-5 w-5 mr-3",
@@ -98,7 +98,7 @@ export function Sidebar() {
               "flex items-center px-4 py-2 text-sm rounded-md",
               location.startsWith("/settings") 
                 ? "text-white bg-primary hover:bg-primary-dark" 
-                : "text-gray-700 hover:bg-gray-100"
+                : "text-gray-700 hover:bg-white/50"
             )}>
             <Settings className={cn(
               "h-5 w-5 mr-3",
