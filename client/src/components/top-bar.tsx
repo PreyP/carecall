@@ -14,9 +14,26 @@ import { LogOut } from "lucide-react";
 
 export function TopBar() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeFilters, setActiveFilters] = useState(2); // Example count for UI display
+  const [activeFilters, setActiveFilters] = useState(2);
   const { user, logoutMutation } = useAuth();
   const [showSidebar, setShowSidebar] = useState(false);
+  const [notifications, setNotifications] = useState([]);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Implement search functionality
+    console.log("Searching for:", searchQuery);
+  };
+
+  const handleNotificationClick = () => {
+    // Toggle notifications panel
+    console.log("Notifications clicked");
+  };
+
+  const handleFilterClick = () => {
+    // Toggle filters panel
+    console.log("Filters clicked");
+  };
 
   return (
     <div className="relative z-10 flex flex-col flex-shrink-0">

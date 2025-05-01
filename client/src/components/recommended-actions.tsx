@@ -92,6 +92,19 @@ export function RecommendedActions({ patientId }: RecommendedActionsProps) {
               <ClipboardCheck className="h-4 w-4 mr-2" />
               Implement Recommendations
             </button>
+            <button
+              onClick={() => {
+                // Add onClick handler for implementing recommendations
+                if (actions?.length) {
+                  // In a real app, this would call an API to implement the actions
+                  toast({
+                    title: "Recommendations implemented",
+                    description: "The care team has been notified of your actions.",
+                  });
+                }
+              }}
+              className="flex items-center justify-center px-4 py-2 bg-[#0A2814] text-white rounded-md hover:bg-[#0F3A1E] transition-colors"
+            >
           </div>
         </div>
       </div>

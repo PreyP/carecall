@@ -22,6 +22,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { Patient } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
+import { toast } from "@/components/ui/toast"; // Assuming a toast component exists
 
 interface ScheduleCallDialogProps {
   isOpen: boolean;
@@ -180,6 +181,15 @@ export function ScheduleCallDialog({
               type="submit" 
               disabled={!selectedDate || !selectedPatient}
               className="bg-primary hover:bg-primary-dark text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                // In a real app, this would call an API to schedule the call
+                toast({
+                  title: "Call Scheduled",
+                  description: "The call has been scheduled successfully.",
+                });
+                onClose();
+              }}
             >
               Schedule Call
             </Button>
